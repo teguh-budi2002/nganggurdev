@@ -1,0 +1,24 @@
+<?php
+
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    $locale = session('locale', config('app.locale'));
+    return redirect("/{$locale}");
+});
+
+Route::group(['prefix' => '{locale}'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/articles', [ArticleController::class, 'listOfArticles'])->name('articles.index');
+    Route::get('/search-article', [ArticleController::class, 'getArticleBySearchQuery'])->name('articles.search');
+    Route::get('/article/{slug}', [ArticleController::class, 'showArticle'])->name('article.show');
+    Route::get('/get-article-slug/{slug}', [ArticleController::class, 'getArticleSlug'])->name('article.getSlug');
+
+    Route::get('/our-products', [ProductController::class, 'index'])->name('products.index');
+
+    Route::post('/set-locale', [LocaleController::class, 'setLocale']);
+})->where('locale', 'id|en');

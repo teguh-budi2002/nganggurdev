@@ -1,6 +1,6 @@
 import { ref, computed, onMounted, watch, mergeProps, useSSRContext, unref, withCtx, createVNode, createTextVNode, toDisplayString, createBlock, openBlock, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrRenderAttr, ssrRenderStyle, ssrInterpolate, ssrIncludeBooleanAttr, ssrRenderSlot, ssrRenderComponent } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-SBTWdDj5.js";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-D_030Mc5.js";
 import { Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
@@ -293,7 +293,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
         }),
         _: 1
       }, _parent));
-      _push(`<div class="mt-20 h-full min-h-screen w-full"><div class="flex flex-col justify-center items-center"><div class="w-10/12 h-full mt-20"><div class="w-3/4 mx-auto"><p class="text-center font-[&#39;Roboto&#39;] text-5xl capitalize font-semibold leading-15">${ssrInterpolate(_ctx.$t("hero_text.products.1"))} <span class="bg-gradient-to-r from-rose-600 to-rose-300 text-white p-1 px-2">${ssrInterpolate(_ctx.$t("delicious_snack"))}</span> ${ssrInterpolate(_ctx.$t("hero_text.products.2"))}</p></div><div class="mt-10">`);
+      _push(`<div class="lg:mt-20 mt-2 h-full min-h-screen w-full"><div class="flex flex-col justify-center items-center"><div class="lg:w-10/12 w-11/12 h-full mt-20"><div class="bg-rose-400 w-fit p-1 px-2 rounded-md"><p class="text-white font-[&#39;Roboto&#39;]">${ssrInterpolate(_ctx.$t("badge.product"))}</p></div><div class="lg:w-3/4 w-full mx-auto lg:mt-0 mt-4"><p class="lg:text-center text-start font-[&#39;Roboto&#39;] lg:text-5xl text-3xl capitalize font-semibold lg:leading-15 leading-11">${ssrInterpolate(_ctx.$t("hero_text.products.1"))} <span class="bg-gradient-to-r from-rose-600 to-rose-300 text-white p-1 px-2">${ssrInterpolate(_ctx.$t("delicious_snack"))}</span> ${ssrInterpolate(_ctx.$t("hero_text.products.2"))}</p></div><div class="lg:mt-10 mt-4">`);
       _push(ssrRenderComponent(TabPanel, {
         tabs: tabs.value,
         lazy: true,
@@ -304,13 +304,13 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
           if (_push2) {
             _push2(`<div class="mt-5"${_scopeId}>`);
             if (snackProducts.value.length > 0) {
-              _push2(`<div class="grid grid-cols-4 gap-2"${_scopeId}><!--[-->`);
+              _push2(`<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2"${_scopeId}><!--[-->`);
               ssrRenderList(snackProducts.value, (product) => {
                 _push2(`<div class="w-full shadow-sm rounded-md hover:shadow-lg transition-shadow duration-200"${_scopeId}><a${ssrRenderAttr("href", product.anchor_link)} target="_blank"${_scopeId}><img${ssrRenderAttr("src", `/storage/${product.image}`)} class="rounded-t-md w-full max-h-72 object-cover object-center" alt="image snack product"${_scopeId}></a><div class="p-4"${_scopeId}><a${ssrRenderAttr("href", product.anchor_link)} class="w-full font-semibold font-[&#39;Inter&#39;] hover:text-sky-600 transition-colors duration-200" target="_blank"${_scopeId}>${ssrInterpolate(unref(truncate)(product.title, 59))}</a><div class="mt-2 space-y-4"${_scopeId}><button type="button" class="p-1 animate-pulse rounded-md text-white bg-rose-600 text-xs font-bold uppercase"${_scopeId}>Diskon ${ssrInterpolate(product.discount)}%</button><div class="flex items-center justify-between"${_scopeId}><p class="font-[&#39;Inter&#39;] font-semibold text-green-600"${_scopeId}>Rp. ${ssrInterpolate(unref(formatCurrencyIDR)(product.price_after_discount))}</p><p class="font-[&#39;Inter&#39;] line-through text-rose-600 text-xs font-light"${_scopeId}>Rp. ${ssrInterpolate(unref(formatCurrencyIDR)(product.price))}</p></div><div class="border-t border-slate-300 pt-2 flex items-center space-x-1"${_scopeId}><img src="/assets/images/icon/star.svg" alt="star icon" class="size-5"${_scopeId}><p class="font-[&#39;Inter&#39;] text-sm font-semibold text-slate-500"${_scopeId}>5.0</p></div></div></div></div>`);
               });
               _push2(`<!--]--></div>`);
             } else {
-              _push2(`<div class="text-center mt-10"${_scopeId}><p class="text-xl font-[&#39;Inter&#39;] text-slate-500"${_scopeId}>No products available in this category.</p></div>`);
+              _push2(`<div class="text-center mt-10"${_scopeId}><p class="md:text-xl text-sm font-[&#39;Inter&#39;] text-slate-500"${_scopeId}>No products available in this category.</p></div>`);
             }
             _push2(`</div>`);
           } else {
@@ -318,7 +318,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
               createVNode("div", { class: "mt-5" }, [
                 snackProducts.value.length > 0 ? (openBlock(), createBlock("div", {
                   key: 0,
-                  class: "grid grid-cols-4 gap-2"
+                  class: "grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2"
                 }, [
                   (openBlock(true), createBlock(Fragment, null, renderList(snackProducts.value, (product) => {
                     return openBlock(), createBlock("div", {
@@ -366,7 +366,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
                   key: 1,
                   class: "text-center mt-10"
                 }, [
-                  createVNode("p", { class: "text-xl font-['Inter'] text-slate-500" }, "No products available in this category.")
+                  createVNode("p", { class: "md:text-xl text-sm font-['Inter'] text-slate-500" }, "No products available in this category.")
                 ]))
               ])
             ];
@@ -376,7 +376,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
           if (_push2) {
             _push2(`<div class="mt-5"${_scopeId}>`);
             if (applicationProducts.value.length > 0) {
-              _push2(`<div class="grid grid-cols-4 gap-2"${_scopeId}><!--[-->`);
+              _push2(`<div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2"${_scopeId}><!--[-->`);
               ssrRenderList(applicationProducts.value, (product) => {
                 _push2(`<div class="w-full shadow-sm rounded-md hover:shadow-lg transition-shadow duration-200"${_scopeId}><a${ssrRenderAttr("href", product.anchor_link)} target="_blank"${_scopeId}><img${ssrRenderAttr("src", `/storage/${product.image}`)} class="rounded-t-md w-full max-h-72" alt="image app product"${_scopeId}></a><div class="p-4"${_scopeId}>`);
                 _push2(ssrRenderComponent(unref(Link), {
@@ -398,7 +398,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
               });
               _push2(`<!--]--></div>`);
             } else {
-              _push2(`<div class="text-center mt-10"${_scopeId}><p class="text-xl font-[&#39;Inter&#39;] text-slate-500"${_scopeId}>No products available in this category.</p></div>`);
+              _push2(`<div class="text-center mt-10"${_scopeId}><p class="md:text-xl text-sm font-[&#39;Inter&#39;] text-slate-500"${_scopeId}>No products available in this category.</p></div>`);
             }
             _push2(`</div>`);
           } else {
@@ -406,7 +406,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
               createVNode("div", { class: "mt-5" }, [
                 applicationProducts.value.length > 0 ? (openBlock(), createBlock("div", {
                   key: 0,
-                  class: "grid grid-cols-4 gap-2"
+                  class: "grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2"
                 }, [
                   (openBlock(true), createBlock(Fragment, null, renderList(applicationProducts.value, (product) => {
                     return openBlock(), createBlock("div", {
@@ -458,7 +458,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
                   key: 1,
                   class: "text-center mt-10"
                 }, [
-                  createVNode("p", { class: "text-xl font-['Inter'] text-slate-500" }, "No products available in this category.")
+                  createVNode("p", { class: "md:text-xl text-sm font-['Inter'] text-slate-500" }, "No products available in this category.")
                 ]))
               ])
             ];

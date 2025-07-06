@@ -82,7 +82,7 @@ const BodyArticle = defineAsyncComponent({
   loader: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(import('../../components/Article/Body.vue'));
+        resolve(import('@/layouts/Article/Body.vue'));
       }, 1000);
     });
   }
@@ -91,7 +91,7 @@ const TableOfContent = defineAsyncComponent({
   loader: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(import('../../components/Article/TableOfContent.vue'));
+        resolve(import('@/layouts/Article/TableOfContent.vue'));
       }, 1000);
     });
   }
@@ -100,7 +100,7 @@ const ArticleSeries = defineAsyncComponent({
   loader: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(import('../../components/Article/ArticleSeries.vue'));
+        resolve(import('@/layouts/Article/ArticleSeries.vue'));
       }, 1000);
     });
   }

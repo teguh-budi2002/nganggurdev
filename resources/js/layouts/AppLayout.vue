@@ -27,8 +27,8 @@
 
 <script setup>
 import { Head, usePage } from '@inertiajs/vue3';
-import Navigation from '@/components/Navigation.vue';
-import Footer from '@/components/Footer.vue';
+import Navigation from '@/layouts/Navigation.vue';
+import Footer from '@/layouts/Footer.vue';
 
 const page = usePage();
 </script>

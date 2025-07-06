@@ -45,6 +45,7 @@ const en = {
   copyright: copyright$1,
   "article.series": "Article Series",
   "badge.article": "Article",
+  "badge.product": "Product",
   "hero_text.article.1": "Article Courses with",
   "hero_text.article.2": "Clear Examples",
   "explore.our.latest.article.content": "Explore our latest article content",
@@ -76,7 +77,7 @@ const copyright = "Hak Cipta Dilindungi";
 const delicious_snack = "snack lezat";
 const coding_need_a_snack = "Ngoding butuh <span class='text-rose-400'>cemilan?</span>";
 const id = {
-  "seo.meta.description": "Belajar pemrograman dengan tutorial gratis NganggurDev dalam bahasa Indonesia dan Inggris. Mulai sekarang!",
+  "seo.meta.description": "Belajar pemrograman gratis dengan NganggurDev dalam bahasa Indonesia dan Inggris. Mulai sekarang!",
   "seo.meta.keywords": "belajar pemrograman, belajar coding, bahasa Indonesia, bahasa inggris, Laravel, CSS, HTML, Tailwind, Vue, web development, coding pemula, NganggurDev",
   "seo.og_title": "Belajar Pemrograman dengan NganggurDev | Tutorial Coding Gratis",
   "seo.og_description": "Temukan tutorial coding gratis dalam bahasa Inggris dan Indonesia di NganggurDev. Mulai belajar hari ini!",
@@ -111,6 +112,7 @@ const id = {
   copyright,
   "article.series": "Seri Artikel",
   "badge.article": "Artikel",
+  "badge.product": "Produk",
   "hero_text.article.1": "Kursus Artikel yang",
   "hero_text.article.2": "Mudah Dipahami",
   "explore.our.latest.article.content": "Jelajahi konten artikel terbaru kami",
@@ -737,7 +739,7 @@ createServer(
     page,
     title: (title) => `${title} - ${appName}`,
     render: renderToString,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-DQyMQ5hm.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-DSLS3l2h.js"), "./Pages/Home.vue": () => import("./assets/Home-DLTEbYus.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-DyW1d7vL.js") })),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-CU0Rqy28.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-BiOSQzPD.js"), "./Pages/Home.vue": () => import("./assets/Home-DX41h1EL.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-B82g47WF.js") })),
     setup({ App, props, plugin }) {
       var _a;
       const ziggyData = ((_a = page.props) == null ? void 0 : _a.ziggy) || {};

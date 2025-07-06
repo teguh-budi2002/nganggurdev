@@ -1,13 +1,13 @@
 import { mergeProps, useSSRContext, defineAsyncComponent, ref, watch, unref, withCtx, createVNode, toDisplayString, createTextVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderAttr, ssrRenderSuspense } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-SBTWdDj5.js";
+import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-D_030Mc5.js";
 import { Head, Link } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import "axios";
 import "@lottiefiles/dotlottie-vue";
 const _sfc_main$3 = {};
 function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "col-span-2 bg-white shadow border border-slate-100 rounded-md p-6" }, _attrs))}><div class="flex flex-col justify-center items-center space-y-4"><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md"></div><div class="bg-slate-300 w-3/4 h-10 animate-pulse rounded-md"></div></div><div class="flex justify-center items-center space-x-4 mt-4"><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><div class="bg-slate-300 w-28 h-4 animate-pulse rounded-md"></div><p>-</p><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md"></div></div><div class="mt-5 mb-5"><div class="flex items-center justify-center bg-slate-300 w-full h-96 animate-pulse rounded-md"><svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18"><path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"></path></svg></div></div><div class="mt-5"><div class="bg-slate-300 w-full h-10 animate-pulse rounded-md"></div><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-3/4 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-2/3 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div></div><div class="mt-10 flex items-center space-x-2"><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div></div></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:col-span-3 bg-white rounded-md lg:p-4" }, _attrs))}><div class="flex flex-col justify-center items-center space-y-4"><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md"></div><div class="bg-slate-300 w-3/4 h-10 animate-pulse rounded-md"></div></div><div class="flex justify-center items-center space-x-4 mt-4"><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div><div class="bg-slate-300 w-8 h-8 animate-pulse rounded-full"></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><div class="bg-slate-300 w-28 h-4 animate-pulse rounded-md"></div><p>-</p><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md"></div></div><div class="mt-5 mb-5"><div class="flex items-center justify-center bg-slate-300 w-full h-96 animate-pulse rounded-md"><svg class="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18"><path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"></path></svg></div></div><div class="mt-5"><div class="bg-slate-300 w-full h-10 animate-pulse rounded-md"></div><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-3/4 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-2/3 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div></div><div class="mt-10 flex items-center space-x-2"><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div><div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div></div></div>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
@@ -53,7 +53,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       loader: () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(import("./Body-DIXNGTmz.js"));
+            resolve(import("./Body-QF-waZLF.js"));
           }, 1e3);
         });
       }
@@ -62,7 +62,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       loader: () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(import("./TableOfContent-ZpuHVnI4.js"));
+            resolve(import("./TableOfContent-CPmI_D2T.js"));
           }, 1e3);
         });
       }
@@ -71,7 +71,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       loader: () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(import("./ArticleSeries-ikc9xp_F.js"));
+            resolve(import("./ArticleSeries-Bg9RCaaM.js"));
           }, 1e3);
         });
       }
@@ -104,7 +104,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
         }),
         _: 1
       }, _parent));
-      _push(`<div class="mt-20 h-full min-h-screen w-full bg-neutral-50"><div class="flex flex-col items-center justify-center"><div class="md:w-10/12 w-11/12 grid md:grid-cols-3 grid-cols-1 gap-8 mt-10">`);
+      _push(`<div class="lg:mt-32 mt-12 h-full min-h-screen w-full bg-white"><div class="flex flex-col items-center justify-center"><div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 mt-10">`);
       ssrRenderSuspense(_push, {
         default: () => {
           _push(ssrRenderComponent(unref(BodyArticle), {
@@ -118,7 +118,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
         },
         _: 1
       });
-      _push(`<div class="w-full flex flex-col space-y-6"><div class="sticky top-28"><div class="md:block hidden">`);
+      _push(`<div class="w-full flex flex-col space-y-6 lg:col-span-2"><div class="sticky top-28"><div class="md:block hidden">`);
       ssrRenderSuspense(_push, {
         default: () => {
           _push(ssrRenderComponent(unref(TableOfContent), { "content-ref": bodyContentRef.value }, null, _parent));
@@ -140,7 +140,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
         },
         _: 1
       });
-      _push(`</div></div></div><div class="saweria_trakteer bg-white md:w-3/6 w-11/12 mt-10 p-4 border border-slate-100 rounded-md shadow-sm"><div class="font-[&#39;Roboto&#39;] text-slate-900 tracking-wide font-light text-center">${_ctx.$t("donation.text") ?? ""}</div><div class="flex items-center justify-center space-x-4 mt-5"><a href="https://saweria.co/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-amber-300 border-2 border-amber-600 hover:bg-amber-500 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 uppercase font-bold text-sm"><img src="/assets/images/icon/saweria.png" class="w-8 h-8" alt="saweria icon"><span>Saweria</span></a><a href="https://trakteer.id/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-rose-300 border-2 border-rose-600 hover:bg-rose-600 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 font-bold text-sm uppercase"><img src="/assets/images/icon/trakteer.png" class="w-8 h-8 rounded-full" alt="saweria icon"><span>trakteer</span></a></div></div><div class="bg-white w-fit mt-20 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">Want to read more? `);
+      _push(`</div></div></div><div class="saweria_trakteer bg-white md:w-3/6 w-11/12 mt-10 p-4 border border-slate-100 rounded-md shadow-md"><div class="font-[&#39;Roboto&#39;] text-slate-900 tracking-wide font-light text-center">${_ctx.$t("donation.text") ?? ""}</div><div class="flex items-center justify-center space-x-4 mt-5"><a href="https://saweria.co/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-amber-300 border-2 border-amber-600 hover:bg-amber-500 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 uppercase font-bold text-sm"><img src="/assets/images/icon/saweria.png" class="w-8 h-8" alt="saweria icon"><span>Saweria</span></a><a href="https://trakteer.id/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-rose-300 border-2 border-rose-600 hover:bg-rose-600 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 font-bold text-sm uppercase"><img src="/assets/images/icon/trakteer.png" class="w-8 h-8 rounded-full" alt="saweria icon"><span>trakteer</span></a></div></div><div class="bg-white w-fit mt-20 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">Want to read more? `);
       _push(ssrRenderComponent(unref(Link), {
         href: "",
         class: "font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"

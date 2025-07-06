@@ -44,11 +44,11 @@ const _sfc_main = {
       enhanceCodeBlocks();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "md:col-span-2 bg-white shadow border border-slate-100 rounded-md p-6" }, _attrs))}><div class=""><div><p class="text-4xl font-[&#39;Inter&#39;] text-slate-600 font-bold text-center capitalize">${ssrInterpolate(props.article.title)}</p><div class="flex justify-center items-center space-x-4 mt-5"><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:col-span-3 bg-white lg:p-4" }, _attrs))}><div class=""><div><p class="sm:text-4xl text-3xl font-[&#39;Inter&#39;] text-slate-700 font-bold sm:text-center text-start capitalize">${ssrInterpolate(props.article.title)}</p><div class="flex sm:justify-center justify-start items-center space-x-4 mt-5"><!--[-->`);
       ssrRenderList(props.article.categories, (category) => {
-        _push(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="w-8 h-8" alt="logo icon">`);
+        _push(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">`);
       });
-      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full max-h-96 rounded-lg" alt="iamge article"></div><div class="prose max-w-none content text-justify md:mt-5 mt-8 font-[&#39;Inter&#39;] font-normal text-slate-700 leading-relaxed tracking-normal">${renderedContent.value ?? ""}</div></div><div class="tags mt-10"><div class="flex items-center space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
+      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full max-h-96 rounded-lg" alt="iamge article"></div><div class="prose max-w-none content text-justify md:mt-5 mt-8 font-[&#39;Inter&#39;] font-normal text-slate-600 leading-relaxed">${renderedContent.value ?? ""}</div></div><div class="tags mt-10"><div class="flex items-center space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
       ssrRenderList(__props.article.tags, (tag) => {
         _push(`<span class="text-xs font-[&#39;Roboto&#39;] font-semibold bg-rose-500 text-white px-2 py-1 rounded">${ssrInterpolate(tag)}</span>`);
       });
@@ -59,7 +59,7 @@ const _sfc_main = {
 const _sfc_setup = _sfc_main.setup;
 _sfc_main.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/components/Article/Body.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Article/Body.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
 export {

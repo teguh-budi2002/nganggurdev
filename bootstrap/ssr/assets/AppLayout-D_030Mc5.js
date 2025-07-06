@@ -1,5 +1,5 @@
 import { ref, watch, onMounted, unref, withCtx, createTextVNode, toDisplayString, nextTick, useSSRContext, mergeProps, createVNode } from "vue";
-import { ssrRenderAttrs, ssrRenderClass, ssrRenderComponent, ssrInterpolate, ssrRenderTeleport, ssrRenderAttr, ssrRenderStyle, ssrRenderList, ssrRenderSlot } from "vue/server-renderer";
+import { ssrRenderAttrs, ssrRenderClass, ssrRenderComponent, ssrInterpolate, ssrRenderStyle, ssrRenderTeleport, ssrRenderAttr, ssrRenderList, ssrRenderSlot } from "vue/server-renderer";
 import { usePage, Link, Head } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import axios from "axios";
@@ -28,6 +28,7 @@ const _sfc_main$2 = {
     const scrollY = ref(0);
     const lastScrollTop = ref(0);
     const isNavbarHidden = ref(false);
+    const openSidebar = ref(false);
     const openSearchModal = ref(false);
     const page = usePage();
     const locale = ref(page.props.locale);
@@ -89,14 +90,23 @@ const _sfc_main$2 = {
         });
       }
     };
+    const resetState = () => {
+      openSearchModal.value = false;
+      openSidebar.value = false;
+      searchQuery.value = "";
+      searchResults.value = [];
+      isLoading.value = false;
+      hasSearched.value = false;
+    };
     onMounted(() => {
       window.addEventListener("scroll", handleNavigation);
       window.addEventListener("keydown", handleKeydown);
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(_attrs)} data-v-4bededa2><nav class="${ssrRenderClass([{ "hide-navbar": isNavbarHidden.value }, "fixed top-0 w-full h-20 py-4 px-10 flex items-center justify-between transition-all bg-rose-100 duration-500 ease-in-out z-50"])}" data-v-4bededa2><div class="flex items-center justify-between w-2/7" data-v-4bededa2><div class="md:block hidden" data-v-4bededa2><p data-v-4bededa2>NganggurDev</p></div><div class="space-x-4 md:block hidden" data-v-4bededa2>`);
+      _push(`<div${ssrRenderAttrs(_attrs)} data-v-4adcd7c3><nav class="${ssrRenderClass([{ "hide-navbar": isNavbarHidden.value }, "fixed top-0 w-full lg:h-20 h-fit py-4 lg:px-10 px-6 flex items-center justify-between transition-all bg-rose-100 duration-500 ease-in-out z-50"])}" data-v-4adcd7c3><div class="flex items-center justify-between xl:w-2/7 w-2/4" data-v-4adcd7c3><img src="/assets/images/logo/logo-no-bg.png" class="w-8 h-8 lg:block hidden" alt="logo" data-v-4adcd7c3><div class="space-x-4 lg:block hidden" data-v-4adcd7c3>`);
       _push(ssrRenderComponent(unref(Link), {
         href: `/${locale.value}`,
+        onClick: resetState,
         class: ["font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out", { "text-amber-600": unref(page).component === "Home", "text-slate-600": unref(page).component !== "Home" }]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -112,6 +122,7 @@ const _sfc_main$2 = {
       }, _parent));
       _push(ssrRenderComponent(unref(Link), {
         href: _ctx.route("articles.index", { locale: locale.value }),
+        onClick: resetState,
         class: ["font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out", { "text-amber-600": unref(page).component === "Article/Index", "text-slate-600": unref(page).component !== "Article/Index" }]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -127,6 +138,7 @@ const _sfc_main$2 = {
       }, _parent));
       _push(ssrRenderComponent(unref(Link), {
         href: _ctx.route("products.index", { locale: locale.value }),
+        onClick: resetState,
         class: ["font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out", { "text-amber-600": unref(page).component === "Product/Index", "text-slate-600": unref(page).component !== "Product/Index" }]
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -140,21 +152,85 @@ const _sfc_main$2 = {
         }),
         _: 1
       }, _parent));
-      _push(`</div><button class="md:hidden block" data-v-4bededa2><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-4bededa2><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" data-v-4bededa2></path></svg></button></div><div class="flex items-center space-x-4" data-v-4bededa2><div class="flex items-center space-x-2 cursor-pointer" data-v-4bededa2><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-4bededa2><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-4bededa2></path></svg><div class="shadow-lg md:block hidden" data-v-4bededa2><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-4bededa2><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-4bededa2>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-4bededa2>`);
+      _push(`</div>`);
+      if (!openSearchModal.value) {
+        _push(`<button class="${ssrRenderClass([{ "hidden": openSidebar.value }, "lg:hidden block"])}" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" data-v-4adcd7c3></path></svg></button>`);
+      } else {
+        _push(`<button class="lg:hidden block" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-4adcd7c3></path></svg></button>`);
+      }
+      _push(`<img src="/assets/images/logo/logo-no-bg.png" class="w-8 h-8 lg:hidden block" alt="logo" data-v-4adcd7c3></div><div class="flex items-center space-x-4" data-v-4adcd7c3><div class="flex items-center space-x-2 cursor-pointer" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-4adcd7c3></path></svg><div class="shadow-lg md:block hidden" data-v-4adcd7c3><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-4adcd7c3><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-4adcd7c3>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-4adcd7c3>`);
       if (locale.value === "id") {
-        _push(`<img src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country" data-v-4bededa2>`);
+        _push(`<img src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country" data-v-4adcd7c3>`);
       } else if (locale.value === "en") {
-        _push(`<img src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-4bededa2>`);
+        _push(`<img src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-4adcd7c3>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`</div></div></nav>`);
+      _push(`</div></div></nav><div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen p-4 px-6 bg-rose-100 z-999" style="${ssrRenderStyle(openSidebar.value ? null : { display: "none" })}" data-v-4adcd7c3><div class="flex items-center justify-between" data-v-4adcd7c3><button class="" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-4adcd7c3></path></svg></button><div class="flex items-center space-x-4" data-v-4adcd7c3><div class="flex items-center space-x-2 cursor-pointer" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-4adcd7c3></path></svg><div class="shadow-lg md:block hidden" data-v-4adcd7c3><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-4adcd7c3><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-4adcd7c3>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-4adcd7c3>`);
+      if (locale.value === "id") {
+        _push(`<img src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country" data-v-4adcd7c3>`);
+      } else if (locale.value === "en") {
+        _push(`<img src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-4adcd7c3>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div></div></div><div class="w-full h-full flex flex-col items-center space-y-8 mt-12" data-v-4adcd7c3>`);
+      _push(ssrRenderComponent(unref(Link), {
+        href: `/${locale.value}`,
+        onClick: resetState,
+        class: "font-['Roboto'] font-semibold text-slate-600 hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(_ctx.$t("navigation.section.1"))}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(_ctx.$t("navigation.section.1")), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(unref(Link), {
+        href: _ctx.route("articles.index", { locale: locale.value }),
+        onClick: resetState,
+        class: "font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(_ctx.$t("navigation.section.2"))}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(_ctx.$t("navigation.section.2")), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(unref(Link), {
+        href: _ctx.route("products.index", { locale: locale.value }),
+        onClick: resetState,
+        class: "font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(`${ssrInterpolate(_ctx.$t("navigation.section.5"))}`);
+          } else {
+            return [
+              createTextVNode(toDisplayString(_ctx.$t("navigation.section.5")), 1)
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div></div>`);
       ssrRenderTeleport(_push, (_push2) => {
         if (openSearchModal.value) {
-          _push2(`<div class="search-modal" data-v-4bededa2><div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40" data-v-4bededa2></div><div class="lg:w-2/4 w-11/12 h-fit p-4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-lg" data-v-4bededa2><div class="flex items-center" data-v-4bededa2><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 text-slate-600" data-v-4bededa2><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-4bededa2></path></svg><input type="text" class="w-full h-10 px-2 font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;] outline-none border-none focus:outline-none focus:ring-0"${ssrRenderAttr("placeholder", _ctx.$t("search.placeholder"))}${ssrRenderAttr("value", searchQuery.value)} data-v-4bededa2><div class="p-0.5 border border-slate-300 shadow-xs rounded cursor-pointer" data-v-4bededa2><p class="font-[&#39;Roboto&#39;] text-xs text-slate-700" data-v-4bededa2>esc</p></div></div><div class="w-full max-h-44 overflow-auto custom-scroll" style="${ssrRenderStyle(searchResults.value.length > 0 && !isLoading.value ? null : { display: "none" })}" data-v-4bededa2><!--[-->`);
+          _push2(`<div class="search-modal" data-v-4adcd7c3><div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40" data-v-4adcd7c3></div><div class="lg:w-2/4 w-11/12 h-fit p-4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-lg" data-v-4adcd7c3><div class="flex items-center" data-v-4adcd7c3><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 text-slate-600" data-v-4adcd7c3><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-4adcd7c3></path></svg><input type="text" class="w-full h-10 px-2 font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;] outline-none border-none focus:outline-none focus:ring-0"${ssrRenderAttr("placeholder", _ctx.$t("search.placeholder"))}${ssrRenderAttr("value", searchQuery.value)} data-v-4adcd7c3><div class="p-0.5 border border-slate-300 shadow-xs rounded cursor-pointer" data-v-4adcd7c3><p class="font-[&#39;Roboto&#39;] text-xs text-slate-700" data-v-4adcd7c3>esc</p></div></div><div class="w-full max-h-44 overflow-auto custom-scroll" style="${ssrRenderStyle(searchResults.value.length > 0 && !isLoading.value ? null : { display: "none" })}" data-v-4adcd7c3><!--[-->`);
           ssrRenderList(searchResults.value, (result) => {
             _push2(ssrRenderComponent(unref(Link), {
-              href: "",
+              href: `/${locale.value}/article/${result.slug}`,
+              onClick: resetState,
               class: "mt-2 block w-full font-['Roboto'] capitalize font-medium text-slate-600 hover:text-rose-600 transition-colors duration-150"
             }, {
               default: withCtx((_, _push3, _parent2, _scopeId) => {
@@ -171,7 +247,7 @@ const _sfc_main$2 = {
           });
           _push2(`<!--]--></div>`);
           if (isLoading.value) {
-            _push2(`<div class="w-full justify-center items-center" data-v-4bededa2>`);
+            _push2(`<div class="w-full justify-center items-center" data-v-4adcd7c3>`);
             _push2(ssrRenderComponent(unref(DotLottieVue), {
               src: "https://lottie.host/5897829e-ef3c-4c0d-af9a-55b8b008ce15/hce1cW9eCh.lottie",
               class: "w-32 h-32 mx-auto",
@@ -183,7 +259,7 @@ const _sfc_main$2 = {
             _push2(`<!---->`);
           }
           if (hasSearched.value && searchResults.value.length === 0 && !isLoading.value) {
-            _push2(`<div class="text-center mt-4" aria-live="polite" data-v-4bededa2><p class="font-[&#39;Roboto&#39;] text-sm italic text-slate-600" data-v-4bededa2>${ssrInterpolate(_ctx.$t("search.no_results"))}</p></div>`);
+            _push2(`<div class="text-center mt-4" aria-live="polite" data-v-4adcd7c3><p class="font-[&#39;Roboto&#39;] text-sm italic text-slate-600" data-v-4adcd7c3>${ssrInterpolate(_ctx.$t("search.no_results"))}</p></div>`);
           } else {
             _push2(`<!---->`);
           }
@@ -199,10 +275,10 @@ const _sfc_main$2 = {
 const _sfc_setup$2 = _sfc_main$2.setup;
 _sfc_main$2.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/components/Navigation.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Navigation.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const Navigation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-4bededa2"]]);
+const Navigation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-4adcd7c3"]]);
 const _sfc_main$1 = {
   __name: "Footer",
   __ssrInlineRender: true,
@@ -218,9 +294,7 @@ const _sfc_main$1 = {
     const date = /* @__PURE__ */ new Date();
     const year = ref(date.getFullYear());
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<footer${ssrRenderAttrs(mergeProps({
-        class: ["w-full h-fit pt-8 relative", { "bg-neutral-50": unref(page).component === "Article/Show" }]
-      }, _attrs))}><div class="bg-[radial-gradient(circle_at_center,_#FFE4E6,_#ffffff)] absolute right-44 bottom-16 blur-3xl z-10 p-32 rounded-full"></div><div class="flex justify-center"><div class="w-11/12 z-20"><div class="grid md:grid-cols-2 grid-cols-1"><div class="pt-8"><p class="text-5xl font-[&#39;Inter&#39;] font-bold text-slate-600">NganggurDev</p><p class="font-[&#39;Roboto&#39;] font-light text-sm mt-5">Jl. Bandeng Presto, Kec. Gempol, Kab. Pasuruan, Jawa Timur 67155</p><div class="flex items-center space-x-4 mt-2"><p class="font-[&#39;Roboto&#39;] font-light text-sm text-slate-600">Special thanks for</p><div class="flex items-center space-x-2"><img src="/assets/images/icon/laravel.svg" class="w-5 h-5" alt="laravel icon"><img src="/assets/images/icon/vue.svg" class="w-5 h-5" alt="vue icon"><img src="https://raw.githubusercontent.com/innocenzi/awesome-inertiajs/main/assets/logo.svg" class="w-5 h-5" alt="inertia icon"><img src="/assets/images/icon/tailwind.svg" class="w-5 h-5" alt="tailwind icon"></div></div><div class="flex items-start space-x-8 md:mt-12 mt-8"><a${ssrRenderAttr("href", sosmed.value.facebook)} target="_blank"><img src="/assets/images/icon/fb.svg" class="w-8 h-8" alt="icon fb"></a><a${ssrRenderAttr("href", sosmed.value.youtube)} target="_blank"><img src="/assets/images/icon/yt.svg" class="w-8 h-8" alt="icon yt"></a><a${ssrRenderAttr("href", sosmed.value.tiktok)} target="_blank"><img src="/assets/images/icon/tiktok.svg" class="w-8 h-8" alt="icon tiktok"></a><a${ssrRenderAttr("href", sosmed.value.whatsapp)} target="_blank"><img src="/assets/images/icon/wa.svg" class="w-8 h-8" alt="icon wa"></a><a${ssrRenderAttr("href", sosmed.value.instagram)} target="_blank"><img src="/assets/images/icon/ig.svg" class="w-8 h-8" alt="icon ig"></a></div></div><div class="grid md:grid-cols-3 grid-cols-2 md:pt-8 md:mt-0 mt-10"><div class="flex md:justify-center justify-start md:col-span-2"><div class="flex flex-col space-y-4">`);
+      _push(`<footer${ssrRenderAttrs(mergeProps({ class: "w-full h-fit pt-8 relative" }, _attrs))}><div class="bg-[radial-gradient(circle_at_center,_#FFE4E6,_#ffffff)] absolute right-44 bottom-16 blur-3xl z-10 p-32 rounded-full"></div><div class="flex justify-center"><div class="w-11/12 z-20"><div class="grid md:grid-cols-2 grid-cols-1"><div class="pt-8"><p class="text-5xl font-[&#39;Inter&#39;] font-bold text-slate-600">NganggurDev</p><p class="font-[&#39;Roboto&#39;] font-light text-sm mt-5">Jl. Bandeng Presto, Kec. Gempol, Kab. Pasuruan, Jawa Timur 67155</p><div class="flex items-center space-x-4 mt-2"><p class="font-[&#39;Roboto&#39;] font-light text-sm text-slate-600">Special thanks for</p><div class="flex items-center space-x-2"><img src="/assets/images/icon/laravel.svg" class="w-5 h-5" alt="laravel icon"><img src="/assets/images/icon/vue.svg" class="w-5 h-5" alt="vue icon"><img src="https://raw.githubusercontent.com/innocenzi/awesome-inertiajs/main/assets/logo.svg" class="w-5 h-5" alt="inertia icon"><img src="/assets/images/icon/tailwind.svg" class="w-5 h-5" alt="tailwind icon"></div></div><div class="flex items-start space-x-8 md:mt-12 mt-8"><a${ssrRenderAttr("href", sosmed.value.facebook)} target="_blank"><img src="/assets/images/icon/fb.svg" class="w-8 h-8" alt="icon fb"></a><a${ssrRenderAttr("href", sosmed.value.youtube)} target="_blank"><img src="/assets/images/icon/yt.svg" class="w-8 h-8" alt="icon yt"></a><a${ssrRenderAttr("href", sosmed.value.tiktok)} target="_blank"><img src="/assets/images/icon/tiktok.svg" class="w-8 h-8" alt="icon tiktok"></a><a${ssrRenderAttr("href", sosmed.value.whatsapp)} target="_blank"><img src="/assets/images/icon/wa.svg" class="w-8 h-8" alt="icon wa"></a><a${ssrRenderAttr("href", sosmed.value.instagram)} target="_blank"><img src="/assets/images/icon/ig.svg" class="w-8 h-8" alt="icon ig"></a></div></div><div class="grid md:grid-cols-3 grid-cols-2 md:pt-8 md:mt-0 mt-10"><div class="flex md:justify-center justify-start md:col-span-2"><div class="flex flex-col space-y-4">`);
       _push(ssrRenderComponent(unref(Link), {
         href: "",
         class: "w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 transition-colors duration-150"
@@ -334,7 +408,7 @@ const _sfc_main$1 = {
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/components/Footer.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Footer.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const _sfc_main = {

@@ -2,7 +2,7 @@ import { ref, mergeProps, unref, withCtx, createVNode, createTextVNode, toDispla
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderComponent, ssrRenderAttr } from "vue/server-renderer";
 import { Vue3Marquee } from "vue3-marquee";
 import { usePage, Link, Head } from "@inertiajs/vue3";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-SBTWdDj5.js";
+import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-D_030Mc5.js";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
 import "axios";
@@ -202,7 +202,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
     return (_ctx, _push, _parent, _attrs) => {
       _push(`<!--[-->`);
       _push(ssrRenderComponent(unref(Head), { title: "Home" }, null, _parent));
-      _push(`<div><div class="landing_page mt-20 h-full w-full"><div class="grid lg:grid-cols-2 grid-cols-1 mt-20 bg-rose-100"><div class="hero_text_section p-8 flex flex-col justify-center space-y-6"><p class="md:text-7xl text-4xl font-[&#39;Open_Sans&#39;] font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-yellow-600 via-orange-500 to-rose-500 leading-[1.2] overflow-visible">${ssrInterpolate(_ctx.$t("brand_name"))}</p><div class="md:mt-4"><p class="md:text-5xl text-3xl font-[&#39;Open_Sans&#39;] italic font-light md:leading-13 text-slate-600"> &quot;${ssrInterpolate(_ctx.$t("hero_text.part1"))} <span class="font-bold">${ssrInterpolate(_ctx.$t("hero_text.part2"))}</span>&quot; </p><p class="font-[&#39;Roboto&#39;] md:text-base text-sm capitalize font-light text-slate-700 mt-3">${ssrInterpolate(_ctx.$t("sub_text.1"))} <span class="text-red-700">| ${ssrInterpolate(_ctx.$t("sub_text.2"))}</span></p></div><div class="mt-2">`);
+      _push(`<div><div class="landing_page lg:mt-20 h-full w-full"><div class="grid lg:grid-cols-2 grid-cols-1 lg:mt-20 mt-10 bg-rose-100"><div class="hero_text_section p-8 flex flex-col justify-center space-y-6"><p class="md:text-7xl text-4xl font-[&#39;Open_Sans&#39;] font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-yellow-600 via-orange-500 to-rose-500 leading-[1.2] overflow-visible">${ssrInterpolate(_ctx.$t("brand_name"))}</p><div class="md:mt-4"><p class="md:text-5xl text-3xl font-[&#39;Open_Sans&#39;] italic font-light md:leading-13 text-slate-600"> &quot;${ssrInterpolate(_ctx.$t("hero_text.part1"))} <span class="font-bold">${ssrInterpolate(_ctx.$t("hero_text.part2"))}</span>&quot; </p><p class="font-[&#39;Roboto&#39;] md:text-base text-sm capitalize font-light text-slate-700 mt-3">${ssrInterpolate(_ctx.$t("sub_text.1"))} <span class="text-red-700">| ${ssrInterpolate(_ctx.$t("sub_text.2"))}</span></p></div><div class="mt-2">`);
       _push(ssrRenderComponent(unref(Link), {
         href: _ctx.route("articles.index", { locale: locale.value }),
         class: "py-2 px-8 bg-gradient-to-r shadow-lg from-rose-500 from-45% to-rose-300 hover:from-rose-700 hover:to-rose-500 transition-colors duration-500 text-white rounded-md font-['Open_Sans'] text-sm"

@@ -14,7 +14,7 @@
           <div class="flex flex-col justify-center lg:mt-0 mt-5">
             <div>
               <!-- <p class="font-['Roboto'] font-semibold lg:text-6xl text-5xl text-center">NganggurDev</p> -->
-               <img src="/assets/images/logo/logo-no-bg.png" alt="logo icon" class="w-20 h-20 mx-auto">
+               <img src="/assets/images/logo/logo-no-bg.webp" alt="logo icon" loading="eager" class="w-20 h-20 mx-auto">
               <p class="font-['Roboto'] text-center md:mt-2 text-sm">{{ $t('explore.our.latest.article.content') }}</p>
             </div>
             <input type="text" placeholder="Search for articles..." @input="loadArticleBySearch" class="w-full p-2 px-4 lg:mt-10 mt-6 rounded-md border-2 border-rose-300 focus:outline-none font-['Roboto'] placeholder:font-['Roboto']" />
@@ -36,7 +36,7 @@
               <template v-for="article in articles.data" :key="article.id">
                 <div class="w-full min-h-72 border-2 border-white hover:border-2 hover:border-rose-100 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 transition-[border, shadow] duration-300">
                   <Link :href="route('article.show', { locale, slug: article.slug })">
-                    <img :src="`/storage/${article.image}`" alt="article image" class="w-full max-h-44 cursor-pointer rounded-md">
+                    <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full max-h-44 cursor-pointer rounded-md">
                   </Link>
                   <Link :href="route('article.show', { locale, slug: article.slug })" class="font-semibold block font-['Inter'] text-slate-600 mt-3 text-xl w-fit">{{ truncate(article.title, 55) }}</Link>
                   <div class="flex items-end justify-between mt-5 p-2">
@@ -221,3 +221,9 @@ const loadArticleBySearch = debounce((event) => {
     });
 }, 500);
 </script>
+<style>
+img[lazy=loading] {
+  width: 100%;
+  height: 215px;
+}
+</style>

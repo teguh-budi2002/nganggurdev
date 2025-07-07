@@ -1,6 +1,6 @@
-import { mergeProps, useSSRContext, ref, unref, withCtx, createVNode, createTextVNode, toDisplayString } from "vue";
-import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrRenderAttr, ssrIncludeBooleanAttr, ssrRenderClass } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-D_030Mc5.js";
+import { mergeProps, useSSRContext, ref, resolveDirective, unref, withCtx, withDirectives, createVNode, createTextVNode, toDisplayString } from "vue";
+import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps, ssrIncludeBooleanAttr, ssrRenderClass, ssrRenderAttr } from "vue/server-renderer";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DFQR0Ao8.js";
 import { usePage, Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
@@ -42,9 +42,11 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
     const locale = props.locale || "en";
     const page = usePage();
     return (_ctx, _push, _parent, _attrs) => {
+      const _directive_lazy = resolveDirective("lazy");
+      let _temp0;
       _push(`<!--[-->`);
       _push(ssrRenderComponent(unref(Head), { title: "List Articles" }, null, _parent));
-      _push(`<div class="lg:mt-20 mt-14 h-full min-h-screen w-full"><div class="flex flex-col justify-center items-center"><div class="lg:w-10/12 w-11/12 h-full lg:mt-20 mt-10 border-b-2 border-rose-100 lg:pb-10 pb-4"><div class="grid lg:grid-cols-2 grid-cols-1"><div><div class="bg-rose-400 w-fit p-1 px-2 rounded-md"><p class="text-white font-[&#39;Roboto&#39;]">${ssrInterpolate(_ctx.$t("badge.article"))}</p></div><p class="lg:text-6xl text-4xl font-semibold font-[&#39;Roboto&#39;] mt-4">${ssrInterpolate(_ctx.$t("hero_text.article.1"))}</p><p class="lg:text-6xl text-4xl text-white font-semibold font-[&#39;Roboto&#39;] p-1 bg-gradient-to-r from-rose-600 to-rose-300 w-fit">${ssrInterpolate(_ctx.$t("hero_text.article.2"))}</p></div><div class="flex flex-col justify-center lg:mt-0 mt-5"><div><img src="/assets/images/logo/logo-no-bg.png" alt="logo icon" class="w-20 h-20 mx-auto"><p class="font-[&#39;Roboto&#39;] text-center md:mt-2 text-sm">${ssrInterpolate(_ctx.$t("explore.our.latest.article.content"))}</p></div><input type="text" placeholder="Search for articles..." class="w-full p-2 px-4 lg:mt-10 mt-6 rounded-md border-2 border-rose-300 focus:outline-none font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;]"></div></div></div><div class="lg:w-10/12 w-11/12 h-full lg:mt-8 mt-5"><p class="text-2xl font-semibold font-[&#39;Roboto&#39;]">${ssrInterpolate(_ctx.$t("latest.article"))}</p><div class="grid lg:grid-cols-4 grid-cols-1 gap-5"><div class="lg:col-span-3">`);
+      _push(`<div class="lg:mt-20 mt-14 h-full min-h-screen w-full"><div class="flex flex-col justify-center items-center"><div class="lg:w-10/12 w-11/12 h-full lg:mt-20 mt-10 border-b-2 border-rose-100 lg:pb-10 pb-4"><div class="grid lg:grid-cols-2 grid-cols-1"><div><div class="bg-rose-400 w-fit p-1 px-2 rounded-md"><p class="text-white font-[&#39;Roboto&#39;]">${ssrInterpolate(_ctx.$t("badge.article"))}</p></div><p class="lg:text-6xl text-4xl font-semibold font-[&#39;Roboto&#39;] mt-4">${ssrInterpolate(_ctx.$t("hero_text.article.1"))}</p><p class="lg:text-6xl text-4xl text-white font-semibold font-[&#39;Roboto&#39;] p-1 bg-gradient-to-r from-rose-600 to-rose-300 w-fit">${ssrInterpolate(_ctx.$t("hero_text.article.2"))}</p></div><div class="flex flex-col justify-center lg:mt-0 mt-5"><div><img src="/assets/images/logo/logo-no-bg.webp" alt="logo icon" loading="eager" class="w-20 h-20 mx-auto"><p class="font-[&#39;Roboto&#39;] text-center md:mt-2 text-sm">${ssrInterpolate(_ctx.$t("explore.our.latest.article.content"))}</p></div><input type="text" placeholder="Search for articles..." class="w-full p-2 px-4 lg:mt-10 mt-6 rounded-md border-2 border-rose-300 focus:outline-none font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;]"></div></div></div><div class="lg:w-10/12 w-11/12 h-full lg:mt-8 mt-5"><p class="text-2xl font-semibold font-[&#39;Roboto&#39;]">${ssrInterpolate(_ctx.$t("latest.article"))}</p><div class="grid lg:grid-cols-4 grid-cols-1 gap-5"><div class="lg:col-span-3">`);
       if (isLoading.value) {
         _push(`<div class="loading-indicator flex justify-center items-center h-72">`);
         _push(ssrRenderComponent(Loading, null, null, _parent));
@@ -66,14 +68,18 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
           }, {
             default: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {
-                _push2(`<img${ssrRenderAttr("src", `/storage/${article.image}`)} alt="article image" class="w-full max-h-44 cursor-pointer rounded-md"${_scopeId}>`);
+                _push2(`<img${ssrRenderAttrs(_temp0 = mergeProps({
+                  alt: "article image",
+                  class: "w-full max-h-44 cursor-pointer rounded-md"
+                }, ssrGetDirectiveProps(_ctx, _directive_lazy, `/storage/${article.image}`)))}${_scopeId}>${"textContent" in _temp0 ? ssrInterpolate(_temp0.textContent) : _temp0.innerHTML ?? ""}`);
               } else {
                 return [
-                  createVNode("img", {
-                    src: `/storage/${article.image}`,
+                  withDirectives(createVNode("img", {
                     alt: "article image",
                     class: "w-full max-h-44 cursor-pointer rounded-md"
-                  }, null, 8, ["src"])
+                  }, null, 512), [
+                    [_directive_lazy, `/storage/${article.image}`]
+                  ])
                 ];
               }
             }),

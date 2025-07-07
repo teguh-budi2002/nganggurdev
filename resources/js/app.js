@@ -4,6 +4,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { i18nVue } from 'laravel-vue-i18n';
 import { ZiggyVue } from 'ziggy';
+import VueLazyload from 'vue-lazyload';
 
 const appName = import.meta.env.VITE_APP_NAME || 'NganggurDev';
 
@@ -19,6 +20,11 @@ createInertiaApp({
     const app = createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(ZiggyVue, props.initialPage.props.ziggy)
+      .use(VueLazyload, {
+        preLoad: 0.75,
+        error: '/assets/images/errors/error-load-image.png',
+        loading: '/assets/images/errors/logo-lazy-load.webp',
+      })
       .use(i18nVue, {
           lang: props.initialPage.props.locale || 'en',
           fallbackLang: 'id',

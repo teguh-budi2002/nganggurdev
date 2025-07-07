@@ -4,7 +4,7 @@
   <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-10">
     <div class="w-full h-full flex lg:flex-row flex-col items-start">
       <img 
-        src="/assets/images/product_image_example.png" 
+        src="/assets/images/product_image_example.webp" 
         class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" 
         alt="product image"
       >
@@ -45,7 +45,7 @@
         </div>
       </div>
       <img 
-        src="/assets/images/product_image_example2.png" 
+        src="/assets/images/product_image_example2.webp" 
         class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" 
         alt="product image"
       >

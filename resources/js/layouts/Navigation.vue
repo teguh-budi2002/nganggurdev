@@ -6,7 +6,7 @@
       
     >
       <div class="flex items-center justify-between xl:w-2/7 w-2/4">
-        <img src="/assets/images/logo/logo-no-bg.png" class="w-8 h-8 lg:block hidden" alt="logo">
+        <img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:block hidden" loading="eager" alt="logo">
         <!-- <div class="lg:block hidden"><p>NganggurDev</p></div> -->
         <div class="space-x-4 lg:block hidden">
           <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Home', 'text-slate-600' : page.component !== 'Home' }">{{ $t('navigation.section.1') }}</Link>
@@ -27,7 +27,7 @@
           </svg>
         </button>
         <!-- Logo Mobile Display -->
-        <img src="/assets/images/logo/logo-no-bg.png" class="w-8 h-8 lg:hidden block" alt="logo">
+        <img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:hidden block" loading="eager" alt="logo">
       </div>
       <div class="flex items-center space-x-4">
         <div class="flex items-center space-x-2 cursor-pointer" 
@@ -42,8 +42,8 @@
           </div>
         </div>
         <div class="cursor-pointer">
-          <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country">
-          <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
+          <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" loading="eager" class="w-5 h-5" alt="flag country">
+          <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" loading="eager" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
         </div>
       </div>
     </nav>

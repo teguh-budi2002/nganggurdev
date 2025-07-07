@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="hero_image_section lg:block hidden">
-        <img src="/assets/images/hero-image.png" alt="Hero Image" class="w-2/3 h-auto mx-auto" />
+        <img src="/assets/images/hero-image.webp" alt="Hero Image" class="w-2/3 h-auto mx-auto" />
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
             :direction="'reverse'"
             >
             <div v-for="image in imageIcons1" :key="image" class="md:w-60 w-40 flex justify-center items-center space-x-4 md:p-4 p-2 mx-4 border border-gray-200 rounded-md">
-              <img :src="image.src" :alt="image.alt" class="md:w-12 w-8 h-auto" />
+              <img :src="image.src" :alt="image.alt" class="md:w-12 w-8 h-auto" loading="eager" />
               <p class="font-['Roboto'] md:text-base text-sm font-light text-slate-900">{{ image.alt }}</p>
             </div>
           </Vue3Marquee>
@@ -116,5 +116,4 @@ onMounted(() => {
 </script>
 
 <style>
-
 </style>

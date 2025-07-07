@@ -15,7 +15,7 @@
       <p class="text-sm font-['Roboto'] font-light">{{ props.article.published_at }}</p>
     </div>
     <div class="image_article mt-5 mb-5">
-      <img :src="`/storage/${article.image}`" class="w-full max-h-96 rounded-lg" alt="iamge article">
+      <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" alt="iamge article">
     </div>
     <div class="prose max-w-none content text-justify md:mt-5 mt-8 font-['Inter'] font-normal text-slate-600 leading-relaxed" ref="contentRef" v-html="renderedContent">
     </div>

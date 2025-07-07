@@ -10,11 +10,11 @@
         <template v-for="article in articles" :key="article.id">
           <div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm">
             <Link :href="route('article.show', { locale: locale, slug: article.slug })">
-              <img :src="`/storage/${article.image}`" alt="article image" class="w-full max-h-56 cursor-pointer rounded-t-lg">
+              <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full h-full cursor-pointer rounded-t-lg">
             </Link>
             <div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 rounded-b-lg">
               <div>
-                <Link :href="route('article.show', { locale: locale, slug: article.slug })" class="font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 transition-colors duration-300 cursor-pointer tracking-wide">{{ truncate(article.title, 158) }}</Link>
+                <Link :href="route('article.show', { locale: locale, slug: article.slug })" class="font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 transition-colors duration-300 cursor-pointer tracking-wide">{{ truncate(article.title, 143) }}</Link>
               </div>
               <div class="authror w-full flex items-center justify-between border-t border-slate-300 pt-2">
                 <div class="categories flex items-center space-x-2">
@@ -63,3 +63,9 @@ const props = defineProps({
 const { locale } = usePage().props;
 const articles = ref(props.articles);
 </script>
+<style scoped>
+img[lazy=loading] {
+  width: 100%;
+  height: 215px;
+}
+</style>

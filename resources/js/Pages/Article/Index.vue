@@ -34,11 +34,11 @@
             </div>
             <div class="grid lg:grid-cols-3 grid-cols-1 gap-3" v-if="!isLoading && articles.data.length > 0">
               <template v-for="article in articles.data" :key="article.id">
-                <div class="w-full min-h-72 border-2 border-white hover:border-2 hover:border-rose-100 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 transition-[border, shadow] duration-300">
+                <div class="w-full flex flex-col justify-between min-h-72 border-2 border-white hover:border-2 hover:border-rose-100 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 transition-[border, shadow] duration-300">
                   <Link :href="route('article.show', { locale, slug: article.slug })">
                     <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full max-h-44 cursor-pointer rounded-md">
                   </Link>
-                  <Link :href="route('article.show', { locale, slug: article.slug })" class="font-semibold block font-['Inter'] text-slate-600 mt-3 text-xl w-fit">{{ truncate(article.title, 55) }}</Link>
+                  <Link :href="route('article.show', { locale, slug: article.slug })" class="font-semibold capitalize block font-['Inter'] text-slate-600 mt-3 text-xl w-fit">{{ truncate(article.title, 55) }}</Link>
                   <div class="flex items-end justify-between mt-5 p-2">
                     <p class="text-xs font-['Roboto'] font-light">{{ article.author.name }}</p>
                     <p class="text-xs font-['Roboto'] font-light">March 2025</p>

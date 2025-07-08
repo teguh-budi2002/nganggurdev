@@ -4,9 +4,13 @@
     <meta name="description" :content="props.article.meta_description" />
     <meta name="keywords" :content="props.article.meta_keyword" />
   </Head>
-  <div class="lg:mt-32 mt-12 h-full min-h-screen w-full bg-white">
+  <div class="lg:mt-32 mt-20 h-full min-h-screen w-full bg-white">
     <div class="flex flex-col items-center justify-center">
-      <div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 mt-10">
+      <!-- Affiliate Domainesia -->
+      <div class="lg:mx-o mx-4">
+        <a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/32ar4" class="rounded-md" width="800px" height="90px" alt="www.domainesia.com"></a>
+      </div>
+      <div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 lg:mt-10 mt-8">
         <Suspense :key="props.article.id">
           <template #default>
             <BodyArticle :article="props.article" ref="bodyRef" />
@@ -51,7 +55,10 @@
           </a>
         </div>
       </div>
-      <div class="bg-white w-fit mt-20 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce">
+      <div class="mt-10 lg:mx-0 mx-4">
+        <a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/bne38" class="rounded-md" width="770px" height="90px" alt="www.domainesia.com"></a>
+      </div>
+      <div class="bg-white w-fit mt-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce">
         <p class="font-['Roboto'] text-slate-700 flex items-center space-x-1">Want to read more? 
           <Link href="" class="font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"> 
             Click me!

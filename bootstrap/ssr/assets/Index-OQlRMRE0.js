@@ -62,7 +62,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       if (!isLoading.value && articles.value.data.length > 0) {
         _push(`<div class="grid lg:grid-cols-3 grid-cols-1 gap-3"><!--[-->`);
         ssrRenderList(articles.value.data, (article) => {
-          _push(`<div class="w-full min-h-72 border-2 border-white hover:border-2 hover:border-rose-100 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 transition-[border, shadow] duration-300">`);
+          _push(`<div class="w-full flex flex-col justify-between min-h-72 border-2 border-white hover:border-2 hover:border-rose-100 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 transition-[border, shadow] duration-300">`);
           _push(ssrRenderComponent(unref(Link), {
             href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug })
           }, {
@@ -87,7 +87,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
           }, _parent));
           _push(ssrRenderComponent(unref(Link), {
             href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug }),
-            class: "font-semibold block font-['Inter'] text-slate-600 mt-3 text-xl w-fit"
+            class: "font-semibold capitalize block font-['Inter'] text-slate-600 mt-3 text-xl w-fit"
           }, {
             default: withCtx((_, _push2, _parent2, _scopeId) => {
               if (_push2) {

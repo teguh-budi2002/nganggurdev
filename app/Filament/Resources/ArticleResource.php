@@ -56,8 +56,7 @@ class ArticleResource extends Resource
                     ->placeholder('Select an article session or series')
                     ->relationship('articleSession', 'title_en')
                     ->searchable()
-                    ->columnSpanFull()
-                    ->required(),
+                    ->columnSpanFull(),
                 Grid::make([
                     'default' => 1,
                     'md' => 2
@@ -163,6 +162,15 @@ class ArticleResource extends Resource
                                 };
                             }),
                 ]),
+                Select::make('is_featured')
+                    ->label('Featured Article?')
+                    ->options([
+                        true => 'Yes',
+                        false => 'No',
+                    ])
+                    ->default('No')
+                    ->required()
+                    ->columnSpanFull(),
                 Select::make('status')
                     ->label('Status Publication')
                     ->options([

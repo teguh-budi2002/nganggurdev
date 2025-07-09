@@ -12,7 +12,7 @@
         <p class="text-xl font-medium font-['Roboto'] text-slate-600">Basreng Pedas Daun Jeruk</p>
         <p class="text-sm font-['Roboto'] font-light">35 / 250 / 500 / 1000gr</p>
         <p class="text-sm font-['Roboto'] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, cabe bubuk, bumbu asin, daun jeruk</p>
-        <div class="w-full flex lg:flex-col lg:justify-evenly lg:items-baseline items-center justify-between h-full lg:space-y-1 lg:mt-0 mt-3">
+        <div class="w-full flex lg:flex-col lg:justify-end lg:items-baseline items-center justify-between h-full lg:space-y-1 lg:mt-0 mt-3">
           <div class="flex items-center">
             <a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2">
               <img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7">
@@ -31,7 +31,7 @@
         <p class="text-xl font-medium font-['Roboto'] text-slate-600">Basreng Original Daun Jeruk</p>
         <p class="text-sm font-['Roboto'] font-light w-full">35 / 250 / 500 / 1000gr</p>
         <p class="text-sm font-['Roboto'] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, bumbu asin, daun jeruk</p>
-        <div class="w-full flex lg:flex-col flex-row lg:justify-evenly justify-between lg:items-end items-center h-full space-y-2 lg:mt-0 mt-3">
+        <div class="w-full flex lg:flex-col flex-row lg:justify-end justify-between lg:items-end items-center h-full space-y-1 lg:mt-0 mt-3">
           <div class="flex items-center">
             <a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2">
               <img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7">

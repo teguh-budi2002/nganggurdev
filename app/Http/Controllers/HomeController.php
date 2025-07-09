@@ -15,20 +15,34 @@ class HomeController extends Controller
 
         if (in_array($locale, ['en', 'id'])) {
             $suffixLocale = $locale ?? app()->getLocale();
-            $cacheKey = "list-article-home_{$locale}";
-            $articles = Cache::flexible($cacheKey, [600, 1200], function() use ($suffixLocale) {
+            $latestArticleCacheKey = "list-article-home_{$locale}";
+            $featuredArticleCacheKey = "list-featured-article-home_{$locale}";
+
+            $articles = Cache::flexible($latestArticleCacheKey, [600, 1200], function() use ($suffixLocale) {
                 return Article::with(['author:id,name', 'categories:id,img_category'])
                         ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale} as content", 'image', 'published_at', 'status')
-                        ->where('status', 'published')
-                        ->whereNotNull('published_at')
+                        ->published()
+                        ->where('is_featured', true)
                         ->latest()
+                        ->limit(8)
+                        ->get();
+            });
+             
+            $featuredArticles = Cache::flexible($featuredArticleCacheKey, [600, 1200], function() use ($suffixLocale) {
+                return Article::with(['author:id,name', 'categories:id,img_category'])
+                        ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale} as content", 'image', 'published_at', 'status')
+                        ->published()
+                        ->where('is_featured', true)
+                        ->latest()
+                        ->limit(8)
                         ->get();
             }); 
         }
         
         return Inertia::render('Home', [
             'locale' => $locale,
-            'articles' => $articles ?? [],
+            'articles' => $articles,
+            'featuredArticles' => $featuredArticles ?? [],
         ]);
     }
 }

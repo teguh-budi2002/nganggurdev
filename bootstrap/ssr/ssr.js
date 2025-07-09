@@ -739,7 +739,7 @@ createServer(
     page,
     title: (title) => `${title} - ${appName}`,
     render: renderToString,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-B1ihGUiG.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-C_PuQJ1J.js"), "./Pages/Home.vue": () => import("./assets/Home-hKyAoYlj.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-WucXEhk_.js") })),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-OQlRMRE0.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-Ca0Q1ZWr.js"), "./Pages/Home.vue": () => import("./assets/Home-hKyAoYlj.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-WucXEhk_.js") })),
     setup({ App, props, plugin }) {
       var _a;
       const ziggyData = ((_a = page.props) == null ? void 0 : _a.ziggy) || {};

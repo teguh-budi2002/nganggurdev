@@ -31,14 +31,16 @@
                 </template>
               </Suspense>
             </div>
-            <Suspense :key="props.articleSession.id">
-              <template #default>
-                <ArticleSeries :article-session="props.articleSession"/>
-              </template>
-              <template #fallback>
-                <ArticleSeriesSekeleton />
-              </template>
-            </Suspense>
+            <div v-if="props.articleSession">
+              <Suspense :key="props.articleSession?.id">
+                <template #default>
+                  <ArticleSeries :article-session="props.articleSession"/>
+                </template>
+                <template #fallback>
+                  <ArticleSeriesSekeleton />
+                </template>
+              </Suspense>
+            </div>
           </div>
         </div>
       </div>

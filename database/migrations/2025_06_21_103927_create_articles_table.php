@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('article_session_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->onDelete('cascade');
+            $table->foreignId('article_session_id')
+                  ->nullable()
+                  ->constrained()
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->string('title_en');
             $table->string('title_id');
             $table->longText('content_en');

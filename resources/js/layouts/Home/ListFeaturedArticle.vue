@@ -3,11 +3,11 @@
   <div class="flex items-center justify-center">
     <div class="w-11/12 h-full">
       <div>
-        <p class="text-center md:text-5xl text-3xl font-['Bebas_Neue'] font-bold text-slate-600 tracking-wider" v-html="$t('article.new')"></p>
+        <p class="md:text-start text-center md:text-5xl text-3xl font-['Bebas_Neue'] font-bold text-slate-600 tracking-wider" v-html="$t('article.featured')"></p>
       </div>
-      <p class="text-center font-['Roboto'] md:text-base text-sm font-light">{{ $t('collection.material') }}</p>
-      <div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" v-if="articles.length > 0">
-        <template v-for="article in articles" :key="article.id">
+      <p class="md:text-start text-center font-['Roboto'] md:text-base text-sm font-light">{{ $t('collection.featured_article') }}</p>
+      <div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" v-if="featuredArticles.length > 0">
+        <template v-for="article in featuredArticles" :key="article.id">
           <div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm">
             <Link :href="route('article.show', { locale: locale, slug: article.slug })">
               <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full h-full cursor-pointer rounded-t-lg">
@@ -37,15 +37,6 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center">
-    <div class="bg-white w-fit mt-5 mb-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce">
-      <p class="font-['Roboto'] text-slate-700 flex items-center space-x-1">{{ $t('visit.more.articles') }}? 
-        <Link :href="route('articles.index', { locale })" class="font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"> 
-          Click me!
-        </Link>
-      </p>
-    </div>
-  </div>
 </section>
 </template>
 
@@ -55,13 +46,13 @@ import { defineProps, ref } from 'vue';
 import { truncate } from '@/utils/truncate';
 
 const props = defineProps({
-  articles: {
+  featuredArticles: {
     type: Array,
     default: () => []
   }
 });
 const { locale } = usePage().props;
-const articles = ref(props.articles);
+const featuredArticles = ref(props.featuredArticles);
 </script>
 <style scoped>
 img[lazy=loading] {

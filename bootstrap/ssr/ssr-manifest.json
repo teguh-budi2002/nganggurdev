@@ -8,15 +8,15 @@
   "lang/php_en.json": [],
   "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "resources/js/Pages/Article/Index.vue": [
-    "/build/assets/Index-B1ihGUiG.js",
+    "/build/assets/Index-OQlRMRE0.js",
     "/build/assets/Index-D6n7l1v5.css"
   ],
   "resources/js/Pages/Article/Index.vue?vue&type=style&index=0&lang.css": [
-    "/build/assets/Index-B1ihGUiG.js",
+    "/build/assets/Index-OQlRMRE0.js",
     "/build/assets/Index-D6n7l1v5.css"
   ],
   "resources/js/Pages/Article/Show.vue": [
-    "/build/assets/Show-C_PuQJ1J.js"
+    "/build/assets/Show-Ca0Q1ZWr.js"
   ],
   "resources/js/Pages/Home.vue": [
     "/build/assets/Home-hKyAoYlj.js",
@@ -27,20 +27,20 @@
     "/build/assets/Index-CgWNmIyD.css"
   ],
   "resources/js/components/Article/SekeletonLoading/ArticleSeries.vue": [
-    "/build/assets/Show-C_PuQJ1J.js"
+    "/build/assets/Show-Ca0Q1ZWr.js"
   ],
   "resources/js/components/Article/SekeletonLoading/Body.vue": [
-    "/build/assets/Show-C_PuQJ1J.js"
+    "/build/assets/Show-Ca0Q1ZWr.js"
   ],
   "resources/js/components/Article/SekeletonLoading/TableOfContent.vue": [
-    "/build/assets/Show-C_PuQJ1J.js"
+    "/build/assets/Show-Ca0Q1ZWr.js"
   ],
   "resources/js/components/Loading.vue": [
-    "/build/assets/Index-B1ihGUiG.js",
+    "/build/assets/Index-OQlRMRE0.js",
     "/build/assets/Index-D6n7l1v5.css"
   ],
   "resources/js/components/Loading.vue?vue&type=style&index=0&scoped=3c633b9c&lang.css": [
-    "/build/assets/Index-B1ihGUiG.js",
+    "/build/assets/Index-OQlRMRE0.js",
     "/build/assets/Index-D6n7l1v5.css"
   ],
   "resources/js/components/TabPanel.vue": [

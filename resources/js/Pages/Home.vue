@@ -55,7 +55,8 @@
     </div>
   </section>
   <Introduction />
-  <ListArticle :articles />
+  <ListFeaturedArticle :featuredArticles />
+  <ListLatestArticle :articles />
   <section class="w-full h-full">
     <div class="flex items-center justify-center">
       <OurProduct />
@@ -69,7 +70,8 @@ import { Vue3Marquee } from 'vue3-marquee';
 import { Link, Head } from '@inertiajs/vue3';
 import { ref, onMounted, defineOptions, defineProps } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
-import ListArticle from '@/layouts/Home/ListArticle.vue';
+import ListFeaturedArticle from '@/layouts/Home/ListFeaturedArticle.vue';
+import ListLatestArticle from '@/layouts/Home/ListLatestArticle.vue';
 import Introduction from '@/layouts/Home/Introduction.vue';
 import OurProduct from '@/layouts/Home/OurProduct.vue';
 
@@ -82,12 +84,17 @@ const props = defineProps({
     type: Array,
     default: () => []
   },
+  featuredArticles: {
+    type: Array,
+    default: () => []
+  },
   locale: {
     type: String,
     default: 'en'
   }
 });
 const articles = ref(props.articles);
+const featuredArticles = ref(props.featuredArticles);
 const locale = ref(props.locale);
 
 const imageIcons1 = ref([

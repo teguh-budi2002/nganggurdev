@@ -78,4 +78,10 @@ class Article extends Model
             });
         });
     }
+
+    #[Scope]
+    public function published($query) {
+        return $query->where('status', 'published')
+            ->whereNotNull('published_at');
+    }
 }

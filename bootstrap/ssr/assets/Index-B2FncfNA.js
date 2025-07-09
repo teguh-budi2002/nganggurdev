@@ -1,6 +1,6 @@
 import { ref, computed, onMounted, watch, mergeProps, useSSRContext, unref, withCtx, createVNode, createTextVNode, toDisplayString, createBlock, openBlock, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrRenderAttr, ssrRenderStyle, ssrInterpolate, ssrIncludeBooleanAttr, ssrRenderSlot, ssrRenderComponent } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DFQR0Ao8.js";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-CdmQtvWT.js";
 import { Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
@@ -182,7 +182,7 @@ const _sfc_main$1 = {
       initializeDefaultTab();
     }, { deep: true });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full" }, _attrs))} data-v-c1d70b15><div class="flex" role="tablist" data-v-c1d70b15><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-full" }, _attrs))} data-v-9234b857><div class="flex" role="tablist" data-v-9234b857><!--[-->`);
       ssrRenderList(__props.tabs, (tab, index) => {
         _push(`<button class="${ssrRenderClass([
           "relative flex items-center gap-2 px-5 py-3 border-0 bg-transparent text-sm font-medium cursor-pointer transition-all duration-200 whitespace-nowrap min-w-fit",
@@ -193,30 +193,30 @@ const _sfc_main$1 = {
             "text-rose-500 bg-white border-b-4 border-rose-300 -mb-0.5": activeTabIndex.value === index,
             "pointer-events-none": loadingTabs.value.has(tab.id)
           }
-        ])}"${ssrRenderAttr("aria-selected", activeTabIndex.value === index)}${ssrRenderAttr("aria-controls", `tabpanel-${tab.id}`)}${ssrRenderAttr("id", `tab-${tab.id}`)} role="tab"${ssrIncludeBooleanAttr(tab.disabled) ? " disabled" : ""} style="${ssrRenderStyle({ "font-family": "'Roboto', sans-serif" })}" data-v-c1d70b15><span data-v-c1d70b15>${ssrInterpolate(tab.title)}</span>`);
+        ])}"${ssrRenderAttr("aria-selected", activeTabIndex.value === index)}${ssrRenderAttr("aria-controls", `tabpanel-${tab.id}`)}${ssrRenderAttr("id", `tab-${tab.id}`)} role="tab"${ssrIncludeBooleanAttr(tab.disabled) ? " disabled" : ""} style="${ssrRenderStyle({ "font-family": "'Roboto', sans-serif" })}" data-v-9234b857><span data-v-9234b857>${ssrInterpolate(tab.title)}</span>`);
         if (loadingTabs.value.has(tab.id)) {
-          _push(`<div class="flex items-center" data-v-c1d70b15><div class="w-3.5 h-3.5 border-2 border-gray-200 border-t-rose-600 rounded-full spinner" data-v-c1d70b15></div></div>`);
+          _push(`<div class="flex items-center" data-v-9234b857><div class="w-3.5 h-3.5 border-2 border-gray-200 border-t-rose-600 rounded-full spinner" data-v-9234b857></div></div>`);
         } else {
           _push(`<!---->`);
         }
         _push(`</button>`);
       });
-      _push(`<!--]--></div><div class="bg-white min-h-[200px]" data-v-c1d70b15><!--[-->`);
+      _push(`<!--]--></div><div class="bg-white min-h-[200px]" data-v-9234b857><!--[-->`);
       ssrRenderList(__props.tabs, (tab, index) => {
-        _push(`<div style="${ssrRenderStyle(activeTabIndex.value === index ? null : { display: "none" })}"${ssrRenderAttr("id", `tabpanel-${tab.id}`)}${ssrRenderAttr("aria-labelledby", `tab-${tab.id}`)} role="tabpanel" class="tab-pane" data-v-c1d70b15>`);
+        _push(`<div style="${ssrRenderStyle(activeTabIndex.value === index ? null : { display: "none" })}"${ssrRenderAttr("id", `tabpanel-${tab.id}`)}${ssrRenderAttr("aria-labelledby", `tab-${tab.id}`)} role="tabpanel" class="tab-pane" data-v-9234b857>`);
         if (loadingTabs.value.has(tab.id)) {
-          _push(`<div class="flex flex-col items-center justify-center py-15 px-5 text-gray-500" data-v-c1d70b15><div class="w-8 h-8 border-3 border-gray-200 border-t-rose-600 rounded-full loading-spinner mb-4" data-v-c1d70b15></div><p class="text-sm m-0" data-v-c1d70b15>${ssrInterpolate(tab.loadingText || "Loading...")}</p></div>`);
+          _push(`<div class="flex flex-col items-center justify-center py-15 px-5 text-gray-500" data-v-9234b857><div class="w-8 h-8 border-3 border-gray-200 border-t-rose-600 rounded-full loading-spinner mb-4" data-v-9234b857></div><p class="text-sm m-0" data-v-9234b857>${ssrInterpolate(tab.loadingText || "Loading...")}</p></div>`);
         } else if (loadedTabs.value.has(tab.id)) {
-          _push(`<div class="tab-content-wrapper" data-v-c1d70b15>`);
+          _push(`<div class="tab-content-wrapper" data-v-9234b857>`);
           ssrRenderSlot(_ctx.$slots, tab.id, {
             tab,
             isActive: activeTabIndex.value === index
           }, () => {
-            _push(`<div data-v-c1d70b15>${tab.content ?? ""}</div>`);
+            _push(`<div data-v-9234b857>${tab.content ?? ""}</div>`);
           }, _push, _parent);
           _push(`</div>`);
         } else if (errorTabs.value.has(tab.id)) {
-          _push(`<div class="flex flex-col items-center justify-center py-15 px-5 text-red-600 text-center" data-v-c1d70b15><div class="text-5xl mb-4" data-v-c1d70b15>⚠️</div><p class="text-sm m-0 mb-4 max-w-xs" data-v-c1d70b15>${ssrInterpolate(getTabError(tab.id))}</p><button class="px-4 py-2 bg-blue-600 text-white border-0 rounded-md text-sm cursor-pointer transition-colors duration-200 hover:bg-blue-700" data-v-c1d70b15> Coba Lagi </button></div>`);
+          _push(`<div class="flex flex-col items-center justify-center py-15 px-5 text-red-600 text-center" data-v-9234b857><div class="text-5xl mb-4" data-v-9234b857>⚠️</div><p class="text-sm m-0 mb-4 max-w-xs" data-v-9234b857>${ssrInterpolate(getTabError(tab.id))}</p><button class="px-4 py-2 bg-blue-600 text-white border-0 rounded-md text-sm cursor-pointer transition-colors duration-200 hover:bg-blue-700" data-v-9234b857> Coba Lagi </button></div>`);
         } else {
           _push(`<!---->`);
         }
@@ -232,7 +232,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/components/TabPanel.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const TabPanel = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-c1d70b15"]]);
+const TabPanel = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-9234b857"]]);
 const formatCurrencyIDR = (val) => {
   const newVal = typeof val === "number" ? val : parseFloat(val);
   return newVal ? newVal.toLocaleString("id-ID", { style: "currency", currency: "IDR" }) : "";

@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, ref, resolveDirective, unref, withCtx, withDirectives, createVNode, createTextVNode, toDisplayString } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps, ssrIncludeBooleanAttr, ssrRenderClass, ssrRenderAttr } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DFQR0Ao8.js";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-CdmQtvWT.js";
 import { usePage, Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
@@ -8,7 +8,7 @@ import "axios";
 import "@lottiefiles/dotlottie-vue";
 const _sfc_main$1 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "loading" }, _attrs))} data-v-3c633b9c><span data-v-3c633b9c></span><span data-v-3c633b9c></span><span data-v-3c633b9c></span><span data-v-3c633b9c></span><span data-v-3c633b9c></span></div>`);
+  _push(`<div${ssrRenderAttrs(mergeProps({ class: "loading" }, _attrs))} data-v-7dc77d86><span data-v-7dc77d86></span><span data-v-7dc77d86></span><span data-v-7dc77d86></span><span data-v-7dc77d86></span><span data-v-7dc77d86></span></div>`);
 }
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
@@ -16,7 +16,7 @@ _sfc_main$1.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/components/Loading.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const Loading = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-3c633b9c"]]);
+const Loading = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-7dc77d86"]]);
 const _sfc_main = /* @__PURE__ */ Object.assign({
   layout: _sfc_main$2,
   inheritAttrs: false

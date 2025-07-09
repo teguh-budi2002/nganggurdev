@@ -2,16 +2,16 @@ import { ref, resolveDirective, mergeProps, unref, withCtx, withDirectives, crea
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderComponent, ssrGetDirectiveProps, ssrRenderAttr } from "vue/server-renderer";
 import { Vue3Marquee } from "vue3-marquee";
 import { usePage, Link, Head } from "@inertiajs/vue3";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DFQR0Ao8.js";
+import { _ as _export_sfc, a as _sfc_main$5 } from "./AppLayout-CdmQtvWT.js";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
 import "axios";
 import "@lottiefiles/dotlottie-vue";
-const _sfc_main$3 = {
-  __name: "ListArticle",
+const _sfc_main$4 = {
+  __name: "ListFeaturedArticle",
   __ssrInlineRender: true,
   props: {
-    articles: {
+    featuredArticles: {
       type: Array,
       default: () => []
     }
@@ -19,15 +19,15 @@ const _sfc_main$3 = {
   setup(__props) {
     const props = __props;
     const { locale } = usePage().props;
-    const articles = ref(props.articles);
+    const featuredArticles = ref(props.featuredArticles);
     return (_ctx, _push, _parent, _attrs) => {
       const _directive_lazy = resolveDirective("lazy");
       let _temp0;
-      _push(`<section${ssrRenderAttrs(mergeProps({ class: "w-full h-full mt-10" }, _attrs))} data-v-a906c807><div class="flex items-center justify-center" data-v-a906c807><div class="w-11/12 h-full" data-v-a906c807><div data-v-a906c807><p class="text-center md:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider" data-v-a906c807>${_ctx.$t("article.new") ?? ""}</p></div><p class="text-center font-[&#39;Roboto&#39;] md:text-base text-sm font-light" data-v-a906c807>${ssrInterpolate(_ctx.$t("collection.material"))}</p>`);
-      if (articles.value.length > 0) {
-        _push(`<div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" data-v-a906c807><!--[-->`);
-        ssrRenderList(articles.value, (article) => {
-          _push(`<div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm" data-v-a906c807>`);
+      _push(`<section${ssrRenderAttrs(mergeProps({ class: "w-full h-full mt-10" }, _attrs))} data-v-264b8024><div class="flex items-center justify-center" data-v-264b8024><div class="w-11/12 h-full" data-v-264b8024><div data-v-264b8024><p class="md:text-start text-center md:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider" data-v-264b8024>${_ctx.$t("article.featured") ?? ""}</p></div><p class="md:text-start text-center font-[&#39;Roboto&#39;] md:text-base text-sm font-light" data-v-264b8024>${ssrInterpolate(_ctx.$t("collection.featured_article"))}</p>`);
+      if (featuredArticles.value.length > 0) {
+        _push(`<div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" data-v-264b8024><!--[-->`);
+        ssrRenderList(featuredArticles.value, (article) => {
+          _push(`<div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm" data-v-264b8024>`);
           _push(ssrRenderComponent(unref(Link), {
             href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug })
           }, {
@@ -36,7 +36,7 @@ const _sfc_main$3 = {
                 _push2(`<img${ssrRenderAttrs(_temp0 = mergeProps({
                   alt: "article image",
                   class: "w-full h-full cursor-pointer rounded-t-lg"
-                }, ssrGetDirectiveProps(_ctx, _directive_lazy, `/storage/${article.image}`)))} data-v-a906c807${_scopeId}>${"textContent" in _temp0 ? ssrInterpolate(_temp0.textContent) : _temp0.innerHTML ?? ""}`);
+                }, ssrGetDirectiveProps(_ctx, _directive_lazy, `/storage/${article.image}`)))} data-v-264b8024${_scopeId}>${"textContent" in _temp0 ? ssrInterpolate(_temp0.textContent) : _temp0.innerHTML ?? ""}`);
               } else {
                 return [
                   withDirectives(createVNode("img", {
@@ -50,7 +50,7 @@ const _sfc_main$3 = {
             }),
             _: 2
           }, _parent));
-          _push(`<div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 rounded-b-lg" data-v-a906c807><div data-v-a906c807>`);
+          _push(`<div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 rounded-b-lg" data-v-264b8024><div data-v-264b8024>`);
           _push(ssrRenderComponent(unref(Link), {
             href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug }),
             class: "font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 transition-colors duration-300 cursor-pointer tracking-wide"
@@ -66,16 +66,16 @@ const _sfc_main$3 = {
             }),
             _: 2
           }, _parent));
-          _push(`</div><div class="authror w-full flex items-center justify-between border-t border-slate-300 pt-2" data-v-a906c807><div class="categories flex items-center space-x-2" data-v-a906c807><!--[-->`);
+          _push(`</div><div class="authror w-full flex items-center justify-between border-t border-slate-300 pt-2" data-v-264b8024><div class="categories flex items-center space-x-2" data-v-264b8024><!--[-->`);
           ssrRenderList(article.categories, (category) => {
-            _push(`<div class="w-fit" data-v-a906c807>`);
+            _push(`<div class="w-fit" data-v-264b8024>`);
             _push(ssrRenderComponent(unref(Link), {
               href: "",
               class: ""
             }, {
               default: withCtx((_, _push2, _parent2, _scopeId) => {
                 if (_push2) {
-                  _push2(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="w-5 h-5" alt="logo icon" data-v-a906c807${_scopeId}>`);
+                  _push2(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="w-5 h-5" alt="logo icon" data-v-264b8024${_scopeId}>`);
                 } else {
                   return [
                     createVNode("img", {
@@ -90,13 +90,113 @@ const _sfc_main$3 = {
             }, _parent));
             _push(`</div>`);
           });
-          _push(`<!--]--></div><p class="font-[&#39;Roboto&#39;] text-sm font-light text-slate-700 text-end" data-v-a906c807>${ssrInterpolate(article.author.name)}</p></div></div></div>`);
+          _push(`<!--]--></div><p class="font-[&#39;Roboto&#39;] text-sm font-light text-slate-700 text-end" data-v-264b8024>${ssrInterpolate(article.author.name)}</p></div></div></div>`);
         });
         _push(`<!--]--></div>`);
       } else {
-        _push(`<div class="flex justify-center w-full" data-v-a906c807><img src="/assets/images/article-not-found.webp" alt="article not found" class="w-96 mx-auto h-auto" data-v-a906c807></div>`);
+        _push(`<div class="flex justify-center w-full" data-v-264b8024><img src="/assets/images/article-not-found.webp" alt="article not found" class="w-96 mx-auto h-auto" data-v-264b8024></div>`);
       }
-      _push(`</div></div><div class="flex justify-center" data-v-a906c807><div class="bg-white w-fit mt-5 mb-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce" data-v-a906c807><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1" data-v-a906c807>${ssrInterpolate(_ctx.$t("visit.more.articles"))}? `);
+      _push(`</div></div></section>`);
+    };
+  }
+};
+const _sfc_setup$4 = _sfc_main$4.setup;
+_sfc_main$4.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Home/ListFeaturedArticle.vue");
+  return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
+};
+const ListFeaturedArticle = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-264b8024"]]);
+const _sfc_main$3 = {
+  __name: "ListLatestArticle",
+  __ssrInlineRender: true,
+  props: {
+    articles: {
+      type: Array,
+      default: () => []
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const { locale } = usePage().props;
+    const articles = ref(props.articles);
+    return (_ctx, _push, _parent, _attrs) => {
+      const _directive_lazy = resolveDirective("lazy");
+      let _temp0;
+      _push(`<section${ssrRenderAttrs(mergeProps({ class: "w-full h-full mt-5" }, _attrs))} data-v-617ed67a><div class="flex items-center justify-center" data-v-617ed67a><div class="w-11/12 h-full" data-v-617ed67a><div data-v-617ed67a><p class="md:text-start text-center md:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider" data-v-617ed67a>${_ctx.$t("home.latest_article") ?? ""}</p></div><p class="md:text-start text-center font-[&#39;Roboto&#39;] md:text-base text-sm font-light" data-v-617ed67a>${ssrInterpolate(_ctx.$t("collection.latest_article"))}</p>`);
+      if (articles.value.length > 0) {
+        _push(`<div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" data-v-617ed67a><!--[-->`);
+        ssrRenderList(articles.value, (article) => {
+          _push(`<div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm" data-v-617ed67a>`);
+          _push(ssrRenderComponent(unref(Link), {
+            href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug })
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`<img${ssrRenderAttrs(_temp0 = mergeProps({
+                  alt: "article image",
+                  class: "w-full h-full cursor-pointer rounded-t-lg"
+                }, ssrGetDirectiveProps(_ctx, _directive_lazy, `/storage/${article.image}`)))} data-v-617ed67a${_scopeId}>${"textContent" in _temp0 ? ssrInterpolate(_temp0.textContent) : _temp0.innerHTML ?? ""}`);
+              } else {
+                return [
+                  withDirectives(createVNode("img", {
+                    alt: "article image",
+                    class: "w-full h-full cursor-pointer rounded-t-lg"
+                  }, null, 512), [
+                    [_directive_lazy, `/storage/${article.image}`]
+                  ])
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+          _push(`<div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 rounded-b-lg" data-v-617ed67a><div data-v-617ed67a>`);
+          _push(ssrRenderComponent(unref(Link), {
+            href: _ctx.route("article.show", { locale: unref(locale), slug: article.slug }),
+            class: "font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 transition-colors duration-300 cursor-pointer tracking-wide"
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(unref(truncate)(article.title, 143))}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(unref(truncate)(article.title, 143)), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+          _push(`</div><div class="authror w-full flex items-center justify-between border-t border-slate-300 pt-2" data-v-617ed67a><div class="categories flex items-center space-x-2" data-v-617ed67a><!--[-->`);
+          ssrRenderList(article.categories, (category) => {
+            _push(`<div class="w-fit" data-v-617ed67a>`);
+            _push(ssrRenderComponent(unref(Link), {
+              href: "",
+              class: ""
+            }, {
+              default: withCtx((_, _push2, _parent2, _scopeId) => {
+                if (_push2) {
+                  _push2(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="w-5 h-5" alt="logo icon" data-v-617ed67a${_scopeId}>`);
+                } else {
+                  return [
+                    createVNode("img", {
+                      src: `/storage/${category.img_category}`,
+                      class: "w-5 h-5",
+                      alt: "logo icon"
+                    }, null, 8, ["src"])
+                  ];
+                }
+              }),
+              _: 2
+            }, _parent));
+            _push(`</div>`);
+          });
+          _push(`<!--]--></div><p class="font-[&#39;Roboto&#39;] text-sm font-light text-slate-700 text-end" data-v-617ed67a>${ssrInterpolate(article.author.name)}</p></div></div></div>`);
+        });
+        _push(`<!--]--></div>`);
+      } else {
+        _push(`<div class="flex justify-center w-full" data-v-617ed67a><img src="/assets/images/article-not-found.webp" alt="article not found" class="w-96 mx-auto h-auto" data-v-617ed67a></div>`);
+      }
+      _push(`</div></div><div class="flex justify-center" data-v-617ed67a><div class="bg-white w-fit mt-5 mb-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce" data-v-617ed67a><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1" data-v-617ed67a>${ssrInterpolate(_ctx.$t("visit.more.articles"))}? `);
       _push(ssrRenderComponent(unref(Link), {
         href: _ctx.route("articles.index", { locale: unref(locale) }),
         class: "font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"
@@ -119,10 +219,10 @@ const _sfc_main$3 = {
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Home/ListArticle.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Home/ListLatestArticle.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const ListArticle = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-a906c807"]]);
+const ListLatestArticle = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-617ed67a"]]);
 const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   _push(`<section${ssrRenderAttrs(mergeProps({ class: "w-full h-full" }, _attrs))}><div class="flex justify-center"><div class="w-11/12 h-full md:mt-32 mt-10"><div class="flex justify-center"><div class="md:w-3/4 w-full" data-aos="fade-up" data-aos-delay="100" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true"><p class="text-center md:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider">${ssrInterpolate(_ctx.$t("why_learn_with_us"))}</p></div></div><div class="grid lg:grid-cols-2 grid-cols-1 mt-10"><div class="flex flex-col items-center justify-start" data-aos="zoom-in-left" data-aos-delay="300" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-anchor-placement="top-center"><div class="inline-block bg-gradient-to-tl from-amber-600 via-transparent to-violet-600 p-px rounded-md mb-3"><div class="bg-white rounded-md py-1.5 px-4 lg:leading-tight"><p class="md:text-4xl text-2xl font-extrabold font-[&#39;Roboto&#39;] bg-clip-text text-transparent bg-gradient-to-tr from-amber-400 to-purple-400">${ssrInterpolate(_ctx.$t("10_free_tutorials"))}</p></div></div><div class="md:w-2/3 w-full text-center"><p class="md:text-4xl text-3xl font-[&#39;Roboto&#39;] font-semibold">Zero to Hero</p><p class="md:text-base text-xs font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(_ctx.$t("motivational_quotes"))}</p><div class="accordion-group"><div class="accordion-reason-learn-with-us bg-rose-400 rounded-t-md flex justify-between items-center p-4 mt-5"><p class="text-white font-[&#39;Open_Sans&#39;] font-semibold">Multi Language Support</p><div class="flex items-center space-x-2"><div class="w-4 h-4 bg-amber-300 rounded-full"></div><div class="w-4 h-4 bg-sky-300 rounded-full"></div><div class="w-4 h-4 bg-emerald-300 rounded-full"></div></div></div><div class="accordion-content bg-white p-4 border-r border-l border-b border-red-300"><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(_ctx.$t("reason_learn_from_us.1"))}</p></div></div><div class="accordion-group"><div class="accordion-reason-learn-with-us bg-rose-400 rounded-t-md flex justify-between items-center p-4 mt-4"><p class="text-white font-[&#39;Open_Sans&#39;] font-semibold">Beginner Friendly</p><div class="flex items-center space-x-2"><div class="w-4 h-4 bg-amber-300 rounded-full"></div><div class="w-4 h-4 bg-sky-300 rounded-full"></div><div class="w-4 h-4 bg-emerald-300 rounded-full"></div></div></div><div class="accordion-content bg-white p-4 border-r border-l border-b border-red-300"><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(_ctx.$t("reason_learn_from_us.2"))}</p></div></div><div class="accordion-group"><div class="accordion-reason-learn-with-us bg-rose-400 rounded-t-md flex justify-between items-center p-4 mt-4"><p class="text-white font-[&#39;Open_Sans&#39;] font-semibold">Easy to Learn</p><div class="flex items-center space-x-2"><div class="w-4 h-4 bg-amber-300 rounded-full"></div><div class="w-4 h-4 bg-sky-300 rounded-full"></div><div class="w-4 h-4 bg-emerald-300 rounded-full"></div></div></div><div class="accordion-content bg-white p-4 border-r border-l border-b border-red-300"><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(_ctx.$t("reason_learn_from_us.3"))}</p></div></div></div></div><div data-aos="zoom-in-right" data-aos-delay="600" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-once="true" data-aos-anchor-placement="top-center" class="relative"><img src="/assets/images/carbon.webp" loading="eager" alt="image carbon" class="w-full h-auto"><img src="/assets/images/children-with-a-stick.webp" loading="eager" alt="cute boy with a stick" class="md:w-64 w-52 h-auto absolute bottom-2 right-0"></div></div></div></div></section>`);
@@ -140,7 +240,7 @@ const _sfc_main$1 = {
   setup(__props) {
     const { locale } = usePage().props;
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-10/12 h-full" }, _attrs))}><div class="text-center lg:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider">${_ctx.$t("coding_need_a_snack") ?? ""}</div><div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-10"><div class="w-full h-full flex lg:flex-row flex-col items-start"><img src="/assets/images/product_image_example.webp" class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" alt="product image"><div class="flex flex-col items-start space-y-1 h-full lg:mt-0 mt-4"><p class="text-xl font-medium font-[&#39;Roboto&#39;] text-slate-600">Basreng Pedas Daun Jeruk</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">35 / 250 / 500 / 1000gr</p><p class="text-sm font-[&#39;Roboto&#39;] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, cabe bubuk, bumbu asin, daun jeruk</p><div class="w-full flex lg:flex-col lg:justify-evenly lg:items-baseline items-center justify-between h-full lg:space-y-1 lg:mt-0 mt-3"><div class="flex items-center"><a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2"><img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7"><span>Order Now</span></a></div><div class="flex items-center space-x-2"><img src="/assets/images/icon/star.svg" alt="icon star" class="w-6 h-6"><p class="font-semibold font-[&#39;Roboto&#39;] text-slate-500">5.0</p></div></div></div></div><div class="flex lg:flex-row flex-col-reverse lg:mt-0 mt-5 items-start"><div class="flex flex-col items-start space-y-1 w-full h-full lg:text-end lg:mt-0 mt-4"><p class="text-xl font-medium font-[&#39;Roboto&#39;] text-slate-600">Basreng Original Daun Jeruk</p><p class="text-sm font-[&#39;Roboto&#39;] font-light w-full">35 / 250 / 500 / 1000gr</p><p class="text-sm font-[&#39;Roboto&#39;] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, bumbu asin, daun jeruk</p><div class="w-full flex lg:flex-col flex-row lg:justify-evenly justify-between lg:items-end items-center h-full space-y-2 lg:mt-0 mt-3"><div class="flex items-center"><a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2"><img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7"><span>Order Now</span></a></div><div class="flex items-center space-x-2"><img src="/assets/images/icon/star.svg" alt="icon star" class="w-6 h-6"><p class="font-semibold font-[&#39;Roboto&#39;] text-slate-500">5.0</p></div></div></div><img src="/assets/images/product_image_example2.webp" class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" alt="product image"></div></div><div class="flex justify-center"><div class="bg-white w-fit lg:mt-20 mt-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">${ssrInterpolate(_ctx.$t("visit.more.products"))}? `);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "w-10/12 h-full" }, _attrs))}><div class="text-center lg:text-5xl text-3xl font-[&#39;Bebas_Neue&#39;] font-bold text-slate-600 tracking-wider">${_ctx.$t("coding_need_a_snack") ?? ""}</div><div class="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-10"><div class="w-full h-full flex lg:flex-row flex-col items-start"><img src="/assets/images/product_image_example.webp" class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" alt="product image"><div class="flex flex-col items-start space-y-1 h-full lg:mt-0 mt-4"><p class="text-xl font-medium font-[&#39;Roboto&#39;] text-slate-600">Basreng Pedas Daun Jeruk</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">35 / 250 / 500 / 1000gr</p><p class="text-sm font-[&#39;Roboto&#39;] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, cabe bubuk, bumbu asin, daun jeruk</p><div class="w-full flex lg:flex-col lg:justify-end lg:items-baseline items-center justify-between h-full lg:space-y-1 lg:mt-0 mt-3"><div class="flex items-center"><a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2"><img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7"><span>Order Now</span></a></div><div class="flex items-center space-x-2"><img src="/assets/images/icon/star.svg" alt="icon star" class="w-6 h-6"><p class="font-semibold font-[&#39;Roboto&#39;] text-slate-500">5.0</p></div></div></div></div><div class="flex lg:flex-row flex-col-reverse lg:mt-0 mt-5 items-start"><div class="flex flex-col items-start space-y-1 w-full h-full lg:text-end lg:mt-0 mt-4"><p class="text-xl font-medium font-[&#39;Roboto&#39;] text-slate-600">Basreng Original Daun Jeruk</p><p class="text-sm font-[&#39;Roboto&#39;] font-light w-full">35 / 250 / 500 / 1000gr</p><p class="text-sm font-[&#39;Roboto&#39;] font-light mt-3">bakso goreng ikan, bumbu premium, bawang putih bubuk, bumbu asin, daun jeruk</p><div class="w-full flex lg:flex-col flex-row lg:justify-end justify-between lg:items-end items-center h-full space-y-1 lg:mt-0 mt-3"><div class="flex items-center"><a href="" class="mt-2 py-1 px-2 rounded-md bg-amber-700 hover:bg-amber-600 transition-colors duration-300 text-white flex items-center space-x-2"><img src="/assets/images/icon/shopee.svg" alt="shopee icon" class="w-7 h-7"><span>Order Now</span></a></div><div class="flex items-center space-x-2"><img src="/assets/images/icon/star.svg" alt="icon star" class="w-6 h-6"><p class="font-semibold font-[&#39;Roboto&#39;] text-slate-500">5.0</p></div></div></div><img src="/assets/images/product_image_example2.webp" class="w-3/4 h-auto mx-auto lg:hover:scale-110 hover:scale-100 transition-transform duration-300" alt="product image"></div></div><div class="flex justify-center"><div class="bg-white w-fit lg:mt-20 mt-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">${ssrInterpolate(_ctx.$t("visit.more.products"))}? `);
       _push(ssrRenderComponent(unref(Link), {
         href: _ctx.route("products.index", { locale: unref(locale) }),
         class: "font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"
@@ -167,12 +267,16 @@ _sfc_main$1.setup = (props, ctx) => {
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
 const _sfc_main = /* @__PURE__ */ Object.assign({
-  layout: _sfc_main$4
+  layout: _sfc_main$5
 }, {
   __name: "Home",
   __ssrInlineRender: true,
   props: {
     articles: {
+      type: Array,
+      default: () => []
+    },
+    featuredArticles: {
       type: Array,
       default: () => []
     },
@@ -184,6 +288,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
   setup(__props) {
     const props = __props;
     const articles = ref(props.articles);
+    const featuredArticles = ref(props.featuredArticles);
     const locale = ref(props.locale);
     const imageIcons1 = ref([
       { src: "/assets/images/icon/html5.svg", alt: "HTML 5" },
@@ -296,7 +401,8 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       }, _parent));
       _push(`</div></div></div></section>`);
       _push(ssrRenderComponent(Introduction, null, null, _parent));
-      _push(ssrRenderComponent(ListArticle, { articles: articles.value }, null, _parent));
+      _push(ssrRenderComponent(ListFeaturedArticle, { featuredArticles: featuredArticles.value }, null, _parent));
+      _push(ssrRenderComponent(ListLatestArticle, { articles: articles.value }, null, _parent));
       _push(`<section class="w-full h-full"><div class="flex items-center justify-center">`);
       _push(ssrRenderComponent(_sfc_main$1, null, null, _parent));
       _push(`</div></section></div><!--]-->`);

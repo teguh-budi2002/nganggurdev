@@ -103,7 +103,7 @@ const _sfc_main$2 = {
       window.addEventListener("keydown", handleKeydown);
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(_attrs)} data-v-39b26b81><nav class="${ssrRenderClass([{ "hide-navbar": isNavbarHidden.value }, "fixed top-0 w-full lg:h-20 h-fit py-4 lg:px-10 px-6 flex items-center justify-between transition-all bg-rose-100 duration-500 ease-in-out z-50"])}" data-v-39b26b81><div class="flex items-center justify-between xl:w-2/7 w-2/4" data-v-39b26b81><img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:block hidden" loading="eager" alt="logo" data-v-39b26b81><div class="space-x-4 lg:block hidden" data-v-39b26b81>`);
+      _push(`<div${ssrRenderAttrs(_attrs)} data-v-53225dcf><nav class="${ssrRenderClass([{ "hide-navbar": isNavbarHidden.value }, "fixed top-0 w-full lg:h-20 h-fit py-4 lg:px-10 px-6 flex items-center justify-between transition-all bg-rose-100 duration-500 ease-in-out z-50"])}" data-v-53225dcf><div class="flex items-center justify-between xl:w-2/7 w-2/4" data-v-53225dcf><img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:block hidden" loading="eager" alt="logo" data-v-53225dcf><div class="space-x-4 lg:block hidden" data-v-53225dcf>`);
       _push(ssrRenderComponent(unref(Link), {
         href: `/${locale.value}`,
         onClick: resetState,
@@ -154,27 +154,27 @@ const _sfc_main$2 = {
       }, _parent));
       _push(`</div>`);
       if (!openSearchModal.value) {
-        _push(`<button class="${ssrRenderClass([{ "hidden": openSidebar.value }, "lg:hidden block cursor-pointer"])}" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" data-v-39b26b81></path></svg></button>`);
+        _push(`<button class="${ssrRenderClass([{ "hidden": openSidebar.value }, "lg:hidden block cursor-pointer"])}" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" data-v-53225dcf></path></svg></button>`);
       } else {
-        _push(`<button class="lg:hidden block cursor-pointer" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-39b26b81></path></svg></button>`);
+        _push(`<button class="lg:hidden block cursor-pointer" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-53225dcf></path></svg></button>`);
       }
-      _push(`<img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:hidden block" loading="eager" alt="logo" data-v-39b26b81></div><div class="flex items-center space-x-4" data-v-39b26b81><div class="flex items-center space-x-2 cursor-pointer" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-39b26b81></path></svg><div class="shadow-lg md:block hidden" data-v-39b26b81><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-39b26b81><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-39b26b81>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-39b26b81>`);
+      _push(`<img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:hidden block" loading="eager" alt="logo" data-v-53225dcf></div><div class="flex items-center space-x-4" data-v-53225dcf><div class="flex items-center space-x-2 cursor-pointer" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-53225dcf></path></svg><div class="shadow-lg md:block hidden" data-v-53225dcf><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-53225dcf><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-53225dcf>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-53225dcf>`);
       if (locale.value === "id") {
-        _push(`<img src="/assets/images/icon/indonesian.svg" loading="eager" class="w-5 h-5" alt="flag country" data-v-39b26b81>`);
+        _push(`<img src="/assets/images/icon/indonesian.svg" loading="eager" class="w-5 h-5" alt="flag country" data-v-53225dcf>`);
       } else if (locale.value === "en") {
-        _push(`<img loading="eager" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-39b26b81>`);
+        _push(`<img loading="eager" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-53225dcf>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`</div></div></nav><div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen p-4 px-6 bg-rose-100 z-999" style="${ssrRenderStyle(openSidebar.value ? null : { display: "none" })}" data-v-39b26b81><div class="flex items-center justify-between" data-v-39b26b81><button class="" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-39b26b81></path></svg></button><div class="flex items-center space-x-4" data-v-39b26b81><div class="flex items-center space-x-2 cursor-pointer" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-39b26b81></path></svg><div class="shadow-lg md:block hidden" data-v-39b26b81><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-39b26b81><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-39b26b81>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-39b26b81>`);
+      _push(`</div></div></nav><div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen p-4 px-6 bg-rose-100 z-999" style="${ssrRenderStyle(openSidebar.value ? null : { display: "none" })}" data-v-53225dcf><div class="flex items-center justify-between" data-v-53225dcf><button class="" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" data-v-53225dcf></path></svg></button><div class="flex items-center space-x-4" data-v-53225dcf><div class="flex items-center space-x-2 cursor-pointer" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-53225dcf></path></svg><div class="shadow-lg md:block hidden" data-v-53225dcf><div class="p-1.5 bg-rose-500 rounded-md shadow-md" data-v-53225dcf><p class="font-[&#39;Bebas_Neue&#39;] text-xs text-white" data-v-53225dcf>Ctrl + K</p></div></div></div><div class="cursor-pointer" data-v-53225dcf>`);
       if (locale.value === "id") {
-        _push(`<img src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country" data-v-39b26b81>`);
+        _push(`<img src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country" data-v-53225dcf>`);
       } else if (locale.value === "en") {
-        _push(`<img src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-39b26b81>`);
+        _push(`<img src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country" data-v-53225dcf>`);
       } else {
         _push(`<!---->`);
       }
-      _push(`</div></div></div><div class="w-full h-full flex flex-col items-center space-y-8 mt-12" data-v-39b26b81>`);
+      _push(`</div></div></div><div class="w-full h-full flex flex-col items-center space-y-8 mt-12" data-v-53225dcf>`);
       _push(ssrRenderComponent(unref(Link), {
         href: `/${locale.value}`,
         onClick: resetState,
@@ -226,7 +226,7 @@ const _sfc_main$2 = {
       _push(`</div></div>`);
       ssrRenderTeleport(_push, (_push2) => {
         if (openSearchModal.value) {
-          _push2(`<div class="search-modal" data-v-39b26b81><div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40" data-v-39b26b81></div><div class="lg:w-2/4 w-11/12 h-fit p-4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-lg" data-v-39b26b81><div class="flex items-center" data-v-39b26b81><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 text-slate-600" data-v-39b26b81><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-39b26b81></path></svg><input type="text" class="w-full h-10 px-2 font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;] outline-none border-none focus:outline-none focus:ring-0"${ssrRenderAttr("placeholder", _ctx.$t("search.placeholder"))}${ssrRenderAttr("value", searchQuery.value)} data-v-39b26b81><div class="p-0.5 border border-slate-300 shadow-xs rounded cursor-pointer" data-v-39b26b81><p class="font-[&#39;Roboto&#39;] text-xs text-slate-700" data-v-39b26b81>esc</p></div></div><div class="w-full max-h-44 overflow-auto custom-scroll" style="${ssrRenderStyle(searchResults.value.length > 0 && !isLoading.value ? null : { display: "none" })}" data-v-39b26b81><!--[-->`);
+          _push2(`<div class="search-modal" data-v-53225dcf><div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40" data-v-53225dcf></div><div class="lg:w-2/4 w-11/12 h-fit p-4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-lg" data-v-53225dcf><div class="flex items-center" data-v-53225dcf><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 text-slate-600" data-v-53225dcf><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" data-v-53225dcf></path></svg><input type="text" class="w-full h-10 px-2 font-[&#39;Roboto&#39;] placeholder:font-[&#39;Roboto&#39;] outline-none border-none focus:outline-none focus:ring-0"${ssrRenderAttr("placeholder", _ctx.$t("search.placeholder"))}${ssrRenderAttr("value", searchQuery.value)} data-v-53225dcf><div class="p-0.5 border border-slate-300 shadow-xs rounded cursor-pointer" data-v-53225dcf><p class="font-[&#39;Roboto&#39;] text-xs text-slate-700" data-v-53225dcf>esc</p></div></div><div class="w-full max-h-44 overflow-auto custom-scroll" style="${ssrRenderStyle(searchResults.value.length > 0 && !isLoading.value ? null : { display: "none" })}" data-v-53225dcf><!--[-->`);
           ssrRenderList(searchResults.value, (result) => {
             _push2(ssrRenderComponent(unref(Link), {
               href: `/${locale.value}/article/${result.slug}`,
@@ -247,7 +247,7 @@ const _sfc_main$2 = {
           });
           _push2(`<!--]--></div>`);
           if (isLoading.value) {
-            _push2(`<div class="w-full justify-center items-center" data-v-39b26b81>`);
+            _push2(`<div class="w-full justify-center items-center" data-v-53225dcf>`);
             _push2(ssrRenderComponent(unref(DotLottieVue), {
               src: "https://lottie.host/5897829e-ef3c-4c0d-af9a-55b8b008ce15/hce1cW9eCh.lottie",
               class: "w-32 h-32 mx-auto",
@@ -259,7 +259,7 @@ const _sfc_main$2 = {
             _push2(`<!---->`);
           }
           if (hasSearched.value && searchResults.value.length === 0 && !isLoading.value) {
-            _push2(`<div class="text-center mt-4" aria-live="polite" data-v-39b26b81><p class="font-[&#39;Roboto&#39;] text-sm italic text-slate-600" data-v-39b26b81>${ssrInterpolate(_ctx.$t("search.no_results"))}</p></div>`);
+            _push2(`<div class="text-center mt-4" aria-live="polite" data-v-53225dcf><p class="font-[&#39;Roboto&#39;] text-sm italic text-slate-600" data-v-53225dcf>${ssrInterpolate(_ctx.$t("search.no_results"))}</p></div>`);
           } else {
             _push2(`<!---->`);
           }
@@ -278,7 +278,7 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("resources/js/layouts/Navigation.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const Navigation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-39b26b81"]]);
+const Navigation = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-53225dcf"]]);
 const _sfc_main$1 = {
   __name: "Footer",
   __ssrInlineRender: true,
@@ -421,7 +421,7 @@ const _sfc_main = {
       _push(ssrRenderComponent(unref(Head), null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<link rel="alternate" hreflang="en"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="alternate" hreflang="id"${ssrRenderAttr("href", unref(page).props.base_url + "/id")}${_scopeId}><link rel="alternate" hreflang="x-default"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="canonical"${ssrRenderAttr("href", unref(page).props.url)}${_scopeId}><meta name="description"${ssrRenderAttr("content", _ctx.$t("seo.meta.description"))}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", _ctx.$t("seo.meta.keywords"))}${_scopeId}><meta name="viewport" content="width=device-width, initial-scale=1.0"${_scopeId}><meta property="og:title"${ssrRenderAttr("content", _ctx.$t("seo.og_title"))}${_scopeId}><meta property="og:description"${ssrRenderAttr("content", _ctx.$t("seo.og_description"))}${_scopeId}><meta property="og:type"${ssrRenderAttr("content", _ctx.$t("seo.og_type"))}${_scopeId}><meta property="og:url"${ssrRenderAttr("content", unref(page).props.url)}${_scopeId}><meta property="og:image"${ssrRenderAttr("content", _ctx.$t("seo.og_image"))}${_scopeId}><meta property="og:site_name"${ssrRenderAttr("content", _ctx.$t("seo.og_site_name"))}${_scopeId}><meta name="robots"${ssrRenderAttr("content", _ctx.$t("seo.robots"))}${_scopeId}>`);
+            _push2(`<link rel="alternate" hreflang="en"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="alternate" hreflang="id"${ssrRenderAttr("href", unref(page).props.base_url + "/id")}${_scopeId}><link rel="alternate" hreflang="x-default"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="canonical"${ssrRenderAttr("href", unref(page).props.url)}${_scopeId}><link rel="shortcut icon" href="/assets/images/logo/logo-no-bg.webp" type="image/x-icon"${_scopeId}><meta name="description"${ssrRenderAttr("content", _ctx.$t("seo.meta.description"))}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", _ctx.$t("seo.meta.keywords"))}${_scopeId}><meta name="viewport" content="width=device-width, initial-scale=1.0"${_scopeId}><meta property="og:title"${ssrRenderAttr("content", _ctx.$t("seo.og_title"))}${_scopeId}><meta property="og:description"${ssrRenderAttr("content", _ctx.$t("seo.og_description"))}${_scopeId}><meta property="og:type"${ssrRenderAttr("content", _ctx.$t("seo.og_type"))}${_scopeId}><meta property="og:url"${ssrRenderAttr("content", unref(page).props.url)}${_scopeId}><meta property="og:image"${ssrRenderAttr("content", _ctx.$t("seo.og_image"))}${_scopeId}><meta property="og:site_name"${ssrRenderAttr("content", _ctx.$t("seo.og_site_name"))}${_scopeId}><meta name="robots"${ssrRenderAttr("content", _ctx.$t("seo.robots"))}${_scopeId}>`);
           } else {
             return [
               createVNode("link", {
@@ -443,6 +443,11 @@ const _sfc_main = {
                 rel: "canonical",
                 href: unref(page).props.url
               }, null, 8, ["href"]),
+              createVNode("link", {
+                rel: "shortcut icon",
+                href: "/assets/images/logo/logo-no-bg.webp",
+                type: "image/x-icon"
+              }),
               createVNode("meta", {
                 name: "description",
                 content: _ctx.$t("seo.meta.description")

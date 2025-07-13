@@ -48,7 +48,7 @@
       </div>
     </nav>
     <!-- Sidebar Mobile -->
-    <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen p-4 px-6 bg-rose-100 z-999" v-show="openSidebar">
+    <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 z-999" v-show="openSidebar">
       <div class="flex items-center justify-between">
         <button @click="openSidebar = false" class="">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -105,6 +105,7 @@
               class="w-32 h-32 mx-auto"
               autoplay
               loop
+              loading="eager"
             />
           </div>
           <div v-if="hasSearched && searchResults.length === 0 && !isLoading" class="text-center mt-4" aria-live="polite">

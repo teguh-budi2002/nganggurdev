@@ -172,6 +172,29 @@ const switchLanguage = async (newLocale) => {
         }
       }
     );
+  } else if(route().current('list-article-of-series.index')) {
+    const articleSeriesSlug = page.props.slug;
+    const response = await axios.get(`/${newLocale}/get-article-series-slug/${articleSeriesSlug}`)
+    const newSlug = await response.data.slug;
+
+    router.post(`/${newLocale}/set-locale`, 
+      { locale: newLocale }, 
+      { 
+        preserveState: false, 
+        preserveScroll: true,
+        onSuccess: () => {
+          locale.value = newLocale;
+          openSidebar.value = false;
+          openSearchModal.value = false; 
+
+          router.visit(route('list-article-of-series.index', { locale: newLocale, slug: newSlug }), {
+            preserveState: false,
+            preserveScroll: true
+          });
+        }
+      }
+    );
+
   } else {
     const currentUrl = page.url;
     const pathWithoutLocale = currentUrl.replace(/^\/(id|en)/, '');

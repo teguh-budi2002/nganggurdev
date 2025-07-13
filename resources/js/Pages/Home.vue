@@ -55,8 +55,15 @@
     </div>
   </section>
   <Introduction />
-  <ListFeaturedArticle :featuredArticles />
-  <ListLatestArticle :articles />
+  <div v-if="articleSeries.length > 0">
+    <ListSeriesArticle :articleSeries />
+  </div>
+  <div v-if="featuredArticles.length > 0">
+    <ListFeaturedArticle :featuredArticles />
+  </div>
+  <div v-if="articles.length > 0">
+    <ListLatestArticle :articles />
+  </div>
   <section class="w-full h-full">
     <div class="flex items-center justify-center">
       <OurProduct />
@@ -72,6 +79,7 @@ import { ref, onMounted, defineOptions, defineProps } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import ListFeaturedArticle from '@/layouts/Home/ListFeaturedArticle.vue';
 import ListLatestArticle from '@/layouts/Home/ListLatestArticle.vue';
+import ListSeriesArticle from '../layouts/Home/ListSeriesArticle.vue';
 import Introduction from '@/layouts/Home/Introduction.vue';
 import OurProduct from '@/layouts/Home/OurProduct.vue';
 
@@ -80,6 +88,10 @@ defineOptions({
 })
 
 const props = defineProps({
+  articleSeries: {
+    type: Array,
+    default: () => []
+  },
   articles: {
     type: Array,
     default: () => []
@@ -93,6 +105,7 @@ const props = defineProps({
     default: 'en'
   }
 });
+const articleSeries = ref(props.articleSeries);
 const articles = ref(props.articles);
 const featuredArticles = ref(props.featuredArticles);
 const locale = ref(props.locale);

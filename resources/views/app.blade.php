@@ -7,6 +7,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "{{ config('app.name') }}",
+                "url": "https://nganggurdev.com",
+                "description": "Learn Coding Website with Multi Language Support"
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @routes
         @inertiaHead

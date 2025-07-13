@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, ref, resolveDirective, unref, withCtx, withDirectives, createVNode, createTextVNode, toDisplayString } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps, ssrIncludeBooleanAttr, ssrRenderClass, ssrRenderAttr } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-BhogGyPD.js";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DaogSGzd.js";
 import { usePage, Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
@@ -32,7 +32,10 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       type: Array,
       required: true
     },
-    locale: String
+    locale: {
+      type: String,
+      default: "en"
+    }
   },
   setup(__props) {
     const props = __props;

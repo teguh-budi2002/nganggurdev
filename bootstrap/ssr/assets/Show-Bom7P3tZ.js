@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, defineAsyncComponent, ref, watch, unref, withCtx, createVNode, toDisplayString, createTextVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderAttr, ssrRenderSuspense } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DaogSGzd.js";
+import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DDYRGlkW.js";
 import { Head, Link } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import "axios";
@@ -45,7 +45,8 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
   __ssrInlineRender: true,
   props: {
     article: Object,
-    articleSession: Object
+    articleSession: Object,
+    locale: String
   },
   setup(__props) {
     const props = __props;
@@ -78,6 +79,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
     });
     const bodyRef = ref(null);
     const bodyContentRef = ref(null);
+    const locale = ref(props.locale);
     watch(bodyRef, (newVal) => {
       if (!newVal) return;
       bodyContentRef.value = newVal.contentRef;
@@ -104,7 +106,18 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
         }),
         _: 1
       }, _parent));
-      _push(`<div class="lg:mt-32 mt-20 h-full min-h-screen w-full bg-white"><div class="flex flex-col items-center justify-center"><div class="lg:mx-o mx-4"><a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/32ar4" class="rounded-md" width="800px" height="90px" alt="www.domainesia.com"></a></div><div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 lg:mt-10 mt-8">`);
+      _push(`<div class="lg:mt-32 mt-20 h-full min-h-screen w-full bg-white"><div class="flex flex-col items-center justify-center">`);
+      if (locale.value === "id") {
+        _push(`<div class="lg:mx-o mx-4"><a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/32ar4" class="rounded-md" width="800px" height="90px" alt="www.domainesia.com"></a></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (locale.value === "en") {
+        _push(`<div class="lg:mx-o mx-4"><a href="https://www.cloudways.com/en/php-hosting.php?id=1974900&amp;a_bid=aa32e3fe" target="_top"><img src="https://www.cloudways.com/affiliate/accounts/default1/banners/aa32e3fe.jpg" class="rounded-md" alt="Faster PHP Cloud Hosting" title="Faster PHP Cloud Hosting" width="728" height="90"></a></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 lg:mt-10 mt-8">`);
       ssrRenderSuspense(_push, {
         default: () => {
           _push(ssrRenderComponent(unref(BodyArticle), {
@@ -146,7 +159,18 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       } else {
         _push(`<!---->`);
       }
-      _push(`</div></div></div><div class="saweria_trakteer bg-white md:w-3/6 w-11/12 mt-10 p-4 border border-slate-100 rounded-md shadow-md"><div class="font-[&#39;Roboto&#39;] text-slate-900 tracking-wide font-light text-center">${_ctx.$t("donation.text") ?? ""}</div><div class="flex items-center justify-center space-x-4 mt-5"><a href="https://saweria.co/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-amber-300 border-2 border-amber-600 hover:bg-amber-500 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 uppercase font-bold text-sm"><img src="/assets/images/icon/saweria.png" class="w-8 h-8" alt="saweria icon"><span>Saweria</span></a><a href="https://trakteer.id/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-rose-300 border-2 border-rose-600 hover:bg-rose-600 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 font-bold text-sm uppercase"><img src="/assets/images/icon/trakteer.png" class="w-8 h-8 rounded-full" alt="saweria icon"><span>trakteer</span></a></div></div><div class="mt-10 lg:mx-0 mx-4"><a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/bne38" class="rounded-md" width="770px" height="90px" alt="www.domainesia.com"></a></div><div class="bg-white w-fit mt-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">Want to read more? `);
+      _push(`</div></div></div><div class="saweria_trakteer bg-white md:w-3/6 w-11/12 mt-10 p-4 border border-slate-100 rounded-md shadow-md"><div class="font-[&#39;Roboto&#39;] text-slate-900 tracking-wide font-light text-center">${_ctx.$t("donation.text") ?? ""}</div><div class="flex items-center justify-center space-x-4 mt-5"><a href="https://saweria.co/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-amber-300 border-2 border-amber-600 hover:bg-amber-500 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 uppercase font-bold text-sm"><img src="/assets/images/icon/saweria.png" class="w-8 h-8" alt="saweria icon"><span>Saweria</span></a><a href="https://trakteer.id/nganggurdev" target="_blank" class="w-fit py-2 px-6 flex items-center space-x-2 rounded-md bg-rose-300 border-2 border-rose-600 hover:bg-rose-600 text-white font-[&#39;Open_Sans&#39;] transition-colors duration-200 font-bold text-sm uppercase"><img src="/assets/images/icon/trakteer.png" class="w-8 h-8 rounded-full" alt="saweria icon"><span>trakteer</span></a></div></div>`);
+      if (locale.value === "id") {
+        _push(`<div class="mt-10 lg:mx-0 mx-4"><a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/bne38" class="rounded-md" width="770px" height="90px" alt="www.domainesia.com"></a></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (locale.value === "en") {
+        _push(`<div class="mt-10 lg:mx-0 mx-4"><a href="https://www.cloudways.com/en/wordpress-hosting.php?id=1974900&amp;a_bid=4869f424" target="_top"><img src="//www.cloudways.com/affiliate/accounts/default1/banners/4869f424.jpg" class="rounded-md" alt="Load WordPress Sites in as fast as 37ms!" title="Load WordPress Sites in as fast as 37ms!" width="770" height="90"></a></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<div class="bg-white w-fit mt-10 p-2 px-4 border border-slate-200 rounded-full shadow-sm animate-bounce"><p class="font-[&#39;Roboto&#39;] text-slate-700 flex items-center space-x-1">Want to read more? `);
       _push(ssrRenderComponent(unref(Link), {
         href: "",
         class: "font-semibold text-sky-600 hover:text-sky-400 transition-colors duration-200 ml-2"

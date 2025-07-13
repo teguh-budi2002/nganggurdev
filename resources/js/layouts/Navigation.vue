@@ -16,7 +16,7 @@
           <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Product/Index', 'text-slate-600' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link>
         </div>
         <!-- Button Nav Mobile -->
-         <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal">
+         <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal" aria-label="Open Sidebar">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>

@@ -1,2 +1,8 @@
 User-agent: *
 Disallow:
+
+# Sitemap
+Sitemap: https://nganggurdev.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /dashboard-admin/

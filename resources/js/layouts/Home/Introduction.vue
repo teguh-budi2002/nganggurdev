@@ -78,7 +78,7 @@
           data-aos-anchor-placement="top-center"
           class="relative">
           <img src="/assets/images/carbon.webp" loading="eager" alt="image carbon" class="w-full h-auto" />
-          <img src="/assets/images/children-with-a-stick.webp" loading="eager" alt="cute boy with a stick" class="md:w-64 w-52 h-auto absolute bottom-2 right-0">
+          <img src="/assets/images/children-with-a-stick.webp" loading="eager" alt="cute boy with a stick" class="md:w-64 w-40 h-auto absolute bottom-2 right-0">
         </div>
       </div>
     </div>

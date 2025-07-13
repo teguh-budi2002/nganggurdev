@@ -109,7 +109,10 @@ const props = defineProps({
     type: Array,
     required: true
   },
-  locale: String
+  locale: {
+    type: String,
+    default: 'en'
+  }
 })
 
 const articles = ref(props.articles);

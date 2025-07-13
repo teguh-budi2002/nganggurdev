@@ -16,7 +16,7 @@
           <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Product/Index', 'text-slate-600' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link>
         </div>
         <!-- Button Nav Mobile -->
-         <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal">
+         <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal" aria-label="Open Sidebar">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
@@ -48,7 +48,7 @@
       </div>
     </nav>
     <!-- Sidebar Mobile -->
-    <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen p-4 px-6 bg-rose-100 z-999" v-show="openSidebar">
+    <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 z-999" v-show="openSidebar">
       <div class="flex items-center justify-between">
         <button @click="openSidebar = false" class="">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -105,6 +105,7 @@
               class="w-32 h-32 mx-auto"
               autoplay
               loop
+              loading="eager"
             />
           </div>
           <div v-if="hasSearched && searchResults.length === 0 && !isLoading" class="text-center mt-4" aria-live="polite">
@@ -172,6 +173,29 @@ const switchLanguage = async (newLocale) => {
         }
       }
     );
+  } else if(route().current('list-article-of-series.index')) {
+    const articleSeriesSlug = page.props.slug;
+    const response = await axios.get(`/${newLocale}/get-article-series-slug/${articleSeriesSlug}`)
+    const newSlug = await response.data.slug;
+
+    router.post(`/${newLocale}/set-locale`, 
+      { locale: newLocale }, 
+      { 
+        preserveState: false, 
+        preserveScroll: true,
+        onSuccess: () => {
+          locale.value = newLocale;
+          openSidebar.value = false;
+          openSearchModal.value = false; 
+
+          router.visit(route('list-article-of-series.index', { locale: newLocale, slug: newSlug }), {
+            preserveState: false,
+            preserveScroll: true
+          });
+        }
+      }
+    );
+
   } else {
     const currentUrl = page.url;
     const pathWithoutLocale = currentUrl.replace(/^\/(id|en)/, '');

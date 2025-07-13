@@ -6,6 +6,7 @@ import { i18nVue } from "laravel-vue-i18n";
 const brand_name$1 = "NganggurDev";
 const why_learn_with_us$1 = "Why Learn with Us?";
 const motivational_quotes$1 = "Empowering everyone to become a programming expert from the basics.";
+const start_learning$1 = "Start Learning";
 const copyright$1 = "All Rights Reserved";
 const delicious_snack$1 = "delicious snack";
 const coding_need_a_snack$1 = "Coding need a <span class='text-rose-400'>snack?</span>";
@@ -41,10 +42,13 @@ const en = {
   motivational_quotes: motivational_quotes$1,
   "search.placeholder": "What do you want to learn today?",
   "article.featured": "<span class='text-rose-400'>Featured</span> Articles",
-  "collection.featured_article": "A collection of the latest materials to support your learning process.",
+  "collection.featured_article": "A collection of featured articles containing programming tutorials relevant to the needs of today's developers.",
   "home.latest_article": "<span class='text-rose-400'>Latest</span> Articles",
   "collection.latest_article": "A collection of the latest articles to support your learning process.",
   "latest.article": "Latest Articles",
+  "home.series_article": "Article <span class='text-rose-400'>Series</span>",
+  "collection.series_article": "A collection of articles containing a structured programming learning series, starting from basic concepts to advanced levels.",
+  start_learning: start_learning$1,
   copyright: copyright$1,
   "article.series": "Article Series",
   "badge.article": "Article",
@@ -70,11 +74,13 @@ const __vite_glob_1_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   default: en,
   delicious_snack: delicious_snack$1,
   motivational_quotes: motivational_quotes$1,
+  start_learning: start_learning$1,
   why_learn_with_us: why_learn_with_us$1
 }, Symbol.toStringTag, { value: "Module" }));
 const brand_name = "NganggurDev";
 const why_learn_with_us = "Kenapa Belajar Bersama Kami?";
 const motivational_quotes = "Memberikan semua bisa menjadi ahli pemrograman mulai dari dasar.";
+const start_learning = "Mulai Belajar";
 const copyright = "Hak Cipta Dilindungi";
 const delicious_snack = "snack lezat";
 const coding_need_a_snack = "Ngoding butuh <span class='text-rose-400'>cemilan?</span>";
@@ -110,10 +116,13 @@ const id = {
   motivational_quotes,
   "search.placeholder": "Apa yang ingin kamu pelajari hari ini?",
   "article.featured": "Artikel <span class='text-red-400'>Unggulan</span>",
-  "collection.featured_article": "Kumpulan materi terbaru yang dapat membantu proses belajarmu.",
+  "collection.featured_article": "Kumpulan artikel unggulan berisi tutorial pemrograman yang relevan dengan kebutuhan developer masa kini.",
   "home.latest_article": "Artikel <span class='text-red-400'>Terbaru</span>",
   "collection.latest_article": "Kumpulan artikel terbaru yang dapat membantu proses belajarmu.",
   "latest.article": "Artikel Terbaru",
+  "home.series_article": "<span class='text-rose-400'>Seri</span> Artikel",
+  "collection.series_article": "Kumpulan artikel yang berisi seri pembelajaran pemrograman yang terstruktur, dimulai dari konsep dasar hingga tingkat mahir.",
+  start_learning,
   copyright,
   "article.series": "Seri Artikel",
   "badge.article": "Artikel",
@@ -139,6 +148,7 @@ const __vite_glob_1_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.def
   default: id,
   delicious_snack,
   motivational_quotes,
+  start_learning,
   why_learn_with_us
 }, Symbol.toStringTag, { value: "Module" }));
 const php_en = {
@@ -743,7 +753,11 @@ createServer(
     page,
     title: (title) => `${title} - ${appName}`,
     render: renderToString,
+<<<<<<< HEAD
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-7DbhTBh8.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-9NpSyYCr.js"), "./Pages/Home.vue": () => import("./assets/Home-BM1vfVYA.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-B2FncfNA.js") })),
+=======
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-DXDclpOa.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-Bom7P3tZ.js"), "./Pages/ArticleSeries/ListArticleOfSeries.vue": () => import("./assets/ListArticleOfSeries-D7ut3FxK.js"), "./Pages/Home.vue": () => import("./assets/Home-CB-Eq1L9.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-CewmvhFy.js") })),
+>>>>>>> a820d9d2c7bee34297625b3b9c222b0ddadd99e1
     setup({ App, props, plugin }) {
       var _a;
       const ziggyData = ((_a = page.props) == null ? void 0 : _a.ziggy) || {};

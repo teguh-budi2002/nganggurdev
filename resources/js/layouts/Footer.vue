@@ -10,27 +10,27 @@
             <div class="flex items-center space-x-4 mt-2">
               <p class="font-['Roboto'] font-light text-sm text-slate-600">Special thanks for</p>
               <div class="flex items-center space-x-2">
-                <img src="/assets/images/icon/laravel.svg" class="w-5 h-5" alt="laravel icon">
-                <img src="/assets/images/icon/vue.svg" class="w-5 h-5" alt="vue icon">
-                <img src="https://raw.githubusercontent.com/innocenzi/awesome-inertiajs/main/assets/logo.svg" class="w-5 h-5" alt="inertia icon">
-                <img src="/assets/images/icon/tailwind.svg" class="w-5 h-5" alt="tailwind icon">
+                <img src="/assets/images/icon/laravel.svg" class="w-5 h-5" loading="lazy" alt="laravel icon">
+                <img src="/assets/images/icon/vue.svg" class="w-5 h-5" loading="lazy" alt="vue icon">
+                <img src="https://raw.githubusercontent.com/innocenzi/awesome-inertiajs/main/assets/logo.svg" loading="lazy" class="w-5 h-5" alt="inertia icon">
+                <img src="/assets/images/icon/tailwind.svg" class="w-5 h-5" loading="lazy" alt="tailwind icon">
               </div>
             </div>
             <div class="flex items-start space-x-8 md:mt-12 mt-8">
               <a :href="sosmed.facebook" target="_blank">
-                <img src="/assets/images/icon/fb.svg" class="w-8 h-8" alt="icon fb">
+                <img src="/assets/images/icon/fb.svg" class="w-8 h-8" loading="lazy" alt="icon fb">
               </a>
               <a :href="sosmed.youtube" target="_blank">
-                <img src="/assets/images/icon/yt.svg" class="w-8 h-8" alt="icon yt">
+                <img src="/assets/images/icon/yt.svg" class="w-8 h-8" loading="lazy" alt="icon yt">
               </a>
               <a :href="sosmed.tiktok" target="_blank">
-                <img src="/assets/images/icon/tiktok.svg" class="w-8 h-8" alt="icon tiktok">
+                <img src="/assets/images/icon/tiktok.svg" class="w-8 h-8" loading="lazy" alt="icon tiktok">
               </a>
               <a :href="sosmed.whatsapp" target="_blank">
-                <img src="/assets/images/icon/wa.svg" class="w-8 h-8" alt="icon wa">
+                <img src="/assets/images/icon/wa.svg" class="w-8 h-8" loading="lazy" alt="icon wa">
               </a>
               <a :href="sosmed.instagram" target="_blank">
-                <img src="/assets/images/icon/ig.svg" class="w-8 h-8" alt="icon ig">
+                <img src="/assets/images/icon/ig.svg" class="w-8 h-8" loading="lazy" alt="icon ig">
               </a>
             </div>
           </div>

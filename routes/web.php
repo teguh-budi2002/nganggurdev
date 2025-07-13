@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArticleSeriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProductController;
@@ -17,6 +18,9 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('/search-article', [ArticleController::class, 'getArticleBySearchQuery'])->name('articles.search');
     Route::get('/article/{slug}', [ArticleController::class, 'showArticle'])->name('article.show');
     Route::get('/get-article-slug/{slug}', [ArticleController::class, 'getArticleSlug'])->name('article.getSlug');
+    
+    Route::get('/article-series/{slug}', [ArticleSeriesController::class, 'listArticleOfSeries'])->name('list-article-of-series.index');
+    Route::get('/get-article-series-slug/{slug}', [ArticleSeriesController::class, 'getArticleSeriesSlug'])->name('article_series.getSlug');
 
     Route::get('/our-products', [ProductController::class, 'index'])->name('products.index');
 

@@ -67,7 +67,7 @@
 </div>
 </template>
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AppLayout from '@/layouts/AppLayout.vue';
 import { ref } from 'vue';
 import { Head, Link } from '@inertiajs/vue3';
 import { truncate } from '@/utils/truncate';

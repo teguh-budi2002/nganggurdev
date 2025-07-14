@@ -51,14 +51,8 @@ class Article extends Model
         static::saving(function ($model) {
             $model->slug_en = str($model->title_en)->slug();
             $model->slug_id = str($model->title_id)->slug();
-
-            if ($model->isDirty('content_en')) {
-                $model->content_en_html = MarkdownRenderer::render($model->content_en);
-            }
-
-            if ($model->isDirty('content_id')) {
-                $model->content_id_html = MarkdownRenderer::render($model->content_id);
-            }
+            $model->content_en_html = MarkdownRenderer::render($model->content_en);
+            $model->content_id_html = MarkdownRenderer::render($model->content_id);
         });
     }
 

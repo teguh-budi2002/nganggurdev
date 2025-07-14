@@ -1,10 +1,6 @@
 import { ref, computed, onMounted, watch, mergeProps, useSSRContext, unref, withCtx, createVNode, createTextVNode, toDisplayString, createBlock, openBlock, Fragment, renderList } from "vue";
 import { ssrRenderAttrs, ssrRenderList, ssrRenderClass, ssrRenderAttr, ssrRenderStyle, ssrInterpolate, ssrIncludeBooleanAttr, ssrRenderSlot, ssrRenderComponent } from "vue/server-renderer";
-<<<<<<<< HEAD:bootstrap/ssr/assets/Index-B2FncfNA.js
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-CdmQtvWT.js";
-========
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DDYRGlkW.js";
->>>>>>>> a820d9d2c7bee34297625b3b9c222b0ddadd99e1:bootstrap/ssr/assets/Index-CewmvhFy.js
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DPXdQxEW.js";
 import { Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";

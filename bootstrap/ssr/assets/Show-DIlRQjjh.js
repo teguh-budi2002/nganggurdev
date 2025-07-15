@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, defineAsyncComponent, ref, watch, unref, withCtx, createVNode, toDisplayString, createTextVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderAttr, ssrRenderSuspense } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DDYRGlkW.js";
+import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-BDvEVXro.js";
 import { Head, Link } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import "axios";

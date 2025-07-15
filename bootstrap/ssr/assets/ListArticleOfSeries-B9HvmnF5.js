@@ -1,6 +1,6 @@
 import { ref, unref, withCtx, createVNode, toDisplayString, createBlock, openBlock, useSSRContext } from "vue";
 import { ssrRenderComponent, ssrInterpolate, ssrRenderAttr, ssrRenderList } from "vue/server-renderer";
-import { a as _sfc_main$1 } from "./AppLayout-DDYRGlkW.js";
+import { a as _sfc_main$1 } from "./AppLayout-BDvEVXro.js";
 import { Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";

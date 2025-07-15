@@ -2,7 +2,7 @@
 <div class="lg:col-span-3 bg-white lg:p-4">
   <div class="">
     <div>
-      <p class="sm:text-4xl text-3xl font-['Inter'] text-slate-700 font-bold sm:text-center text-start capitalize">{{ props.article.title }}</p>
+      <p class="sm:text-4xl text-3xl font-inter text-slate-600 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">{{ props.article.title }}</p>
       <div class="flex sm:justify-center justify-start items-center space-x-4 mt-5">
         <template v-for="category in props.article.categories" :key="category.id">
           <img :src="`/storage/${category.img_category}`" class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">
@@ -17,8 +17,8 @@
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" alt="iamge article">
     </div>
-    <div class="prose max-w-none content text-justify md:mt-5 mt-8 font-['Inter'] font-normal text-slate-600 leading-relaxed" ref="contentRef" v-html="renderedContent">
-    </div>
+    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 tracking-tight" ref="contentRef" v-html="renderedContent">
+    </article>
   </div>
   <div class="tags mt-10">
     <div class="flex items-center space-x-2">
@@ -56,23 +56,31 @@ const generateContentWithIds = () => {
 const enhanceCodeBlocks = () => {
   const blocks = contentRef.value.querySelectorAll('pre');
 
-  blocks.forEach((block) => {
-    if (block.querySelector('.copy-btn')) return;
+  blocks.forEach((pre) => {
+    if (pre.parentElement.classList.contains('code-wrapper')) return;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-wrapper relative';
+
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
 
     const button = document.createElement('button');
     button.innerText = 'Copy';
-    button.className = 'copy-btn absolute top-2 right-2 bg-slate-500 text-white text-xs px-2 py-1 rounded hover:bg-slate-600 transition';
+    button.className =
+      'copy-btn absolute top-2 right-2 bg-slate-500 text-white text-xs px-2 py-1 rounded hover:bg-slate-600 transition';
+
     button.onclick = () => {
-      const code = block.innerText;
+      const code = pre.innerText;
       navigator.clipboard.writeText(code);
       button.innerText = '✅ Copied!';
       setTimeout(() => (button.innerText = 'Copy'), 1000);
     };
 
-    block.classList.add('relative', 'rounded', 'overflow-hidden');
-    block.appendChild(button);
+    wrapper.appendChild(button);
   });
 };
+
 
 
 defineExpose({ contentRef });
@@ -87,19 +95,55 @@ onMounted(async () => {
 <style>
 @reference "tailwindcss";
 
-h1 {
-  @apply text-4xl font-bold mt-4 mb-4;
+.content h1 {
+  @apply text-2xl text-slate-600 font-semibold mt-0 mb-0 tracking-tighter;
 }
 
-h2 {
-  @apply text-3xl font-semibold mt-2 mb-2;
+.content h2 {
+  @apply text-xl text-slate-600 font-semibold mt-0 mb-0;
 }
 
-pre {
+.content p {
+  @apply text-lg my-4 leading-relaxed;
+}
+
+.content pre {
   @apply relative p-4 rounded-md overflow-auto;
 }
 
 .content a {
   @apply text-blue-600 hover:text-blue-500 transition-colors duration-150 no-underline;
+}
+
+.content .blocktext {
+  @apply bg-gray-50 py-1 px-2 rounded-md shadow-sm w-fit;
+}
+
+.content .blocktext {
+  @apply text-rose-600 font-normal;
+}
+
+.content strong {
+  @apply font-semibold text-slate-600;
+}
+
+.content pre {
+  @apply m-0
+}
+code.blocktext::before,
+code.blocktext::after {
+    content: none !important;
+}
+
+.text-red {
+  @apply text-rose-600;
+}
+
+.text-blue {
+  @apply text-blue-600;
+}
+
+.content img {
+  @apply max-w-full h-auto rounded-lg shadow-sm;
 }
 </style>

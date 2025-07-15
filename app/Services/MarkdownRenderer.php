@@ -4,6 +4,7 @@ namespace App\Services;
 
 use League\CommonMark\CommonMarkConverter;
 use Spatie\ShikiPhp\Shiki;
+use Illuminate\Support\Facades\Log;
 
 class MarkdownRenderer
 {
@@ -16,15 +17,16 @@ class MarkdownRenderer
 
         $html = $converter->convert($markdown);
 
-        return preg_replace_callback(
+        $result = preg_replace_callback(
             '/<pre><code class="language-(.+?)">(.*?)<\/code><\/pre>/s',
             function ($matches) {
                 $lang = $matches[1];
                 $code = html_entity_decode($matches[2]);
-
-                return Shiki::highlight($code, $lang, theme: 'github-dark');
+		$highlighted = Shiki::highlight($code, $lang, theme: 'github-dark');
+		return $highlighted;
             },
             $html
         );
+        return $result;
     }
 }

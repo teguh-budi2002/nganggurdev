@@ -753,7 +753,11 @@ createServer(
     page,
     title: (title) => `${title} - ${appName}`,
     render: renderToString,
+<<<<<<< HEAD
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-Dklx6pp7.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-DIlRQjjh.js"), "./Pages/ArticleSeries/ListArticleOfSeries.vue": () => import("./assets/ListArticleOfSeries-B9HvmnF5.js"), "./Pages/Home.vue": () => import("./assets/Home-cZGDLP_d.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-DhKYMcRU.js") })),
+=======
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, /* @__PURE__ */ Object.assign({ "./Pages/Article/Index.vue": () => import("./assets/Index-DDy6gvkV.js"), "./Pages/Article/Show.vue": () => import("./assets/Show-B5DG9Nyq.js"), "./Pages/ArticleSeries/ListArticleOfSeries.vue": () => import("./assets/ListArticleOfSeries-BTdq6x-l.js"), "./Pages/Home.vue": () => import("./assets/Home-CBAVZCKL.js"), "./Pages/Product/Index.vue": () => import("./assets/Index-D680lNpF.js") })),
+>>>>>>> 3b42cf8c9902b9daba6d8ad9aeabf4d5f71156ec
     setup({ App, props, plugin }) {
       var _a;
       const ziggyData = ((_a = page.props) == null ? void 0 : _a.ziggy) || {};

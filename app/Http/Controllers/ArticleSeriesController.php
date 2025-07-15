@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\ArticleSession;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ArticleSeriesController extends Controller
 {
     public function listArticleOfSeries($locale, $slug)
     {
         $suffixLocale = $locale ?? app()->getLocale();
+        $cacheKey = "list-article-series-{$locale}-{$slug}";
 
-        $articleSeries = ArticleSession::with(['articles' => function ($query) use ($suffixLocale) {
-            $query->select('id', 'article_session_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug")
-                ->published()
-                ->latest();
-        }])->select('id', "title_{$suffixLocale} as title", "description_{$suffixLocale} as description", "slug_{$suffixLocale} as slug", "meta_description_{$suffixLocale} as meta_description", 'difficult_level', 'image')
-            ->latest()
-            ->where("slug_{$suffixLocale}", $slug)
-            ->first();
+        $articleSeries = Cache::flexible($cacheKey, [600, 1200], function() use ($slug, $suffixLocale) {
+            return ArticleSession::with(['articles' => function ($query) use ($suffixLocale) {
+                        $query->select('id', 'article_session_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug")
+                            ->published()
+                            ->latest();
+                    }])->select('id', "title_{$suffixLocale} as title", "description_{$suffixLocale} as description", "slug_{$suffixLocale} as slug", "meta_description_{$suffixLocale} as meta_description", 'difficult_level', 'image')
+                        ->latest()
+                        ->where("slug_{$suffixLocale}", $slug)
+                        ->first();
+        });
+         
         return inertia('ArticleSeries/ListArticleOfSeries', [
             'articleSeries' => $articleSeries,
         ]);

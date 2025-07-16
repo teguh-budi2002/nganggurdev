@@ -16,7 +16,7 @@
     "/build/assets/Index-D2GIfgV1.css"
   ],
   "resources/js/Pages/Article/Show.vue": [
-    "/build/assets/Show-CekCeO45.js"
+    "/build/assets/Show-NaPxrVoz.js"
   ],
   "resources/js/Pages/ArticleSeries/ListArticleOfSeries.vue": [
     "/build/assets/ListArticleOfSeries-BTdq6x-l.js"
@@ -30,13 +30,13 @@
     "/build/assets/Index-CXk-qO7B.css"
   ],
   "resources/js/components/Article/SekeletonLoading/ArticleSeries.vue": [
-    "/build/assets/Show-CekCeO45.js"
+    "/build/assets/Show-NaPxrVoz.js"
   ],
   "resources/js/components/Article/SekeletonLoading/Body.vue": [
-    "/build/assets/Show-CekCeO45.js"
+    "/build/assets/Show-NaPxrVoz.js"
   ],
   "resources/js/components/Article/SekeletonLoading/TableOfContent.vue": [
-    "/build/assets/Show-CekCeO45.js"
+    "/build/assets/Show-NaPxrVoz.js"
   ],
   "resources/js/components/Loading.vue": [
     "/build/assets/Index-DDy6gvkV.js",
@@ -62,12 +62,12 @@
     "/build/assets/ArticleSeries-Bg9RCaaM.js"
   ],
   "resources/js/layouts/Article/Body.vue": [
-    "/build/assets/Body-CdOBbQN7.js",
-    "/build/assets/Body-D88GKOgO.css"
+    "/build/assets/Body-Llll7ux3.js",
+    "/build/assets/Body-CWQFM_8k.css"
   ],
   "resources/js/layouts/Article/Body.vue?vue&type=style&index=0&lang.css": [
-    "/build/assets/Body-CdOBbQN7.js",
-    "/build/assets/Body-D88GKOgO.css"
+    "/build/assets/Body-Llll7ux3.js",
+    "/build/assets/Body-CWQFM_8k.css"
   ],
   "resources/js/layouts/Article/TableOfContent.vue": [
     "/build/assets/TableOfContent-CPmI_D2T.js"

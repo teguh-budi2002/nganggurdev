@@ -54,7 +54,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       loader: () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(import("./Body-CdOBbQN7.js"));
+            resolve(import("./Body-Llll7ux3.js"));
           }, 1e3);
         });
       }

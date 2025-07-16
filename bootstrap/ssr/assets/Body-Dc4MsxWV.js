@@ -22,19 +22,22 @@ const _sfc_main = {
     };
     const enhanceCodeBlocks = () => {
       const blocks = contentRef.value.querySelectorAll("pre");
-      blocks.forEach((block) => {
-        if (block.querySelector(".copy-btn")) return;
+      blocks.forEach((pre) => {
+        if (pre.parentElement.classList.contains("code-wrapper")) return;
+        const wrapper = document.createElement("div");
+        wrapper.className = "code-wrapper relative";
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
         const button = document.createElement("button");
         button.innerText = "Copy";
         button.className = "copy-btn absolute top-2 right-2 bg-slate-500 text-white text-xs px-2 py-1 rounded hover:bg-slate-600 transition";
         button.onclick = () => {
-          const code = block.innerText;
+          const code = pre.innerText;
           navigator.clipboard.writeText(code);
           button.innerText = "✅ Copied!";
           setTimeout(() => button.innerText = "Copy", 1e3);
         };
-        block.classList.add("relative", "rounded", "overflow-hidden");
-        block.appendChild(button);
+        wrapper.appendChild(button);
       });
     };
     __expose({ contentRef });
@@ -44,11 +47,11 @@ const _sfc_main = {
       enhanceCodeBlocks();
     });
     return (_ctx, _push, _parent, _attrs) => {
-      _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:col-span-3 bg-white lg:p-4" }, _attrs))}><div class=""><div><p class="sm:text-4xl text-3xl font-[&#39;Inter&#39;] text-slate-700 font-bold sm:text-center text-start capitalize">${ssrInterpolate(props.article.title)}</p><div class="flex sm:justify-center justify-start items-center space-x-4 mt-5"><!--[-->`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ class: "lg:col-span-3 bg-white lg:p-4" }, _attrs))}><div class=""><div><p class="sm:text-4xl text-3xl font-inter text-slate-600 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">${ssrInterpolate(props.article.title)}</p><div class="flex sm:justify-center justify-start items-center space-x-4 mt-5"><!--[-->`);
       ssrRenderList(props.article.categories, (category) => {
         _push(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">`);
       });
-      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full h-full rounded-lg" alt="iamge article"></div><div class="prose max-w-none content text-justify md:mt-5 mt-8 font-[&#39;Inter&#39;] font-normal text-slate-600 leading-relaxed">${renderedContent.value ?? ""}</div></div><div class="tags mt-10"><div class="flex items-center space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
+      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full h-full rounded-lg" alt="iamge article"></div><article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 tracking-tight">${renderedContent.value ?? ""}</article></div><div class="tags mt-10"><div class="flex items-center space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
       ssrRenderList(__props.article.tags, (tag) => {
         _push(`<span class="text-xs font-[&#39;Roboto&#39;] font-semibold bg-rose-500 text-white px-2 py-1 rounded">${ssrInterpolate(tag)}</span>`);
       });

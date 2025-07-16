@@ -1,10 +1,6 @@
 import { mergeProps, useSSRContext, defineAsyncComponent, ref, watch, unref, withCtx, createVNode, toDisplayString, createTextVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderAttr, ssrRenderSuspense } from "vue/server-renderer";
-<<<<<<<< HEAD:bootstrap/ssr/assets/Show-DIlRQjjh.js
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-BDvEVXro.js";
-========
 import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DPXdQxEW.js";
->>>>>>>> 3b42cf8c9902b9daba6d8ad9aeabf4d5f71156ec:bootstrap/ssr/assets/Show-B5DG9Nyq.js
 import { Head, Link } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import "axios";
@@ -58,7 +54,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       loader: () => {
         return new Promise((resolve) => {
           setTimeout(() => {
-            resolve(import("./Body-BmU4KyL7.js"));
+            resolve(import("./Body-Dc4MsxWV.js"));
           }, 1e3);
         });
       }

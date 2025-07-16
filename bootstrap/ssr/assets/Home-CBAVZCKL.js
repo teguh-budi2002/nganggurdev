@@ -2,11 +2,7 @@ import { ref, resolveDirective, mergeProps, unref, withCtx, withDirectives, crea
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderList, ssrRenderComponent, ssrGetDirectiveProps, ssrRenderAttr } from "vue/server-renderer";
 import { Vue3Marquee } from "vue3-marquee";
 import { usePage, Link, Head } from "@inertiajs/vue3";
-<<<<<<<< HEAD:bootstrap/ssr/assets/Home-cZGDLP_d.js
-import { _ as _export_sfc, a as _sfc_main$6 } from "./AppLayout-BDvEVXro.js";
-========
 import { _ as _export_sfc, a as _sfc_main$6 } from "./AppLayout-DPXdQxEW.js";
->>>>>>>> 3b42cf8c9902b9daba6d8ad9aeabf4d5f71156ec:bootstrap/ssr/assets/Home-CBAVZCKL.js
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";
 import "axios";

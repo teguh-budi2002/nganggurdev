@@ -8,12 +8,6 @@
       <meta name="description" :content="$t('seo.meta.description')" />
       <meta name="keywords" :content="$t('seo.meta.keywords')" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" :content="$t('seo.og_title')" />
-      <meta property="og:description" :content="$t('seo.og_description')" />
-      <meta property="og:type" :content="$t('seo.og_type')" />
-      <meta property="og:url" :content="page.props.url" />
-      <meta property="og:image" :content="$t('seo.og_image')" />
-      <meta property="og:site_name" :content="$t('seo.og_site_name')" />
       <meta name="robots" :content="$t('seo.robots')" />
     </Head>
 

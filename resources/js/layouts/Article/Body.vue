@@ -132,8 +132,19 @@ onMounted(async () => {
 .content pre {
   @apply m-0
 }
+
 code.blocktext::before,
 code.blocktext::after {
+    content: none !important;
+}
+
+code.text-red::before,
+code.text-red::after {
+    content: none !important;
+}
+
+code.text-blue::before,
+code.text-blue::after {
     content: none !important;
 }
 

@@ -21,10 +21,12 @@
     </article>
   </div>
   <div class="tags mt-10">
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center flex-wrap space-y-2 space-x-2">
       <p class="font-bold text-slate-600">Tags :</p>
       <template v-for="tag in article.tags">
-        <span class="text-xs font-['Roboto'] font-semibold bg-rose-500 text-white px-2 py-1 rounded">{{ tag }}</span>
+        <div class="text-xs font-['Roboto'] font-semibold bg-rose-500 text-white px-2 py-1 rounded">
+          <p>{{ tag }}</p>
+        </div>
       </template>
     </div>
   </div>

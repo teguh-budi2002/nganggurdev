@@ -422,7 +422,7 @@ const _sfc_main = {
       _push(ssrRenderComponent(unref(Head), null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<link rel="alternate" hreflang="en"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="alternate" hreflang="id"${ssrRenderAttr("href", unref(page).props.base_url + "/id")}${_scopeId}><link rel="alternate" hreflang="x-default"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="canonical"${ssrRenderAttr("href", unref(page).props.url)}${_scopeId}><link rel="shortcut icon" href="/assets/images/logo/logo-no-bg.webp" type="image/x-icon"${_scopeId}><meta name="description"${ssrRenderAttr("content", _ctx.$t("seo.meta.description"))}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", _ctx.$t("seo.meta.keywords"))}${_scopeId}><meta name="viewport" content="width=device-width, initial-scale=1.0"${_scopeId}><meta property="og:title"${ssrRenderAttr("content", _ctx.$t("seo.og_title"))}${_scopeId}><meta property="og:description"${ssrRenderAttr("content", _ctx.$t("seo.og_description"))}${_scopeId}><meta property="og:type"${ssrRenderAttr("content", _ctx.$t("seo.og_type"))}${_scopeId}><meta property="og:url"${ssrRenderAttr("content", unref(page).props.url)}${_scopeId}><meta property="og:image"${ssrRenderAttr("content", _ctx.$t("seo.og_image"))}${_scopeId}><meta property="og:site_name"${ssrRenderAttr("content", _ctx.$t("seo.og_site_name"))}${_scopeId}><meta name="robots"${ssrRenderAttr("content", _ctx.$t("seo.robots"))}${_scopeId}>`);
+            _push2(`<link rel="alternate" hreflang="en"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="alternate" hreflang="id"${ssrRenderAttr("href", unref(page).props.base_url + "/id")}${_scopeId}><link rel="alternate" hreflang="x-default"${ssrRenderAttr("href", unref(page).props.base_url + "/en")}${_scopeId}><link rel="canonical"${ssrRenderAttr("href", unref(page).props.url)}${_scopeId}><link rel="shortcut icon" href="/assets/images/logo/logo-no-bg.webp" type="image/x-icon"${_scopeId}><meta name="description"${ssrRenderAttr("content", _ctx.$t("seo.meta.description"))}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", _ctx.$t("seo.meta.keywords"))}${_scopeId}><meta name="viewport" content="width=device-width, initial-scale=1.0"${_scopeId}><meta name="robots"${ssrRenderAttr("content", _ctx.$t("seo.robots"))}${_scopeId}>`);
           } else {
             return [
               createVNode("link", {
@@ -461,30 +461,6 @@ const _sfc_main = {
                 name: "viewport",
                 content: "width=device-width, initial-scale=1.0"
               }),
-              createVNode("meta", {
-                property: "og:title",
-                content: _ctx.$t("seo.og_title")
-              }, null, 8, ["content"]),
-              createVNode("meta", {
-                property: "og:description",
-                content: _ctx.$t("seo.og_description")
-              }, null, 8, ["content"]),
-              createVNode("meta", {
-                property: "og:type",
-                content: _ctx.$t("seo.og_type")
-              }, null, 8, ["content"]),
-              createVNode("meta", {
-                property: "og:url",
-                content: unref(page).props.url
-              }, null, 8, ["content"]),
-              createVNode("meta", {
-                property: "og:image",
-                content: _ctx.$t("seo.og_image")
-              }, null, 8, ["content"]),
-              createVNode("meta", {
-                property: "og:site_name",
-                content: _ctx.$t("seo.og_site_name")
-              }, null, 8, ["content"]),
               createVNode("meta", {
                 name: "robots",
                 content: _ctx.$t("seo.robots")

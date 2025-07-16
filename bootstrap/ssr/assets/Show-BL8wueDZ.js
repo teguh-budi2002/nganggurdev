@@ -1,7 +1,7 @@
 import { mergeProps, useSSRContext, defineAsyncComponent, ref, watch, unref, withCtx, createVNode, toDisplayString, createTextVNode } from "vue";
 import { ssrRenderAttrs, ssrInterpolate, ssrRenderComponent, ssrRenderAttr, ssrRenderSuspense } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DPXdQxEW.js";
-import { Head, Link } from "@inertiajs/vue3";
+import { _ as _export_sfc, a as _sfc_main$4 } from "./AppLayout-DoaeSKnu.js";
+import { usePage, Head, Link } from "@inertiajs/vue3";
 import "laravel-vue-i18n";
 import "axios";
 import "@lottiefiles/dotlottie-vue";
@@ -50,6 +50,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
   },
   setup(__props) {
     const props = __props;
+    const page = usePage();
     const BodyArticle = defineAsyncComponent({
       loader: () => {
         return new Promise((resolve) => {
@@ -89,7 +90,7 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
       _push(ssrRenderComponent(unref(Head), null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(`<title${_scopeId}>${ssrInterpolate(props.article.title)}</title><meta name="description"${ssrRenderAttr("content", props.article.meta_description)}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", props.article.meta_keyword)}${_scopeId}>`);
+            _push2(`<title${_scopeId}>${ssrInterpolate(props.article.title)}</title><meta name="description"${ssrRenderAttr("content", props.article.meta_description)}${_scopeId}><meta name="keywords"${ssrRenderAttr("content", props.article.meta_keyword)}${_scopeId}><meta property="og:image"${ssrRenderAttr("content", `/storage/${props.article.image}`)}${_scopeId}><meta property="og:title"${ssrRenderAttr("content", props.article.title)}${_scopeId}><meta property="og:description"${ssrRenderAttr("content", props.article.meta_description)}${_scopeId}><meta property="og:type"${ssrRenderAttr("content", _ctx.$t("seo.og_type"))}${_scopeId}><meta property="og:url"${ssrRenderAttr("content", unref(page).props.url)}${_scopeId}><meta property="og:site_name"${ssrRenderAttr("content", _ctx.$t("seo.og_site_name"))}${_scopeId}>`);
           } else {
             return [
               createVNode("title", null, toDisplayString(props.article.title), 1),
@@ -100,6 +101,30 @@ const _sfc_main = /* @__PURE__ */ Object.assign({
               createVNode("meta", {
                 name: "keywords",
                 content: props.article.meta_keyword
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:image",
+                content: `/storage/${props.article.image}`
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:title",
+                content: props.article.title
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:description",
+                content: props.article.meta_description
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:type",
+                content: _ctx.$t("seo.og_type")
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:url",
+                content: unref(page).props.url
+              }, null, 8, ["content"]),
+              createVNode("meta", {
+                property: "og:site_name",
+                content: _ctx.$t("seo.og_site_name")
               }, null, 8, ["content"])
             ];
           }

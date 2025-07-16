@@ -51,9 +51,9 @@ const _sfc_main = {
       ssrRenderList(props.article.categories, (category) => {
         _push(`<img${ssrRenderAttr("src", `/storage/${category.img_category}`)} class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">`);
       });
-      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full h-full rounded-lg" alt="iamge article"></div><article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 tracking-tight">${renderedContent.value ?? ""}</article></div><div class="tags mt-10"><div class="flex items-center space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
+      _push(`<!--]--></div></div><div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4"><p class="text-sm font-[&#39;Roboto&#39;] font-semibold text-slate-600">${ssrInterpolate(props.article.author.name)}</p><p>-</p><p class="text-sm font-[&#39;Roboto&#39;] font-light">${ssrInterpolate(props.article.published_at)}</p></div><div class="image_article mt-5 mb-5"><img${ssrRenderAttr("src", `/storage/${__props.article.image}`)} class="w-full h-full rounded-lg" alt="iamge article"></div><article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 tracking-tight">${renderedContent.value ?? ""}</article></div><div class="tags mt-10"><div class="flex items-center flex-wrap space-y-2 space-x-2"><p class="font-bold text-slate-600">Tags :</p><!--[-->`);
       ssrRenderList(__props.article.tags, (tag) => {
-        _push(`<span class="text-xs font-[&#39;Roboto&#39;] font-semibold bg-rose-500 text-white px-2 py-1 rounded">${ssrInterpolate(tag)}</span>`);
+        _push(`<div class="text-xs font-[&#39;Roboto&#39;] font-semibold bg-rose-500 text-white px-2 py-1 rounded"><p>${ssrInterpolate(tag)}</p></div>`);
       });
       _push(`<!--]--></div></div></div>`);
     };

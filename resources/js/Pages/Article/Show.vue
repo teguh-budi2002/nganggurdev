@@ -3,6 +3,12 @@
     <title>{{ props.article.title }}</title>
     <meta name="description" :content="props.article.meta_description" />
     <meta name="keywords" :content="props.article.meta_keyword" />
+    <meta property="og:image" :content="`/storage/${props.article.image}`" />
+    <meta property="og:title" :content="props.article.title" />
+    <meta property="og:description" :content="props.article.meta_description" />
+    <meta property="og:type" :content="$t('seo.og_type')" />
+    <meta property="og:url" :content="page.props.url" />
+    <meta property="og:site_name" :content="$t('seo.og_site_name')" />
   </Head>
   <div class="lg:mt-32 mt-20 h-full min-h-screen w-full bg-white">
     <div class="flex flex-col items-center justify-center">
@@ -84,7 +90,7 @@
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue';
 import { defineProps, defineAsyncComponent, ref, watch } from 'vue';
-import { Link, Head } from '@inertiajs/vue3';
+import { Link, Head, usePage } from '@inertiajs/vue3';
 import BodyArticleSkeleton from '@/components/Article/SekeletonLoading/Body.vue';
 import TableOfContentSekeleton from '@/components/Article/SekeletonLoading/TableOfContent.vue';
 import ArticleSeriesSekeleton from '@/components/Article/SekeletonLoading/ArticleSeries.vue';
@@ -98,6 +104,7 @@ const props = defineProps({
   articleSession: Object,
   locale: String,
 });
+const page = usePage();
 
 const BodyArticle = defineAsyncComponent({
   loader: () => {

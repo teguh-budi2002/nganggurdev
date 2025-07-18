@@ -48,37 +48,39 @@
       </div>
     </nav>
     <!-- Sidebar Mobile -->
-    <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 z-999" v-show="openSidebar">
-      <div class="flex items-center justify-between">
-        <button @click="openSidebar = false" class="">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </button>
-        <div class="flex items-center space-x-4">
-        <div class="flex items-center space-x-2 cursor-pointer" 
-          @click="openedSearchModal">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-          <div class="shadow-lg md:block hidden">
-            <div class="p-1.5 bg-rose-500 rounded-md shadow-md">
-              <p class="font-['Bebas_Neue'] text-xs text-white">Ctrl + K</p>
+    <Transition name="slide-fade-up" mode="out-in">
+      <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 z-999" v-show="openSidebar">
+        <div class="flex items-center justify-between">
+          <button @click="openSidebar = false" class="">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2 cursor-pointer" 
+            @click="openedSearchModal">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+            <div class="shadow-lg md:block hidden">
+              <div class="p-1.5 bg-rose-500 rounded-md shadow-md">
+                <p class="font-['Bebas_Neue'] text-xs text-white">Ctrl + K</p>
+              </div>
+            </div>
+          </div>
+          <div class="cursor-pointer">
+              <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country">
+              <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
             </div>
           </div>
         </div>
-        <div class="cursor-pointer">
-            <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country">
-            <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
-          </div>
+        <div class="w-full h-full flex flex-col items-center space-y-8 mt-12">
+          <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold text-slate-600 hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.1') }}</Link>
+          <Link :href="route('articles.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.2') }}</Link>
+          <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.5') }}</Link>
         </div>
       </div>
-      <div class="w-full h-full flex flex-col items-center space-y-8 mt-12">
-        <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold text-slate-600 hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.1') }}</Link>
-        <Link :href="route('articles.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.2') }}</Link>
-        <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.5') }}</Link>
-      </div>
-    </div>
+    </Transition>
     <Teleport to="body">
       <div class="search-modal" v-if="openSearchModal" @click.self="openSearchModal = false" @keydown.esc="openSearchModal = false">
         <div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40"></div>
@@ -310,6 +312,7 @@ onMounted(() => {
   transform: translateY(-100%);
 }
 
+/* Slide Fade */
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition: all 0.3s ease;
@@ -326,4 +329,32 @@ onMounted(() => {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Slide Fade Up Animation */
+.slide-fade-up-enter-active,
+.slide-fade-up-leave-active {
+  transition: all 0.4s ease-in-out;
+}
+
+.slide-fade-up-enter-from {
+  opacity: 0.8;
+  transform: translateY(-100%);
+}
+
+.slide-fade-up-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fade-up-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-fade-up-leave-to {
+  opacity: 0.8;
+  transform: translateY(-100%);
+}
+
+
 </style>

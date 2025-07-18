@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+    <loc>https://nganggurdev.com/en</loc>
+    <lastmod>2025-07-16T06:27:37+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+            </url>
+    <url>
+    <loc>https://nganggurdev.com/en/articles</loc>
+    <lastmod>2025-07-16T06:27:37+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://nganggurdev.com/en/shop</loc>
+    <lastmod>2025-07-16T06:27:37+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>https://nganggurdev.com/en/articles/learn-html-for-beginners-1-the-foundation-of-every-website</loc>
+    <lastmod>2025-07-15T18:03:28+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>https://nganggurdev.com/en/articles/learn-html-for-beginners-2-what-are-html-tags-elements-and-attributes</loc>
+    <lastmod>2025-07-16T04:59:29+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+            </url>
+</urlset>

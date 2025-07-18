@@ -15,14 +15,14 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', 'dashboard-admin/*',],
+    'paths' => ['*'],
 
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'https://nganggurdev.com',
         'https://www.nganggurdev.com',
-    ],
+	'https://nganggurdev.com'
+     ],
 
     'allowed_origins_patterns' => [],
 
@@ -32,6 +32,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true,
+    'supports_credentials' => false,
 
 ];

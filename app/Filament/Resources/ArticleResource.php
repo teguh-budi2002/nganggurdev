@@ -17,6 +17,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,6 +28,7 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ArticleResource extends Resource
@@ -171,15 +173,6 @@ class ArticleResource extends Resource
                     ->default('No')
                     ->required()
                     ->columnSpanFull(),
-                Select::make('status')
-                    ->label('Status Publication')
-                    ->options([
-                        'published' => 'Published',
-                        'draft' => 'Draft',
-                    ])
-                    ->default('draft')
-                    ->required()
-                    ->columnSpanFull(),
             ]);
     }
 
@@ -232,6 +225,7 @@ class ArticleResource extends Resource
                 TextColumn::make('published_by')
                     ->label('Published By')
                     ->searchable()
+                    ->default('-')
                     ->sortable(),
             ])
             ->filters([
@@ -250,6 +244,7 @@ class ArticleResource extends Resource
             ])
             ->actions([
                 ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make()->color('info'),
                     Tables\Actions\DeleteAction::make(),
                     Tables\Actions\ForceDeleteAction::make(),
@@ -291,6 +286,7 @@ class ArticleResource extends Resource
             'index' => Pages\ListArticles::route('/'),
             'create' => Pages\CreateArticle::route('/create'),
             'edit' => Pages\EditArticle::route('/{record}/edit'),
+            'view' => Pages\ViewArticle::route('/{record}'),
         ];
     }
 

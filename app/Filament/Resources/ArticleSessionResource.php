@@ -51,7 +51,7 @@ class ArticleSessionResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->autocomplete('off')
-                        ->live(500)
+                        ->live(onBlur: true)
                         ->afterStateUpdated( fn ($state, callable $set) => 
                             $set('slug_en', Str::slug($state))
                         ),
@@ -61,7 +61,7 @@ class ArticleSessionResource extends Resource
                         ->required()
                         ->maxLength(255)
                         ->autocomplete('off')
-                        ->live(500)
+                        ->live(onBlur: true)
                         ->afterStateUpdated( fn ($state, callable $set) => 
                             $set('slug_id', Str::slug($state))
                         ),

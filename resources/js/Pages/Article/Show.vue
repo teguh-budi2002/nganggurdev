@@ -3,9 +3,9 @@
     <title>{{ props.article.title }}</title>
     <meta name="description" :content="props.article.meta_description" />
     <meta name="keywords" :content="props.article.meta_keyword" />
-    <meta property="og:image" :content="`/storage/${props.article.image}`" />
-    <meta property="og:title" :content="props.article.title" />
-    <meta property="og:description" :content="props.article.meta_description" />
+    <meta property="og:image" data-name-meta="image" :content="`${page.props.base_url}/storage/${props.article.image}`" />
+    <meta property="og:title" :data-name-title="props.article.title" />
+    <meta property="og:description" :data-name-meta="props.article.meta_description" />
     <meta property="og:type" :content="$t('seo.og_type')" />
     <meta property="og:url" :content="page.props.url" />
     <meta property="og:site_name" :content="$t('seo.og_site_name')" />

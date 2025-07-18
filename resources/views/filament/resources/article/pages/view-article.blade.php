@@ -92,6 +92,7 @@
     <div class="w-full">
         <div class="p-6">
             <p class="text-3xl font-bold text-blue-600">{{ $this->getData()['stats']['article']['title_en'] }}</p>
+            <img src="{{ asset('/storage/' . $this->getData()['stats']['article']['image']) }}" class="mt-3 rounded-lg" alt="image article">
             <article class="content prose prose-neutral max-w-none content font-light text-white tracking-tight">{!! $this->getData()['stats']['article']['content_en_html'] !!}</article>
         </div>
     </div>

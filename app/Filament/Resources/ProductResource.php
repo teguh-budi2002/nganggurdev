@@ -53,7 +53,7 @@ class ProductResource extends Resource
                     TextInput::make('title')
                         ->label('Product Title')
                         ->required()
-                        ->live(debounce: 500)
+                        ->live(onBlur: true)
                         ->afterStateUpdated(fn ($state, callable $set) =>
                             $set('slug', Str::slug($state))
                         ),

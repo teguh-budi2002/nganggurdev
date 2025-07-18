@@ -65,14 +65,14 @@ class ArticleResource extends Resource
                         TextInput::make('title_en')
                             ->label('Article Title (English)')
                             ->required()
-                            ->live(debounce: 500)
+                            ->live(onBlur: true)
                             ->afterStateUpdated(fn ($state, callable $set) =>
                                 $set('slug_en', Str::slug($state))
                             ),
                         TextInput::make('title_id')
                             ->label('Article Title (Indonesian)')
                             ->required()
-                            ->live(debounce: 500)
+                            ->live(onBlur: true)
                             ->afterStateUpdated(fn ($state, callable $set) =>
                                 $set('slug_id', Str::slug($state))
                             ),

@@ -7,16 +7,16 @@
     <meta property="og:image" :content="`/storage/${articleSeries.image}`">
   </Head>
 <div class="w-full h-full min-h-screen overflow-x-hidden">
-  <div class="w-full lg:h-64 h-190 lg:bg-rose-600 bg-rose-100 relative">
-    <div class="w-full h-full absolute transform lg:translate-x-28 lg:translate-y-1/2 translate-y-1/7">
+  <div class="w-full lg:h-64 h-260 lg:bg-rose-600 bg-rose-100 relative">
+    <div class="w-full h-full absolute transform lg:translate-x-28 lg:translate-y-1/2 translate-y-1/10">
       <div class="flex lg:flex-row flex-col items-start space-x-6 ">
         <div class="lg:w-fit w-full">
-          <img :src="`/storage/${articleSeries.image}`" class="w-80 h-auto border-4 border-white rounded-xl shadow-xl mx-auto" alt="article series image">
+          <img :src="`/storage/${articleSeries.image}`" class="lg:w-80 w-90 lg:h-58 h-full object-cover object-top border-4 border-white rounded-xl shadow-xl mx-auto" alt="article series image">
         </div>
         <div class="lg:w-2/3 w-10/12 flex flex-col lg:mt-0 mt-8 lg:mx-0 mx-6">
           <div class="lg:space-y-4 space-y-2">
             <p class="text-3xl font-['Roboto'] font-extrabold lg:text-white text-slate-600 tracking-wide">{{ articleSeries.title }}</p>
-            <!-- Max 280 Chars -->
+            <!-- Max 202 Chars -->
             <p class="text-sm font-['Roboto'] first-letter:uppercase lg:text-gray-50 text-slate-600">{{ articleSeries.description }}</p>
           </div>
           <div class="lg:mt-12 mt-5 flex items-center space-x-4">
@@ -41,7 +41,7 @@
       </div>
     </div>
   </div>
-  <div class="list_related_article w-full h-full flex justify-center lg:mt-72 mt-10">
+  <div class="list_related_article w-full h-full flex justify-center lg:mt-40 mt-10">
     <div class="lg:w-3/4 w-11/12 p-4 px-4 bg-rose-300 rounded-xl lg:shadow-xl shadow">
       <div class="tab_header cursor-pointer flex items-center space-x-2 bg-white w-fit p-2 border-b-4 border-rose-600 rounded-t-lg">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

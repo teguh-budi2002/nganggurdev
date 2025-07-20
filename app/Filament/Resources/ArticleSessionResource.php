@@ -49,7 +49,7 @@ class ArticleSessionResource extends Resource
                         ->label('Article Session or Series Title (English)')
                         ->placeholder('Ex: Tutorial Laravel with Filament, etc.')
                         ->required()
-                        ->maxLength(255)
+                        ->maxLength(42)
                         ->autocomplete('off')
                         ->live(onBlur: true)
                         ->afterStateUpdated( fn ($state, callable $set) => 
@@ -59,7 +59,7 @@ class ArticleSessionResource extends Resource
                         ->label('Article Session or Series Title (Indonesian)')
                         ->placeholder('Ex: Tutorial Laravel with Filament, etc.')
                         ->required()
-                        ->maxLength(255)
+                        ->maxLength(42)
                         ->autocomplete('off')
                         ->live(onBlur: true)
                         ->afterStateUpdated( fn ($state, callable $set) => 
@@ -87,13 +87,13 @@ class ArticleSessionResource extends Resource
                         ->label('Article Session Description (English)')
                         ->placeholder('Ex: This article series will cover the basics of Laravel with Filament.')
                         ->minLength(165)
-                        ->maxLength(280)
+                        ->maxLength(202)
                         ->rows(3),
                     Textarea::make('description_id')
                         ->label('Article Session Description (Indonesian)')
                         ->placeholder('Ex: Seri artikel ini akan membahas dasar-dasar Laravel dengan Filament.')
                         ->minLength(165)
-                        ->maxLength(280)
+                        ->maxLength(202)
                         ->rows(3),
                 ]),
                 Grid::make([

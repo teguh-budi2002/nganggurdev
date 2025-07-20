@@ -9,9 +9,6 @@
     <meta property="og:type" :content="$t('seo.og_type')" />
     <meta property="og:url" :content="page.props.url" />
     <meta property="og:site_name" :content="$t('seo.og_site_name')" />
-    <!-- Adsense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107901415702789"
-     crossorigin="anonymous"></script>
   </Head>
   <div class="lg:mt-32 mt-20 h-full min-h-screen w-full bg-white">
     <div class="flex flex-col items-center justify-center">

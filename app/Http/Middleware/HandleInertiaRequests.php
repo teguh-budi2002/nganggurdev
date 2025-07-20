@@ -41,7 +41,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'locale' => $locale,
             'url' => url()->current(),
-            'base_url' => env('APP_URL', 'http://localhost'),
+            'base_url' => env('APP_URL', 'https://www.nganggurdev.com'),
             'ziggy' => fn () => array_merge((new Ziggy)->toArray(), [
                 'location' => $request->url(),
             ]),

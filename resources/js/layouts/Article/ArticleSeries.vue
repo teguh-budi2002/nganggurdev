@@ -15,7 +15,7 @@
           'bg-neutral-100': !isArticleSession(session.slug)
         }">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-            class="size-5" 
+            class="size-5 sm:block hidden" 
             :class="{
               'text-white': isArticleSession(session.slug),
               'text-rose-500': !isArticleSession(session.slug)

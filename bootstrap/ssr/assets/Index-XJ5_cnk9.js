@@ -1,6 +1,6 @@
 import { mergeProps, useSSRContext, ref, resolveDirective, unref, withCtx, withDirectives, createVNode, createTextVNode, toDisplayString } from "vue";
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderList, ssrGetDirectiveProps, ssrIncludeBooleanAttr, ssrRenderClass, ssrRenderAttr } from "vue/server-renderer";
-import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-DoaeSKnu.js";
+import { _ as _export_sfc, a as _sfc_main$2 } from "./AppLayout-CsToDCjU.js";
 import { usePage, Head, Link } from "@inertiajs/vue3";
 import { t as truncate } from "./truncate-BpanwDEh.js";
 import "laravel-vue-i18n";

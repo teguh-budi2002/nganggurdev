@@ -1,5 +1,9 @@
 <template>
-  <Head title="List Articles" />
+  <Head>
+    <title>List Articles</title>
+    <meta name="description" :content="$t('seo.meta.articles.description')" />
+    <meta name="keywords" :content="$t('seo.meta.articles.keywords')" />
+  </Head>
   <div class="lg:mt-20 mt-14 h-full min-h-screen w-full">
     <div class="flex flex-col justify-center items-center">
       <div class="lg:w-10/12 w-11/12 h-full lg:mt-20 mt-10 border-b-2 border-rose-100 lg:pb-10 pb-4">

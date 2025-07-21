@@ -1,6 +1,8 @@
 {
   "seo.meta.description": "Belajar pemrograman gratis dengan NganggurDev dalam bahasa Indonesia dan Inggris. Mulai sekarang!",
+  "seo.meta.articles.description": "Temukan berbagai tutorial programming terbaru dan lengkap untuk membantu Anda belajar coding dengan mudah. Mulai dari HTML, CSS, JavaScript, PHP, Laravel, hingga teknologi modern lainnya.",
   "seo.meta.keywords": "belajar pemrograman, belajar coding, bahasa Indonesia, bahasa inggris, Laravel, CSS, HTML, Tailwind, Vue, web development, coding pemula, NganggurDev",
+  "seo.meta.articles.keywords": "tutorial pemrograman, belajar coding, web development, panduan coding, HTML, CSS, JavaScript, PHP, Laravel, Vue, tutorial developer",
   "seo.og_title": "Belajar Pemrograman dengan NganggurDev | Tutorial Coding Gratis",
   "seo.og_description": "Temukan tutorial coding gratis dalam bahasa Inggris dan Indonesia di NganggurDev. Mulai belajar hari ini!",
   "seo.og_image": "https://nganggurdev.com/assets/images/og-image.png",

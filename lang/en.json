@@ -1,6 +1,8 @@
 {
   "seo.meta.description": "Learn programming with NganggurDev's free coding tutorials in English and Indonesian. Start your coding journey now!",
+  "seo.meta.articles.description": "Discover the latest and most comprehensive programming tutorials to help you learn coding easily. Covers HTML, CSS, JavaScript, PHP, Laravel, and other modern technologies!",
   "seo.meta.keywords": "learn programming, learn coding, English, Indonesian, Laravel, CSS, HTML, Tailwind, Vue, web development, beginner coding, NganggurDev",
+  "seo.meta.articles.keywords": "programming tutorials, learn to code, web development, coding guide, HTML, CSS, JavaScript, PHP, Laravel, Vue, developer tutorials",
   "seo.og_title": "Learn Programming with NganggurDev | Free Coding Tutorials",
   "seo.og_description": "Discover free coding tutorials in English and Indonesian at NganggurDev. Start learning today!",
   "seo.og_image": "https://nganggurdev.com/assets/images/og-image.png",

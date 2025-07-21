@@ -3,7 +3,7 @@
       <link rel="alternate" hreflang="en" :href="page.props.base_url + '/en'" />
       <link rel="alternate" hreflang="id" :href="page.props.base_url + '/id'" />
       <link rel="alternate" hreflang="x-default" :href="page.props.base_url + '/en'" />
-      <link rel="canonical" :href="page.props.url" />
+      <link rel="canonical" :href="page.props.base_url" />
       <link rel="shortcut icon" href="/assets/images/logo/logo-no-bg.webp" type="image/x-icon">
       <meta name="description" :content="$t('seo.meta.description')" />
       <meta name="keywords" :content="$t('seo.meta.keywords')" />

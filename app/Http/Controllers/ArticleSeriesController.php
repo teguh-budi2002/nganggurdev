@@ -17,7 +17,7 @@ class ArticleSeriesController extends Controller
             return ArticleSession::with(['articles' => function ($query) use ($suffixLocale) {
                         $query->select('id', 'article_session_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug")
                             ->published()
-                            ->latest();
+                            ->oldest();
                     }])->select('id', "title_{$suffixLocale} as title", "description_{$suffixLocale} as description", "slug_{$suffixLocale} as slug", "meta_description_{$suffixLocale} as meta_description", 'difficult_level', 'image')
                         ->latest()
                         ->where("slug_{$suffixLocale}", $slug)

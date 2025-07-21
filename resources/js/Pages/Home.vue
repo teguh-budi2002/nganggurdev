@@ -1,5 +1,9 @@
 <template>
-<Head :title="'Home'" />
+<Head>
+  <title>Home</title>
+  <meta name="description" :content="$t('seo.meta.description')" />
+  <meta name="keywords" :content="$t('seo.meta.keywords')" />
+</Head>
 <div>
   <div class="landing_page lg:mt-20 h-full w-full">
     <div class="grid lg:grid-cols-2 grid-cols-1 lg:mt-20 mt-10 bg-rose-100">

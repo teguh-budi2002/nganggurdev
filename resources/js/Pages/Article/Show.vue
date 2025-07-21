@@ -1,6 +1,7 @@
 <template>
   <Head>
     <title>{{ props.article.title }}</title>
+    <meta name="author" content="Nganggur Dev" />
     <meta name="description" :content="props.article.meta_description" />
     <meta name="keywords" :content="props.article.meta_keyword" />
     <meta property="og:image" data-name-meta="image" :content="`${page.props.base_url}/storage/${props.article.image}`" />

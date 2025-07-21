@@ -1,7 +1,7 @@
 <template>
 <section class="w-full h-full">
   <div class="flex justify-center">
-    <div class="w-11/12 h-full md:mt-32 mt-10">
+    <div class="w-11/12 h-full md:mt-20 mt-10">
       <div class="flex justify-center">
         <div class="md:w-3/4 w-full" 
           data-aos="fade-up"

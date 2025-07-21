@@ -20,11 +20,12 @@ class ArticleController extends Controller
         $filterByCategory = $request->query('categoryName');
         $searchQuery = $request->query('searchQuery');
         $suffixLocale = $locale ?? app()->getLocale();
+        $cacheKeyArticle = "list-articles_{$locale}";
+        $cacheKeyCategories = "list-categories_{$locale}";
         $perPage = 9;
         $query = Article::with('author:id,name')
-            ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", 'image', 'published_at', 'status')
-            ->where('status', 'published')
-            ->whereNotNull('published_at');
+                        ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", 'image', 'published_at', 'status')
+                        ->published();
 
         if (filled($filterByCategory)) {
             $query->whereHas('categories', function ($query) use ($filterByCategory) {
@@ -36,9 +37,14 @@ class ArticleController extends Controller
             $query->filterBySearchQuery($searchQuery, $suffixLocale);
         } 
 
-        $articles = $query->latest('published_at')->simplePaginate($perPage);
+        $articles = Cache::flexible($cacheKeyArticle, [600, 1200], function() use ($query, $perPage) {
+            return $query->latest('published_at')->simplePaginate($perPage);
+        });
 
-        $categories = CategoryArticle::select('id', 'title', 'img_category')->get();
+        // 1 hour soft TTL | 1 day hard TTL
+        $categories = Cache::flexible($cacheKeyCategories, [3600, 86400], function() {
+            return CategoryArticle::select('id', 'title', 'img_category')->get();
+        });
         
         return Inertia::render('Article/Index', [
             'articles' => $articles,

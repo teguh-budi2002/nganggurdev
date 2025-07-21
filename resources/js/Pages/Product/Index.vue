@@ -1,8 +1,8 @@
 <template>
   <Head>
     <title>Our Products</title>
-    <meta name="description" content="Discover our range of delicious snacks and innovative applications.">
-    <meta name="keywords" content="snacks, applications, delicious, products">
+    <meta name="description" content="Shop for a variety of exciting products including spicy basreng snacks, trendy treats, and useful digital apps.">
+    <meta name="keywords" content="snacks, applications, delicious, products, basreng, digital apps">
   </Head>
   <div class="lg:mt-20 mt-2 h-full min-h-screen w-full">
     <div class="flex flex-col justify-center items-center">

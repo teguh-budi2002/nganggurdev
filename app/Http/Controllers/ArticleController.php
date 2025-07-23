@@ -56,8 +56,9 @@ class ArticleController extends Controller
     {
         if (in_array($locale, ['en', 'id'])) {
             $suffixLocale = $locale ?? app()->getLocale();
-            $cacheKey = "show-article_{$locale}_{$slug}";
-            $article = Cache::flexible($cacheKey, [300, 600], function() use ($slug, $suffixLocale) {
+            $cacheKeyShowArticle = "show-article_{$locale}_{$slug}";
+            $cacheKeyArticleSession = "article-session_{$locale}_{$slug}";
+            $article = Cache::flexible($cacheKeyShowArticle, [300, 600], function() use ($slug, $suffixLocale) {
                 return Article::with(['author:id,name', 'categories:id,img_category'])
                         ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale}_html as content", 'image', 'tags', "meta_description_{$suffixLocale} as meta_description", "meta_keyword_{$suffixLocale} as meta_keyword", 'published_at', 'status')
                         ->where("slug_{$suffixLocale}", $slug)
@@ -65,9 +66,15 @@ class ArticleController extends Controller
                         ->whereNotNull('published_at')
                         ->first();
             }); 
-            $articleSession = ArticleSession::with(['articles' => function ($query) use ($suffixLocale) {
-                $query->select('id', 'user_id', "article_session_id", "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug");
-            }])->first();
+            $articleSession = Cache::flexible($cacheKeyArticleSession, [300, 600], function() use($slug, $suffixLocale) {
+                return ArticleSession::whereHas('articles', function ($query) use ($slug, $suffixLocale) {
+                            $query->where("slug_{$suffixLocale}", $slug);
+                        })->with([
+                            'articles' => function ($query) use ($suffixLocale) {
+                                $query->select('id', 'user_id', 'article_session_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug");
+                            }
+                        ])->first();
+            });
         }
         
         return Inertia::render('Article/Show', [

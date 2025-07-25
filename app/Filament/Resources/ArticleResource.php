@@ -236,6 +236,11 @@ class ArticleResource extends Resource
                         'published' => 'Published',
                         'draft' => 'Draft',
                     ]),
+                SelectFilter::make('categories.title')
+                    ->label('Categories')
+                    ->relationship('categories', 'title')
+                    ->searchable()
+                    ->options(Article::with('categories')->get()->pluck('categories.title', 'category_id')->toArray()),
                 SelectFilter::make('articleSession.title_en')
                     ->label('Article Session or Series')
                     ->relationship('articleSession', 'title_en')

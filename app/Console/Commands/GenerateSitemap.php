@@ -67,7 +67,7 @@ class GenerateSitemap extends Command
         // Articles
         Article::select("id", "slug_{$locale} as slug", 'updated_at')->chunk(100, function ($articles) use ($sitemap, $locale) {
             foreach ($articles as $article) {
-                $url = url("/{$locale}/articles/{$article->slug}");
+                $url = url("/{$locale}/article/{$article->slug}");
                 $this->info("Adding article: {$url}");
         
                 $sitemap->add(Url::create($url)

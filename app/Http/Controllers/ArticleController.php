@@ -20,7 +20,6 @@ class ArticleController extends Controller
         $filterByCategory = $request->query('categoryName');
         $searchQuery = $request->query('searchQuery');
         $suffixLocale = $locale ?? app()->getLocale();
-        $cacheKeyArticle = "list-articles_{$locale}";
         $cacheKeyCategories = "list-categories_{$locale}";
         $perPage = 9;
         $query = Article::with('author:id,name')
@@ -37,9 +36,7 @@ class ArticleController extends Controller
             $query->filterBySearchQuery($searchQuery, $suffixLocale);
         } 
 
-        $articles = Cache::flexible($cacheKeyArticle, [600, 1200], function() use ($query, $perPage) {
-            return $query->latest('published_at')->simplePaginate($perPage);
-        });
+        $articles = $query->latest('published_at')->simplePaginate($perPage);
 
         // 1 hour soft TTL | 1 day hard TTL
         $categories = Cache::flexible($cacheKeyCategories, [3600, 86400], function() {

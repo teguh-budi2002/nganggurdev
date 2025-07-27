@@ -45,6 +45,18 @@
           <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" loading="eager" class="w-5 h-5" alt="flag country">
           <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" loading="eager" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
         </div>
+        <button 
+         type="button" 
+         @click="toggleThemes" 
+         class="p-1 rounded-full cursor-pointer"
+         :class="currentTheme === 'dark' ? 'bg-white' : 'bg-slate-300 '"
+        >
+          <img  
+           :src="currentTheme === 'dark' ? '/assets/images/icon/sun.svg' : '/assets/images/icon/moon.svg'" 
+           class="w-5 h-5"
+           :alt="currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+          >
+        </button>
       </div>
     </nav>
     <!-- Sidebar Mobile -->
@@ -120,7 +132,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick, watch } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue';
 import { Link, router, usePage } from '@inertiajs/vue3'
 import { loadLanguageAsync } from 'laravel-vue-i18n';
 import axios from 'axios';
@@ -139,6 +151,7 @@ const searchQuery = ref('');
 const searchResults = ref([]);
 const isLoading = ref(false);
 const hasSearched = ref(false);
+const currentTheme = ref('light')
 
 const handleNavigation = () => {
   scrollY.value = window.scrollY;
@@ -301,9 +314,53 @@ const ensureFocus = () => {
   });
 }
 
+const getSystemTheme = () => {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+const applyTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme)
+  // document.documentElement.classList.toggle('dark', theme === 'dark')
+  currentTheme.value = theme
+}
+
+const toggleThemes = () => {
+  console.log('Toggle themes');
+  // const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme.value === 'dark' ? 'light' : 'dark';
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme);
+}
+
+const initialLoadTheme = () => {
+  const savedTheme = localStorage.getItem('theme')
+  let initialTheme
+  if (savedTheme) {
+    initialTheme = savedTheme
+  } else {
+    initialTheme = getSystemTheme()
+  }
+  
+  applyTheme(initialTheme)
+  
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  const handleSystemThemeChange = (e) => {
+    if (!localStorage.getItem('theme')) {
+      applyTheme(e.matches ? 'dark' : 'light')
+    }
+  }
+  
+  mediaQuery.addEventListener('change', handleSystemThemeChange)
+  
+  onUnmounted(() => {
+    mediaQuery.removeEventListener('change', handleSystemThemeChange)
+  })
+ }
+
 onMounted(() => {
   window.addEventListener('scroll', handleNavigation);
   window.addEventListener('keydown', handleKeydown);
+  initialLoadTheme();
 })
 </script>
 

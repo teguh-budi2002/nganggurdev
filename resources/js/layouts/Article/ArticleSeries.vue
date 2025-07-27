@@ -1,24 +1,24 @@
 <template>
-<div class="w-full h-fit shadow rounded-md bg-white border border-slate-100 p-4 md:mt-6">
+<div class="w-full h-fit shadow rounded-md bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-600 p-4 md:mt-6">
   <div class="header_table_of_content flex items-center space-x-2">
     <img src="/assets/images/icon/article.svg" alt="article icon" class="w-5 h-5">
-    <p class="font-['Roboto'] font-semibold text-slate-600">{{ $t('article.series') }}</p>
+    <p class="font-['Roboto'] font-semibold text-slate-600 dark:text-slate-100">{{ $t('article.series') }}</p>
   </div>
-  <div class="border-t border-slate-200 pt-3 mt-3"></div>
+  <div class="border-t border-slate-200 dark:border-slate-600 pt-3 mt-3"></div>
   <div class="mt- max-h-48 overflow-auto custom-scroll p-2">
     <div class="flex flex-col space-y-4">
       <template v-for="session in articleSession.articles" :key="session.id">
         <div 
         class="flex items-center space-x-3 shadow p-4 rounded-lg" 
         :class="{
-          'bg-rose-500': isArticleSession(session.slug),
-          'bg-neutral-100': !isArticleSession(session.slug)
+          'bg-rose-500 dark:bg-slate-500': isArticleSession(session.slug),
+          'bg-neutral-100 dark:bg-slate-700': !isArticleSession(session.slug)
         }">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
             class="size-5 sm:block hidden" 
             :class="{
               'text-white': isArticleSession(session.slug),
-              'text-rose-500': !isArticleSession(session.slug)
+              'text-rose-500 dark:text-slate-400': !isArticleSession(session.slug)
             }">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
           </svg>
@@ -27,7 +27,7 @@
             class="text-sm leading-relaxed font-['Roboto'] text-slate-600  transition-colors duration-150" 
             :class="{
               'text-white': isArticleSession(session.slug),
-              'text-slate-600 hover:text-slate-500': !isArticleSession(session.slug)
+              'text-slate-600 hover:text-slate-500 dark:text-slate-400 dark:hover:text-slate-300': !isArticleSession(session.slug)
             }">{{ session.title }}
           </Link>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:col-span-3 bg-white rounded-md lg:p-4">
+  <div class="lg:col-span-3 bg-white dark:bg-slate-700 rounded-md lg:p-4">
     <div class="flex flex-col justify-center items-center space-y-4">
       <div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md"></div>
       <div class="bg-slate-300 w-3/4 h-10 animate-pulse rounded-md"></div>
@@ -29,15 +29,22 @@
       <div class="bg-slate-300 w-10/12 h-10 animate-pulse rounded-md mt-3"></div>
       <div class="bg-slate-300 w-2/3 h-10 animate-pulse rounded-md mt-3"></div>
       <div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div>
-      <div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div>
-      <div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div>
-      <div class="bg-slate-300 w-11/12 h-10 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-11/12 h-40 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-11/12 h-32 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-11/12 h-20 animate-pulse rounded-md mt-3"></div>
     </div>
     <div class="mt-10 flex items-center space-x-2">
       <div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div>
       <div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div>
       <div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div>
       <div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-20 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-16 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-12 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-10 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-16 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-20 h-4 animate-pulse rounded-md mt-3"></div>
+      <div class="bg-slate-300 w-20 h-4 animate-pulse rounded-md mt-3"></div>
     </div>
   </div>
 </template>

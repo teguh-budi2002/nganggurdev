@@ -9,12 +9,12 @@
         v-for="(tab, index) in tabs"
         :key="tab.id"
         :class="[
-          'relative flex items-center gap-2 px-5 py-3 border-0 bg-transparent text-sm font-medium cursor-pointer transition-all duration-200 whitespace-nowrap min-w-fit',
-          'hover:bg-gray-50',
+          'relative flex items-center gap-2 px-5 py-3 border-0 bg-transparent text-sm font-medium cursor-pointer transition-all duration-200 whitespace-nowrap min-w-fit dark:bg-slate-800',
+          'hover:bg-gray-50 dark:hover:bg-slate-600',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           {
-            'text-gray-500': activeTabIndex !== index,
-            'text-rose-500 bg-white border-b-4 border-rose-300 -mb-0.5': activeTabIndex === index,
+            'text-gray-500 dark:text-slate-300': activeTabIndex !== index,
+            'text-rose-500 dark:text-slate-100 bg-white border-b-2 border-rose-300 dark:border-slate-300': activeTabIndex === index,
             'pointer-events-none': loadingTabs.has(tab.id)
           }
         ]"
@@ -28,13 +28,13 @@
       >
         <span>{{ tab.title }}</span>
         <div v-if="loadingTabs.has(tab.id)" class="flex items-center">
-          <div class="w-3.5 h-3.5 border-2 border-gray-200 border-t-rose-600 rounded-full spinner"></div>
+          <div class="w-3.5 h-3.5 border-2 border-gray-200 border-t-rose-600 dark:border-t-slate-400 rounded-full spinner"></div>
         </div>
       </button>
     </div>
 
     <!-- Tab Content -->
-    <div class="bg-white min-h-[200px]">
+    <div class="bg-white dark:bg-slate-900 min-h-[200px]">
       <div
         v-for="(tab, index) in tabs"
         :key="tab.id"
@@ -48,7 +48,7 @@
           v-if="loadingTabs.has(tab.id)" 
           class="flex flex-col items-center justify-center py-15 px-5 text-gray-500"
         >
-          <div class="w-8 h-8 border-3 border-gray-200 border-t-rose-600 rounded-full loading-spinner mb-4"></div>
+          <div class="w-8 h-8 border-3 border-gray-200 border-t-rose-600 dark:border-t-slate-400 rounded-full loading-spinner mb-4"></div>
           <p class="text-sm m-0">{{ tab.loadingText || 'Loading...' }}</p>
         </div>
 

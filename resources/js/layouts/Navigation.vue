@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav 
-      class="fixed top-0 w-full lg:h-20 h-fit py-4 lg:px-10 px-6 flex items-center justify-between transition-all bg-rose-100 duration-500 ease-in-out z-50"
+      class="fixed top-0 w-full lg:h-20 h-fit py-4 lg:px-10 px-6 flex items-center justify-between transition-all bg-rose-100 dark:bg-slate-800 duration-500 ease-in-out z-50"
       :class="{ 'hide-navbar': isNavbarHidden }"
       
     >
@@ -9,34 +9,32 @@
         <img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:block hidden" loading="eager" alt="logo">
         <!-- <div class="lg:block hidden"><p>NganggurDev</p></div> -->
         <div class="space-x-4 lg:block hidden">
-          <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Home', 'text-slate-600' : page.component !== 'Home' }">{{ $t('navigation.section.1') }}</Link>
-          <Link :href="route('articles.index', { locale })" @click="resetState" class=" font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Article/Index', 'text-slate-600' : page.component !== 'Article/Index' }">{{ $t('navigation.section.2') }}</Link>
-          <!-- <Link href="/en" class="text-slate-700 font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out">{{ $t('navigation.section.3') }}</Link>
-          <Link href="/en" class="text-slate-600 font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out">{{ $t('navigation.section.4') }}</Link> -->
-          <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600' : page.component === 'Product/Index', 'text-slate-600' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link>
+          <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Home', 'text-slate-600 dark:text-slate-400' : page.component !== 'Home' }">{{ $t('navigation.section.1') }}</Link>
+          <Link :href="route('articles.index', { locale })" @click="resetState" class=" font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Article/Index', 'text-slate-600 dark:text-slate-400' : page.component !== 'Article/Index' }">{{ $t('navigation.section.2') }}</Link>
+          <Link :href="route('shop', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Product/Index', 'text-slate-600 dark:text-slate-400' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link>
         </div>
         <!-- Button Nav Mobile -->
          <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal" aria-label="Open Sidebar">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 dark:text-slate-100">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
          </button>
          <button @click="openSearchModal = false" class="lg:hidden block cursor-pointer" v-else>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 dark:text-slate-100">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
         <!-- Logo Mobile Display -->
-        <img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:hidden block" loading="eager" alt="logo">
+        <img src="/assets/images/logo/logo-no-bg.webp" class="w-8 h-8 lg:hidden block" :class="{ 'hidden': openSidebar }" loading="eager" alt="logo">
       </div>
-      <div class="flex items-center space-x-4">
-        <div class="flex items-center space-x-2 cursor-pointer" 
+      <div class="flex items-center space-x-3">
+        <div class="flex items-center md:space-x-2 space-x-0 cursor-pointer" 
           @click="openedSearchModal">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600 dark:text-slate-100">
             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
           <div class="shadow-lg md:block hidden">
-            <div class="p-1.5 bg-rose-500 rounded-md shadow-md">
+            <div class="p-1.5 bg-rose-500 dark:bg-slate-500 rounded-md shadow-md">
               <p class="font-['Bebas_Neue'] text-xs text-white">Ctrl + K</p>
             </div>
           </div>
@@ -48,12 +46,11 @@
         <button 
          type="button" 
          @click="toggleThemes" 
-         class="p-1 rounded-full cursor-pointer"
-         :class="currentTheme === 'dark' ? 'bg-white' : 'bg-slate-300 '"
+          class="cursor-pointer"
         >
           <img  
            :src="currentTheme === 'dark' ? '/assets/images/icon/sun.svg' : '/assets/images/icon/moon.svg'" 
-           class="w-5 h-5"
+           class="w-6 h-6"
            :alt="currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
           >
         </button>
@@ -61,41 +58,47 @@
     </nav>
     <!-- Sidebar Mobile -->
     <Transition name="slide-fade-up" mode="out-in">
-      <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 z-999" v-show="openSidebar">
+      <div class="lg:hidden fixed top-0 left-0 w-full h-full min-h-screen py-5 px-6 bg-rose-100 dark:bg-slate-800 z-999" v-show="openSidebar">
         <div class="flex items-center justify-between">
           <button @click="openSidebar = false" class="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 dark:text-slate-100">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>
           <div class="flex items-center space-x-4">
-          <div class="flex items-center space-x-2 cursor-pointer" 
-            @click="openedSearchModal">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-            <div class="shadow-lg md:block hidden">
-              <div class="p-1.5 bg-rose-500 rounded-md shadow-md">
-                <p class="font-['Bebas_Neue'] text-xs text-white">Ctrl + K</p>
-              </div>
+            <div class="flex items-center space-x-2 cursor-pointer" 
+              @click="openedSearchModal">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5 text-rose-600 dark:text-slate-100">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
             </div>
-          </div>
-          <div class="cursor-pointer">
-              <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country">
-              <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
+            <div class="cursor-pointer">
+                <img  v-if="locale === 'id'" @click.prevent="switchLanguage('en')" src="/assets/images/icon/indonesian.svg" class="w-5 h-5" alt="flag country">
+                <img  v-else-if="locale === 'en'" @click.prevent="switchLanguage('id')" src="/assets/images/icon/uk.svg" class="w-5 h-5" alt="flag country">
             </div>
+            <button 
+            type="button" 
+            @click="toggleThemes" 
+              class="cursor-pointer"
+            >
+              <img  
+              :src="currentTheme === 'dark' ? '/assets/images/icon/sun.svg' : '/assets/images/icon/moon.svg'" 
+              class="w-6 h-6"
+              :alt="currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              >
+            </button>
           </div>
         </div>
         <div class="w-full h-full flex flex-col items-center space-y-8 mt-12">
-          <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold text-slate-600 hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.1') }}</Link>
-          <Link :href="route('articles.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.2') }}</Link>
-          <Link :href="route('products.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 font-semibold hover:text-amber-600 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.5') }}</Link>
+          <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.1') }}</Link>
+          <Link :href="route('articles.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 dark:text-slate-300 font-semibold hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.2') }}</Link>
+          <Link :href="route('shop', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 dark:text-slate-300 font-semibold hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.5') }}</Link>
         </div>
       </div>
     </Transition>
     <Teleport to="body">
       <div class="search-modal" v-if="openSearchModal" @click.self="openSearchModal = false" @keydown.esc="openSearchModal = false">
-        <div class="fixed top-0 left-0 w-full h-full bg-rose-100 z-40"></div>
+        <div class="fixed top-0 left-0 w-full h-full bg-rose-100 dark:bg-slate-800 z-40"></div>
         <div class="lg:w-2/4 w-11/12 h-fit p-4 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-lg">
           <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-4 text-slate-600">

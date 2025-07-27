@@ -3,18 +3,18 @@
   <div class="flex items-center justify-center">
     <div class="w-11/12 h-full">
       <div>
-        <p class="md:text-start text-center md:text-5xl text-3xl font-['Bebas_Neue'] font-bold text-slate-600 tracking-wider" v-html="$t('article.featured')"></p>
+        <p class="md:text-start text-center md:text-5xl text-3xl font-['Bebas_Neue'] font-bold text-slate-600 dark:text-slate-500 tracking-wider" v-html="$t('article.featured')"></p>
       </div>
-      <p class="md:text-start text-center font-['Roboto'] md:text-base text-sm font-light">{{ $t('collection.featured_article') }}</p>
+      <p class="md:text-start text-center font-['Roboto'] md:text-base text-sm font-light dark:text-slate-300">{{ $t('collection.featured_article') }}</p>
       <div class="articles grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:mt-10 mt-8 mb-10" v-if="featuredArticles.length > 0">
         <template v-for="article in featuredArticles" :key="article.id">
           <div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm">
             <Link :href="route('article.show', { locale: locale, slug: article.slug })">
               <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full h-full cursor-pointer rounded-t-lg">
             </Link>
-            <div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 rounded-b-lg">
+            <div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 dark:border-slate-600 dark:bg-slate-700 rounded-b-lg">
               <div>
-                <Link :href="route('article.show', { locale: locale, slug: article.slug })" class="font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 transition-colors duration-300 cursor-pointer tracking-wide">{{ truncate(article.title, 143) }}</Link>
+                <Link :href="route('article.show', { locale: locale, slug: article.slug })" class="font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 dark:text-slate-100 dark:hover:text-slate-400 transition-colors duration-300 cursor-pointer tracking-wide">{{ truncate(article.title, 143) }}</Link>
               </div>
               <div class="authror w-full flex items-center justify-between border-t border-slate-300 pt-2">
                 <div class="categories flex items-center space-x-2">
@@ -26,7 +26,7 @@
                     </div>
                   </template>
                 </div>
-                <p class="font-['Roboto'] text-sm font-light text-slate-700 text-end">{{ article.author.name }}</p>
+                <p class="font-['Roboto'] text-sm font-light text-slate-700 dark:text-slate-100 text-end">{{ article.author.name }}</p>
               </div>
             </div>
           </div>

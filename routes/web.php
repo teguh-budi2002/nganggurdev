@@ -22,7 +22,7 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('/article-series/{slug}', [ArticleSeriesController::class, 'listArticleOfSeries'])->name('list-article-of-series.index');
     Route::get('/get-article-series-slug/{slug}', [ArticleSeriesController::class, 'getArticleSeriesSlug'])->name('article_series.getSlug');
 
-    Route::get('/shop', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/shop', [ProductController::class, 'index'])->name('shop');
 
     Route::post('/set-locale', [LocaleController::class, 'setLocale']);
 })->where('locale', 'id|en');

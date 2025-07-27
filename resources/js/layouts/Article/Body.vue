@@ -1,30 +1,30 @@
 <template>
-<div class="lg:col-span-3 bg-white lg:p-4">
+<div class="lg:col-span-3 bg-white dark:bg-slate-900 lg:p-4">
   <div class="">
     <div>
-      <p class="sm:text-4xl text-3xl font-inter text-slate-600 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">{{ props.article.title }}</p>
+      <p class="sm:text-4xl text-3xl font-inter text-slate-600 dark:text-slate-100 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">{{ props.article.title }}</p>
       <div class="flex sm:justify-center justify-start items-center space-x-4 mt-5">
         <template v-for="category in props.article.categories" :key="category.id">
           <img :src="`/storage/${category.img_category}`" class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">
         </template>
       </div>
     </div>
-    <div class="flex items-center space-x-2 border-t border-slate-200 pt-2 mt-4">
-      <p class="text-sm font-['Roboto'] font-semibold text-slate-600">{{ props.article.author.name }}</p>
-      <p>-</p>
-      <p class="text-sm font-['Roboto'] font-light">{{ props.article.published_at }}</p>
+    <div class="flex items-center space-x-2 border-t border-slate-200 dark:border-slate-500 pt-2 mt-4">
+      <p class="text-sm font-['Roboto'] font-semibold text-slate-600 dark:text-slate-300">{{ props.article.author.name }}</p>
+      <p class="text-slate-600 dark:text-slate-300">-</p>
+      <p class="text-sm font-['Roboto'] font-light text-slate-800 dark:text-slate-300">{{ props.article.published_at }}</p>
     </div>
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" alt="iamge article">
     </div>
-    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 tracking-tight" ref="contentRef" v-html="renderedContent">
+    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-100 tracking-tight" ref="contentRef" v-html="renderedContent">
     </article>
   </div>
   <div class="tags mt-10">
     <div class="flex items-center flex-wrap space-y-2 space-x-2">
-      <p class="font-bold text-slate-600">Tags :</p>
+      <p class="font-bold text-slate-600 dark:text-slate-300">Tags :</p>
       <template v-for="tag in article.tags">
-        <div class="text-xs font-['Roboto'] font-semibold bg-rose-500 text-white px-2 py-1 rounded">
+        <div class="text-xs font-['Roboto'] font-semibold bg-rose-500 dark:bg-slate-600 text-white px-2 py-1 rounded">
           <p>{{ tag }}</p>
         </div>
       </template>
@@ -98,11 +98,11 @@ onMounted(async () => {
 @reference "tailwindcss";
 
 .content h1 {
-  @apply text-2xl text-slate-600 font-semibold mt-0 mb-0 tracking-tighter;
+  @apply text-2xl text-slate-600 dark:text-slate-300 font-semibold mt-0 mb-0 tracking-tighter;
 }
 
 .content h2 {
-  @apply text-xl text-slate-600 font-semibold mt-0 mb-0;
+  @apply text-xl text-slate-600 dark:text-slate-300 font-semibold mt-0 mb-0;
 }
 
 .content p {
@@ -118,7 +118,7 @@ onMounted(async () => {
 }
 
 .content .blocktext {
-  @apply bg-gray-50 py-1 px-2 rounded-md shadow-sm w-fit;
+  @apply bg-gray-50 dark:bg-slate-700 py-1 px-2 rounded-md shadow-sm w-fit;
 }
 
 .content .blocktext {
@@ -126,11 +126,15 @@ onMounted(async () => {
 }
 
 .content strong {
-  @apply font-semibold text-slate-600;
+  @apply font-semibold text-slate-600 dark:text-slate-300;
+}
+
+.content .code-wrapper {
+  @apply dark:bg-gray-800 rounded-lg;
 }
 
 .content pre {
-  @apply m-0
+  @apply m-0 dark:!bg-slate-700;
 }
 
 code.blocktext::before,
@@ -149,7 +153,7 @@ code.text-blue::after {
 }
 
 .text-red {
-  @apply text-rose-600;
+  @apply text-lg text-rose-600;
 }
 
 .text-blue {

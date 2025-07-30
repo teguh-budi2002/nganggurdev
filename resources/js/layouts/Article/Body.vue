@@ -17,7 +17,7 @@
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" alt="iamge article">
     </div>
-    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-100 tracking-tight" ref="contentRef" v-html="renderedContent">
+    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-300 tracking-tight" ref="contentRef" v-html="renderedContent">
     </article>
   </div>
   <div class="tags mt-10">
@@ -98,11 +98,22 @@ onMounted(async () => {
 @reference "tailwindcss";
 
 .content h1 {
-  @apply text-2xl text-slate-600 dark:text-slate-300 font-semibold mt-0 mb-0 tracking-tighter;
+  @apply text-2xl font-semibold mt-0 mb-0 tracking-tighter;
+  color: theme('colors.slate.600');
+  
+  [data-theme=dark] & {
+    color: theme('colors.slate.100');
+  }
 }
 
+
 .content h2 {
-  @apply text-xl text-slate-600 dark:text-slate-300 font-semibold mt-0 mb-0;
+  @apply text-xl font-semibold mt-0 mb-0;
+  color: theme('colors.slate.600');
+  
+  [data-theme=dark] & {
+    color: theme('colors.slate.300');
+  }
 }
 
 .content p {
@@ -118,24 +129,48 @@ onMounted(async () => {
 }
 
 .content .blocktext {
-  @apply bg-gray-50 dark:bg-slate-700 py-1 px-2 rounded-md shadow-sm w-fit;
+  @apply py-1 px-2 rounded-md shadow-sm w-fit;
+  background-color: theme('colors.gray.50');
+  
+  [data-theme=dark] & {
+    background-color: theme('colors.slate.700');
+  }
 }
 
 .content .blocktext {
-  @apply text-rose-600 font-normal;
+  @apply text-rose-700 font-normal;
+  color: theme('colors.rose.600');
+  
+  [data-theme=dark] & {
+    color: theme('colors.rose.700');
+  }
 }
 
 .content strong {
-  @apply font-semibold text-slate-600 dark:text-slate-300;
+  @apply font-semibold;
+  color: theme('colors.slate.600');
+  
+  [data-theme=dark] & {
+    color: theme('colors.slate.300');
+  }
 }
 
 .content .code-wrapper {
-  @apply dark:bg-gray-800 rounded-lg;
+  @apply rounded-lg;
+  
+  [data-theme=dark] & {
+    background-color: theme('colors.gray.800');
+  }
 }
 
 .content pre {
-  @apply m-0 dark:!bg-slate-700;
+  @apply m-0;
+  
+  [data-theme=dark] & {
+    background-color: theme('colors.slate.700') !important;
+  }
 }
+
 
 code.blocktext::before,
 code.blocktext::after {

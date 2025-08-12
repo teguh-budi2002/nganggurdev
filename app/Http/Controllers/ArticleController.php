@@ -56,12 +56,37 @@ class ArticleController extends Controller
             $cacheKeyShowArticle = "show-article_{$locale}_{$slug}";
             $cacheKeyArticleSession = "article-session_{$locale}_{$slug}";
             $article = Cache::flexible($cacheKeyShowArticle, [300, 600], function() use ($slug, $suffixLocale) {
-                return Article::with(['author:id,name', 'categories:id,img_category'])
+                $article = Article::with(['author:id,name', 'categories:id,img_category'])
                         ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale}_html as content", 'image', 'tags', "meta_description_{$suffixLocale} as meta_description", "meta_keyword_{$suffixLocale} as meta_keyword", 'published_at', 'status')
                         ->where("slug_{$suffixLocale}", $slug)
                         ->where('status', 'published')
                         ->whereNotNull('published_at')
                         ->first();
+                
+                if ($article) {
+                    $article->content = preg_replace_callback(
+                        '/<(h[12])>(.*?)<\/\1>/i',
+                        function($matches) {
+                            static $i = 0;
+                            $i++;
+                            return sprintf('<%1$s id="section-%2$d">%3$s</%1$s>', $matches[1], $i, $matches[2]);
+                        },
+                        $article->content
+                    );
+
+                    preg_match_all('/<(h[12])[^>]*>(.*?)<\/\1>/', $article->content, $matches, PREG_SET_ORDER);
+                    $headings = array_map(function($match, $index) {
+                        return [
+                            'id' => "section-".($index+1),
+                            'text' => strip_tags($match[2]),
+                            'tag' => $match[1]
+                        ];
+                    }, $matches, array_keys($matches));
+
+                    $article->headings = $headings;
+                }
+
+                return $article;
             }); 
             $articleSession = Cache::flexible($cacheKeyArticleSession, [300, 600], function() use($slug, $suffixLocale) {
                 return ArticleSession::whereHas('articles', function ($query) use ($slug, $suffixLocale) {

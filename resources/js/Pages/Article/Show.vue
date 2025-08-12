@@ -33,10 +33,10 @@
         </Suspense>
         <div class="w-full flex flex-col space-y-6 lg:col-span-2">
           <div class="sticky top-28">
-            <div class="md:block hidden">
+            <div class="md:block hidden" v-if="props.article.headings.length > 0">
               <Suspense :key="props.article.id">
                 <template #default>
-                  <TableOfContent :content-ref="bodyContentRef"/>
+                  <TableOfContent :toc="article.headings"/>
                 </template>
                 <template #fallback>
                   <TableOfContentSekeleton />
@@ -108,33 +108,16 @@ const props = defineProps({
 const page = usePage();
 
 const BodyArticle = defineAsyncComponent({
-  loader: () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(import('@/layouts/Article/Body.vue'));
-      }, 1000);
-    });
-  }
+  loader: () => import('@/layouts/Article/Body.vue')
 });
 const TableOfContent = defineAsyncComponent({
-  loader: () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(import('@/layouts/Article/TableOfContent.vue'));
-      }, 1000);
-    });
-  }
+  loader: () => import('@/layouts/Article/TableOfContent.vue')
 });
 const ArticleSeries = defineAsyncComponent({
-  loader: () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(import('@/layouts/Article/ArticleSeries.vue'));
-      }, 1000);
-    });
-  }
+  loader: () => import('@/layouts/Article/ArticleSeries.vue')
 });
 
+const article = ref(props.article);
 const bodyRef = ref(null);
 const bodyContentRef = ref(null);
 const locale = ref(props.locale);

@@ -7,7 +7,7 @@
   <div class="mt-4 border-t border-slate-200 dark:border-slate-600 pt-2">
     <div class="flex flex-col space-y-3">
       <template v-for="item in toc" :key="item.id">
-        <div class="flex items-center space-x-3" v-if="item.level !== 'p'">
+        <div class="flex items-center space-x-3">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4" :class="{
             'text-rose-600 dark:text-slate-300': activeSection === item.id,
             'text-slate-400 dark:text-slate-500': activeSection !== item.id
@@ -26,25 +26,22 @@
             {{ item.text }}
           </a>
         </div>
-        <div v-else class="text-sm text-slate-600 italic text-center">
-          {{ item.text }}
-        </div>
       </template>
     </div>
   </div>
 </div>
 </template>
+
 <script setup>
-import { defineProps, onUnmounted, ref, watch } from 'vue';
+import { defineProps, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 
 const props = defineProps({
-  contentRef: {
-    type: Object,
-    required: false
+  toc: {
+    type: Array,
+    required: true
   }
 });
 
-const toc = ref([]);
 const activeSection = ref('');
 let observer = null;
 
@@ -55,59 +52,49 @@ const scrollToSection = (id) => {
   }
 };
 
-watch(() => props.contentRef, (newContentElement) => {
-  if (newContentElement) {
+const initToC = async () => {
+  if (props.toc.length > 0) {
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    const headings = props.toc.map(item => document.getElementById(item.id)).filter(Boolean);
+
+    if (headings.length === 0) {
+      setTimeout(initToC, 500);
+      return;
+    }
+
     if (observer) {
       observer.disconnect();
     }
 
-    const headings = newContentElement.querySelectorAll('h1, h2');
-    const tocItems = [];
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            activeSection.value = entry.target.id;
+          }
+        });
+      },
+      { rootMargin: '0px 0px -80% 0px', threshold: 0.5 }
+    );
 
-    if (headings.length === 0) {
-      toc.value.push({
-        id: 'no-headings',
-        text: 'No headings found',
-        level: 'p'
-      });
-      return
-    }
-
-    headings.forEach((heading, index) => {
-      const id = `section-${index}`;
-      heading.id = id;
-
-      tocItems.push({
-        id,
-        text: heading.textContent,
-        level: heading.tagName.toLowerCase()
-      });
-    });
-
-    toc.value = tocItems;
-
-    if (headings.length > 0) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-              activeSection.value = entry.target.id;
-            }
-          });
-        },
-        { 
-          rootMargin: '0px 0px -80% 0px',
-          threshold: 0.5
-        }
-      );
-
-      headings.forEach((heading) => observer.observe(heading));
-    }
+    headings.forEach((heading) => observer.observe(heading));
   }
-}, {
-  immediate: true,
-  flush: 'post'
+}
+
+onMounted(async () => {
+  if (props.toc.length > 0) {
+    await nextTick();
+    initToC();
+  }
 });
+
+watch(() => props.toc, async (newToc) => {
+  if (newToc.length > 0) {
+    await nextTick();
+    initToC();
+  }
+}, { immediate: false });
 
 onUnmounted(() => {
   if (observer) {

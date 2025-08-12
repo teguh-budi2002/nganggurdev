@@ -43,23 +43,25 @@
                 <Link :href="route('articles.index', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                   {{ $t('navigation.section.2') }}
                 </Link>
-                <Link href="#" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
+                <!-- <Link href="#" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                   {{ $t('navigation.section.4') }}
-                </Link>
-                <Link :href="route('shop', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
-                  {{ $t('navigation.section.5') }}
+                </Link> -->
+                <Link :href="route('about-us', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
+                  {{ $t('navigation.section.9') }}
                 </Link>
               </div>
             </div>
             <div class="flex flex-col space-y-4">
-              <Link href="" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
-                {{ $t('navigation.section.6') }}
-              </Link>
+             <a href="https://api.whatsapp.com/send?phone=6289627113090&  text=Halo%2C%20perkenalkan%20namaku%20%5Bnama%5D%2C%20aku%20ingin%20bertanya%20terkait..." 
+                target="_blank" 
+                class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
+                  {{ $t('navigation.section.6') }}
+              </a>
               <Link href="" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                 {{ $t('navigation.section.7') }}
               </Link>
-              <Link href="" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
-                {{ $t('navigation.section.8') }}
+              <Link :href="route('privacy-policy', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
+                {{ $t('navigation.section.10') }}
               </Link>
             </div>
           </div>

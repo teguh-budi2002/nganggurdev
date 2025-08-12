@@ -69,11 +69,6 @@
     <div v-if="articles.length > 0">
       <ListLatestArticle :articles />
     </div>
-    <div class="w-full h-full">
-      <div class="flex items-center justify-center">
-        <OurProduct />
-      </div>
-    </div>
   </section>
 </div>
 </template>
@@ -87,7 +82,6 @@ import ListFeaturedArticle from '@/layouts/Home/ListFeaturedArticle.vue';
 import ListLatestArticle from '@/layouts/Home/ListLatestArticle.vue';
 import ListSeriesArticle from '../layouts/Home/ListSeriesArticle.vue';
 import Introduction from '@/layouts/Home/Introduction.vue';
-import OurProduct from '@/layouts/Home/OurProduct.vue';
 
 defineOptions({
   layout: AppLayout

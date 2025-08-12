@@ -53,4 +53,12 @@ class HomeController extends Controller
             'featuredArticles' => $featuredArticles ?? [],
         ]);
     }
+
+    public function aboutUs() {
+        return Inertia::render('AboutUs');
+    }
+
+    public function privacyPolicy() {
+        return Inertia::render('PrivacyPolicy');
+    }
 }

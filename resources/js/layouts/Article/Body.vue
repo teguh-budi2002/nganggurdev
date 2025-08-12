@@ -17,7 +17,7 @@
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" alt="iamge article">
     </div>
-    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-300 tracking-tight" ref="contentRef" v-html="renderedContent">
+    <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-300 tracking-tight" ref="contentRef" v-html="article.content">
     </article>
   </div>
   <div class="tags mt-10">
@@ -40,20 +40,6 @@ const props = defineProps({
 });
 
 const contentRef = ref(null);
-const renderedContent = ref('');
-
-const generateContentWithIds = () => {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(props.article.content, 'text/html');
-  const headings = doc.querySelectorAll('h1, h2');
-
-  headings.forEach((heading, index) => {
-    const id = `section-${index}`;
-    heading.setAttribute('id', id);
-  });
-
-  renderedContent.value = doc.body.innerHTML;
-};
 
 const enhanceCodeBlocks = () => {
   const blocks = contentRef.value.querySelectorAll('pre');
@@ -83,14 +69,8 @@ const enhanceCodeBlocks = () => {
   });
 };
 
-
-
-defineExpose({ contentRef });
-
 onMounted(async () => {
-  generateContentWithIds();
-
-  await nextTick()
+  await nextTick();
   enhanceCodeBlocks();
 });
 </script>

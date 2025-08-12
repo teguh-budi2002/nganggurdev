@@ -11,7 +11,8 @@
         <div class="space-x-4 lg:block hidden">
           <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Home', 'text-slate-600 dark:text-slate-400' : page.component !== 'Home' }">{{ $t('navigation.section.1') }}</Link>
           <Link :href="route('articles.index', { locale })" @click="resetState" class=" font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Article/Index', 'text-slate-600 dark:text-slate-400' : page.component !== 'Article/Index' }">{{ $t('navigation.section.2') }}</Link>
-          <Link :href="route('shop', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Product/Index', 'text-slate-600 dark:text-slate-400' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link>
+          <Link :href="route('about-us', { locale })" @click="resetState" class=" font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'AboutUs', 'text-slate-600 dark:text-slate-400' : page.component !== 'AboutUs' }">{{ $t('navigation.section.9') }}</Link>
+          <!-- <Link :href="route('shop', { locale })" @click="resetState" class="font-['Roboto'] font-semibold hover:text-amber-600 dark:hover:text-white transition-colors duration-300 ease-in-out" :class="{ 'text-amber-600 dark:text-white' : page.component === 'Product/Index', 'text-slate-600 dark:text-slate-400' : page.component !== 'Product/Index' }">{{ $t('navigation.section.5') }}</Link> -->
         </div>
         <!-- Button Nav Mobile -->
          <button class="lg:hidden block cursor-pointer" :class="{'hidden' : openSidebar}" @click.prevent="openSidebar = true" v-if="!openSearchModal" aria-label="Open Sidebar">
@@ -92,7 +93,7 @@
         <div class="w-full h-full flex flex-col items-center space-y-8 mt-12">
           <Link :href="`/${locale}`" @click="resetState" class="font-['Roboto'] font-semibold text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.1') }}</Link>
           <Link :href="route('articles.index', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 dark:text-slate-300 font-semibold hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.2') }}</Link>
-          <Link :href="route('shop', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 dark:text-slate-300 font-semibold hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.5') }}</Link>
+          <Link :href="route('about-us', { locale })" @click="resetState" class="font-['Roboto'] text-slate-600 dark:text-slate-300 font-semibold hover:text-amber-600 dark:hover:text-slate-400 transition-colors duration-300 ease-in-out text-5xl">{{ $t('navigation.section.9') }}</Link>
         </div>
       </div>
     </Transition>

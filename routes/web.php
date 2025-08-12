@@ -4,7 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleSeriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
-use App\Http\Controllers\ProductController;
+// use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,7 +22,9 @@ Route::group(['prefix' => '{locale}'], function () {
     Route::get('/article-series/{slug}', [ArticleSeriesController::class, 'listArticleOfSeries'])->name('list-article-of-series.index');
     Route::get('/get-article-series-slug/{slug}', [ArticleSeriesController::class, 'getArticleSeriesSlug'])->name('article_series.getSlug');
 
-    Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+    // Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+    Route::get('about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+    Route::get('privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
 
     Route::post('/set-locale', [LocaleController::class, 'setLocale']);
 })->where('locale', 'id|en');

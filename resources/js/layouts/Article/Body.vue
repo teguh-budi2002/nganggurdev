@@ -56,7 +56,7 @@ const enhanceCodeBlocks = () => {
     const button = document.createElement('button');
     button.innerText = 'Copy';
     button.className =
-      'copy-btn absolute top-2 right-2 bg-slate-500 text-white text-xs px-2 py-1 rounded hover:bg-slate-600 transition';
+      'copy-btn cursor-pointer absolute top-2 right-2 bg-slate-500 text-white text-xs px-2 py-1 rounded-tr-lg hover:bg-slate-600 transition';
 
     button.onclick = () => {
       const code = pre.innerText;
@@ -78,7 +78,7 @@ onMounted(async () => {
 @reference "tailwindcss";
 
 .content h1 {
-  @apply text-2xl font-semibold mt-0 mb-0 tracking-tighter;
+  @apply text-2xl font-semibold mt-5 mb-5 tracking-tighter;
   color: theme('colors.slate.600');
   
   [data-theme=dark] & {
@@ -88,7 +88,7 @@ onMounted(async () => {
 
 
 .content h2 {
-  @apply text-xl font-semibold mt-0 mb-0;
+  @apply text-xl font-semibold mt-5 mb-5;
   color: theme('colors.slate.600');
   
   [data-theme=dark] & {
@@ -109,11 +109,12 @@ onMounted(async () => {
 }
 
 .content .blocktext {
-  @apply py-1 px-2 rounded-md shadow-sm w-fit;
+  @apply py-1.5 px-1.5 rounded shadow-sm w-fit;
   background-color: theme('colors.gray.50');
   
   [data-theme=dark] & {
-    background-color: theme('colors.slate.700');
+    background-color: theme('colors.rose.50');
+    border: 1px solid theme('colors.rose.400');
   }
 }
 
@@ -135,16 +136,14 @@ onMounted(async () => {
   }
 }
 
-.content .code-wrapper {
-  @apply rounded-lg;
-  
+.content .code-wrapper {  
   [data-theme=dark] & {
     background-color: theme('colors.gray.800');
   }
 }
 
 .content pre {
-  @apply m-0;
+  @apply m-0 rounded-xl;
   
   [data-theme=dark] & {
     background-color: theme('colors.slate.700') !important;
@@ -168,7 +167,7 @@ code.text-blue::after {
 }
 
 .text-red {
-  @apply text-lg text-rose-600;
+  @apply text-lg text-rose-600 font-normal;
 }
 
 .text-blue {

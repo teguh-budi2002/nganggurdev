@@ -14,14 +14,14 @@
   <div class="lg:mt-20 mt-16 h-full min-h-screen w-full bg-white dark:bg-slate-900">
     <div class="flex flex-col items-center justify-center">
       <!-- Affiliate Domainesia && Cloudways-->
-      <div class="lg:mx-o mx-4 lg:mt-10 mt-6" v-if="locale === 'id'">
+      <!-- <div class="lg:mx-o mx-4 lg:mt-10 mt-6" v-if="locale === 'id'">
         <a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/32ar4" class="rounded-md" width="800px" height="90px" alt="www.domainesia.com"></a>
       </div>
       <div class="lg:mx-o mx-4 lg:mt-10 mt-6" v-if="locale === 'en'">
         <a href="https://www.cloudways.com/en/php-hosting.php?id=1974900&amp;a_bid=aa32e3fe" target="_top">
           <img src="https://www.cloudways.com/affiliate/accounts/default1/banners/aa32e3fe.jpg" class="rounded-md" alt="Faster PHP Cloud Hosting" title="Faster PHP Cloud Hosting" width="728" height="90" />
         </a>
-      </div>
+      </div> -->
       <div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 lg:mt-10 mt-8">
         <Suspense :key="props.article.id">
           <template #default>
@@ -70,15 +70,15 @@
         </div>
       </div>
       <!-- Affiliate Domainesia && Cloudways-->
-      <div class="mt-10 lg:mx-0 mx-4" v-if="locale === 'id'">
+      <!-- <div class="mt-10 lg:mx-0 mx-4" v-if="locale === 'id'">
         <a href="https://my.domainesia.com/ref.php?u=25983"><img src="https://dnva.me/bne38" class="rounded-md" width="770px" height="90px" alt="www.domainesia.com"></a>
       </div>
       <div class="mt-10 lg:mx-0 mx-4" v-if="locale === 'en'">
         <a href="https://www.cloudways.com/en/wordpress-hosting.php?id=1974900&amp;a_bid=4869f424" target="_top">
           <img src="//www.cloudways.com/affiliate/accounts/default1/banners/4869f424.jpg" class="rounded-md" alt="Load WordPress Sites in as fast as 37ms!" title="Load WordPress Sites in as fast as 37ms!" width="770" height="90" />
         </a>
-      </div>
-      <div class="bg-white dark:bg-slate-600 w-fit mt-10 p-2 px-4 border border-slate-200 dark:border-slate-400 rounded-full shadow-sm animate-bounce">
+      </div> -->
+      <div class="bg-white dark:bg-slate-600 w-fit mt-10 mb-10 sm:mb-0 p-2 px-4 border border-slate-200 dark:border-slate-400 rounded-full shadow-sm animate-bounce">
         <p class="font-['Roboto'] text-slate-700 dark:text-slate-300 flex items-center space-x-1">Want to read more? 
           <Link :href="route('articles.index', { locale })" class="font-semibold text-sky-600 hover:text-sky-400 dark:text-slate-100 transition-colors duration-200 ml-2"> 
             Click me!

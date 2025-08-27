@@ -20,7 +20,18 @@
     <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-300 tracking-tight" ref="contentRef" v-html="article.content">
     </article>
   </div>
-  <div class="tags mt-10">
+  <div class="border-t dark:border-slate-600 border-slate-300">
+    <div class="p-4 dark:bg-slate-800 shadow-lg flex justify-between items-center space-x-4 mt-4">
+      <div>
+        <img src="/assets/images/teguh-img.jpg" alt="Teguh Budi Laksono" class="w-32 h-auto rounded-full">
+      </div>
+      <div>
+        <p class="font-roboto font-semibold dark:text-slate-100 sm:text-base text-sm">Teguh Budi Laksono</p>
+        <p class="italic font-inter font-light text-xs sm:text-sm dark:text-slate-400 tracking-tight leading-4 mt-1">"{{ $t('profile_bio') }}"</p>
+      </div>
+    </div>
+  </div>
+  <div class="tags mt-8">
     <div class="flex items-center flex-wrap space-y-2 space-x-2">
       <p class="font-bold text-slate-600 dark:text-slate-300">Tags :</p>
       <template v-for="tag in article.tags">

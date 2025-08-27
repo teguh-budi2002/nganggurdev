@@ -57,9 +57,9 @@
                 class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                   {{ $t('navigation.section.6') }}
               </a>
-              <!-- <Link href="" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
+              <Link :href="route('terms-of-service', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                 {{ $t('navigation.section.7') }}
-              </Link> -->
+              </Link>
               <Link :href="route('privacy-policy', { locale })" class="w-fit font-['Roboto'] font-semibold text-xl text-slate-600 hover:text-sky-600 dark:text-slate-300 transition-colors duration-150">
                 {{ $t('navigation.section.10') }}
               </Link>

@@ -25,6 +25,7 @@ Route::group(['prefix' => '{locale}'], function () {
     // Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     Route::get('about-us', [HomeController::class, 'aboutUs'])->name('about-us');
     Route::get('privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+    Route::get('terms-of-service', [HomeController::class, 'termsOfService'])->name('terms-of-service');
 
     Route::post('/set-locale', [LocaleController::class, 'setLocale']);
 })->where('locale', 'id|en');

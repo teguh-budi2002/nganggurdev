@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Article;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -43,6 +44,7 @@ class HandleInertiaRequests extends Middleware
             'url' => url()->current(),
             'base_url' => env('APP_URL', 'https://www.nganggurdev.com'),
             'current_url' => url()->current(),
+            'alternate_urls' => $this->generateAlternateUrls($request),
             'ziggy' => fn () => array_merge((new Ziggy)->toArray(), [
                 'location' => $request->url(),
             ]),
@@ -58,5 +60,57 @@ class HandleInertiaRequests extends Middleware
                                         'youtube' => null,
                                     ]),
         ]);
+    }
+
+    private function generateAlternateUrls(Request $request): array
+    {
+        $routes = [];
+        $currentLocale = $request->route('locale') ?? app()->getLocale();
+        $routeName = $request->route()->getName();
+        $routeParameters = $request->route()->parameters();
+        $locales = ['en', 'id'];
+
+        foreach ($locales as $locale) {
+            try {
+                $params = collect($routeParameters)->except('locale')->toArray();
+                
+                if ($this->isArticleRoute($routeName) && $request->route('slug')) {
+                    $alternateSlug = $this->getAlternateSlug($request->route('slug'), $locale, $currentLocale);
+                    if ($alternateSlug) {
+                        $params['slug'] = $alternateSlug;
+                    }
+                }
+                
+                $params['locale'] = $locale;
+                
+                $url = route($routeName, $params);
+                $routes[$locale] = $url;
+                        
+                } catch (\Exception $e) {
+                    $routes[$locale] = route('home', ['locale' => $locale]);
+                }
+            }
+            
+        return $routes;
+    }
+
+    private function isArticleRoute(string $routeName): bool
+    {
+        return str_contains($routeName, 'article') || str_contains($routeName, 'post');
+    }
+
+    private function getAlternateSlug(string $currentSlug, string $targetLocale, string $currentLocale): ?string
+    {   
+        if (!$currentSlug) {
+            return null;
+        }
+        
+        $article = Article::where("slug_{$currentLocale}", $currentSlug)->first();
+        
+        if ($article) {
+            return $article->{"slug_{$targetLocale}"} ?? $currentSlug;
+        }
+        
+        return $currentSlug;
     }
 }

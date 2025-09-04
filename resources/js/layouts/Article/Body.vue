@@ -2,7 +2,7 @@
 <div class="lg:col-span-3 bg-white dark:bg-slate-900 lg:p-4">
   <div class="">
     <div>
-      <p class="sm:text-4xl text-3xl font-inter text-slate-600 dark:text-slate-100 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">{{ props.article.title }}</p>
+      <h1 class="sm:text-4xl text-3xl font-inter text-slate-600 dark:text-slate-100 font-semibold sm:text-center text-start sm:leading-12 leading-10 capitalize">{{ props.article.title }}</h1>
       <div class="flex sm:justify-center justify-start items-center space-x-4 mt-5">
         <template v-for="category in props.article.categories" :key="category.id">
           <img :src="`/storage/${category.img_category}`" class="sm:w-8 sm:h-8 w-6 h-6" alt="logo icon">
@@ -88,7 +88,17 @@ onMounted(async () => {
 <style>
 @reference "tailwindcss";
 
-.content h1 {
+/* .content h1 {
+  @apply text-2xl font-semibold mt-5 mb-5 tracking-tighter;
+  color: theme('colors.slate.600');
+  
+  [data-theme=dark] & {
+    color: theme('colors.slate.100');
+  }
+} */
+
+
+.content h2 {
   @apply text-2xl font-semibold mt-5 mb-5 tracking-tighter;
   color: theme('colors.slate.600');
   
@@ -97,9 +107,8 @@ onMounted(async () => {
   }
 }
 
-
-.content h2 {
-  @apply text-xl font-semibold mt-5 mb-5;
+.content h3 {
+  @apply text-xl font-semibold mt-5 mb-5 tracking-tighter;
   color: theme('colors.slate.600');
   
   [data-theme=dark] & {

@@ -6,9 +6,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @routes
         @inertiaHead
-        {{-- Google Ads --}}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107901415702789"
-     crossorigin="anonymous"></script>
         {{-- Google Tag Manager --}}
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -20,13 +17,14 @@
         <noscript>
             <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
         </noscript>
-         <script type="application/ld+json">
+        <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "{{ config('app.name') }}",
                 "url": "{{ url('/') }}",
-                "description": "Learn Coding Website with Multi Language Support"
+                "description": "Learn Coding Website with Multi Language Support",
+                "inLanguage": ["id-ID", "en-US"],
             }
         </script>
     </head>

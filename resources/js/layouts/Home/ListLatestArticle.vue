@@ -10,7 +10,7 @@
           <template v-for="article in articles" :key="article.id">
             <div class="w-full h-fit hover:shadow-xl transition-shadow duration-300 shadow-sm">
               <Link :href="route('article.show', { locale: locale, slug: article.slug })">
-                <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full h-full cursor-pointer rounded-t-lg">
+                <img v-lazy="`/storage/${article.image}`" :alt="article.title" class="w-full h-full cursor-pointer rounded-t-lg">
               </Link>
               <div class="px-4 py-4 h-56 flex flex-col justify-between border-l border-r border-b border-slate-100 dark:border-slate-600 rounded-b-lg dark:bg-slate-700">
                 <div>

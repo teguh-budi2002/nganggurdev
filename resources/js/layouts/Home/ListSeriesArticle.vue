@@ -10,7 +10,7 @@
           <template v-for="series in articleSeries" :key="series.id">
             <div class="w-full h-fit hover:shadow-md transition-shadow duration-300 shadow">
               <Link :href="route('list-article-of-series.index', { locale, slug: series.slug })" class="block">
-                <img :src="`/storage/${series.image}`" alt="article image" class="w-full h-full cursor-pointer rounded-t-xl">
+                <img :src="`/storage/${series.image}`" :alt="series.title" class="w-full h-full cursor-pointer rounded-t-xl">
               </Link>
               <div class="px-4 py-4 h-40 flex flex-col items-center justify-between border-l border-r border-b border-slate-100 dark:border-slate-600 rounded-b-xl dark:bg-slate-800">
                 <Link :href="route('list-article-of-series.index', { locale, slug: series.slug })" class="font-['Inter'] font-bold text-lg text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-slate-500 transition-colors duration-300 cursor-pointer tracking-wide">{{ series.title }}</Link>

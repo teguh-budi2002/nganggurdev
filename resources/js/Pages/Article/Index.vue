@@ -41,7 +41,7 @@
               <template v-for="article in articles.data" :key="article.id">
                 <div class="w-full flex flex-col justify-between min-h-72 border-2 border-white dark:border-slate-600 hover:border-2 hover:border-rose-100 dark:hover:border-slate-600 p-2 mt-5 rounded-md shadow-sm hover:shadow-lg hover:shadow-rose-100 dark:hover:shadow-slate-700 transition-[border, shadow] duration-300">
                   <Link :href="route('article.show', { locale, slug: article.slug })">
-                    <img v-lazy="`/storage/${article.image}`" alt="article image" class="w-full max-h-44 cursor-pointer rounded-md">
+                    <img v-lazy="`/storage/${article.image}`" :alt="article.title" class="w-full max-h-44 cursor-pointer rounded-md">
                   </Link>
                   <Link :href="route('article.show', { locale, slug: article.slug })" class="font-semibold capitalize block font-['Inter'] text-slate-600 dark:text-slate-100 mt-3 text-xl w-fit">{{ truncate(article.title, 55) }}</Link>
                   <div class="flex items-end justify-between mt-5 p-2">

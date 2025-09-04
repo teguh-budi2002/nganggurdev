@@ -88,15 +88,14 @@ onMounted(async () => {
 <style>
 @reference "tailwindcss";
 
-/* .content h1 {
+.content h1 {
   @apply text-2xl font-semibold mt-5 mb-5 tracking-tighter;
   color: theme('colors.slate.600');
   
   [data-theme=dark] & {
     color: theme('colors.slate.100');
   }
-} */
-
+}
 
 .content h2 {
   @apply text-2xl font-semibold mt-5 mb-5 tracking-tighter;

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $locale = session('locale', config('app.locale'));
-    return redirect("/{$locale}");
+    return redirect("/{$locale}", 301);
 });
 
 Route::group(['prefix' => '{locale}'], function () {

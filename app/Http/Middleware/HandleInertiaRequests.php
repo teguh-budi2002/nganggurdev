@@ -42,6 +42,7 @@ class HandleInertiaRequests extends Middleware
             'locale' => $locale,
             'url' => url()->current(),
             'base_url' => env('APP_URL', 'https://www.nganggurdev.com'),
+            'current_url' => url()->current(),
             'ziggy' => fn () => array_merge((new Ziggy)->toArray(), [
                 'location' => $request->url(),
             ]),

@@ -12,7 +12,7 @@
     <div class="flex items-center space-x-2 border-t border-slate-200 dark:border-slate-500 pt-2 mt-4">
       <p class="text-sm font-['Roboto'] font-semibold text-slate-600 dark:text-slate-300">{{ props.article.author.name }}</p>
       <p class="text-slate-600 dark:text-slate-300">-</p>
-      <p class="text-sm font-['Roboto'] font-light text-slate-800 dark:text-slate-300">{{ props.article.published_at }}</p>
+      <p class="text-sm font-['Roboto'] font-light text-slate-800 dark:text-slate-300">{{ props.article.created_at }}</p>
     </div>
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" :alt="article.title">

@@ -59,7 +59,14 @@ class Article extends Model
     protected function publishedAt(): Attribute
     {
         return Attribute::make(
-            get: fn (mixed $value) =>  $value ? Carbon::parse($value)->translatedFormat('Y F d') : '-',
+            get: fn (mixed $value) =>  $value ? Carbon::parse($value)->translatedFormat('d F Y') : '-',
+        );
+    }
+
+    protected function createdAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value) =>  $value ? Carbon::parse($value)->translatedFormat('d F Y') : '-',
         );
     }
 

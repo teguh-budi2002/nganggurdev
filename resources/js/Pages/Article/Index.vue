@@ -46,7 +46,7 @@
                   <Link :href="route('article.show', { locale, slug: article.slug })" class="font-semibold capitalize block font-['Inter'] text-slate-600 dark:text-slate-100 mt-3 text-xl w-fit">{{ truncate(article.title, 55) }}</Link>
                   <div class="flex items-end justify-between mt-5 p-2">
                     <p class="text-xs font-['Roboto'] font-light dark:text-slate-300">{{ article.author.name }}</p>
-                    <p class="text-xs font-['Roboto'] font-light dark:text-slate-300">{{ article.published_at }}</p>
+                    <p class="text-xs font-['Roboto'] font-light dark:text-slate-300">{{ article.created_at }}</p>
                   </div>
                 </div>
               </template>

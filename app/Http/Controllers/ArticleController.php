@@ -23,8 +23,9 @@ class ArticleController extends Controller
         $cacheKeyCategories = "list-categories_{$locale}";
         $perPage = 9;
         $query = Article::with('author:id,name')
-                        ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", 'image', 'published_at', 'status')
-                        ->published();
+                        ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", 'image', 'published_at', 'created_at', 'status')
+                        ->published()
+                        ->latest();
 
         if (filled($filterByCategory)) {
             $query->whereHas('categories', function ($query) use ($filterByCategory) {
@@ -56,12 +57,11 @@ class ArticleController extends Controller
             $cacheKeyShowArticle = "show-article_{$locale}_{$slug}";
             $cacheKeyArticleSession = "article-session_{$locale}_{$slug}";
             $article = Cache::flexible($cacheKeyShowArticle, [300, 600], function() use ($slug, $suffixLocale) {
-                $article = Article::with(['author:id,name', 'categories:id,img_category'])
-                        ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale}_html as content", 'image', 'tags', "meta_description_{$suffixLocale} as meta_description", "meta_keyword_{$suffixLocale} as meta_keyword", 'published_at', 'status')
-                        ->where("slug_{$suffixLocale}", $slug)
-                        ->where('status', 'published')
-                        ->whereNotNull('published_at')
-                        ->first();
+            $article = Article::with(['author:id,name', 'categories:id,img_category'])
+                            ->select('id', 'user_id', "title_{$suffixLocale} as title", "slug_{$suffixLocale} as slug", "content_{$suffixLocale}_html as content", 'image', 'tags', "meta_description_{$suffixLocale} as meta_description", "meta_keyword_{$suffixLocale} as meta_keyword", 'published_at', 'created_at', 'status')
+                            ->where("slug_{$suffixLocale}", $slug)
+                            ->published()
+                            ->first();
                 
                 if ($article) {
                     $article->content = preg_replace_callback(

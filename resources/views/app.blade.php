@@ -23,8 +23,7 @@
                 "@type": "WebSite",
                 "name": "{{ config('app.name') }}",
                 "url": "{{ url('/') }}",
-                "description": "Learn Coding Website with Multi Language Support",
-                "inLanguage": ["id-ID", "en-US"]
+                "description": "Website for Learning Coding with Multi Language Support"
             }
         </script>
     </head>

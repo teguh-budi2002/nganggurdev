@@ -66,7 +66,7 @@ class HandleInertiaRequests extends Middleware
     {
         $routes = [];
         $currentLocale = $request->route('locale') ?? app()->getLocale();
-        $routeName = $request->route()->getName();
+        $routeName = $request->route()->getName() ?? 'home';
         $routeParameters = $request->route()->parameters();
         $locales = ['en', 'id'];
 

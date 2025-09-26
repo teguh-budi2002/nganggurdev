@@ -1,7 +1,6 @@
 <template>
 <Head>
   <title>Home</title>
-  <meta name="google-adsense-account" content="ca-pub-3877842520127094">
   <meta name="description" :content="$t('seo.meta.description')" />
   <meta name="keywords" :content="$t('seo.meta.keywords')" />
 </Head>

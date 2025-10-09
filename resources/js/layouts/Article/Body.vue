@@ -17,6 +17,9 @@
     <div class="image_article mt-5 mb-5">
       <img :src="`/storage/${article.image}`" class="w-full h-full rounded-lg" :alt="article.title">
     </div>
+    <div class="adstera_native_banner mt-3 mb-3">
+      <div id="container-ba4c9702eedff5457aabebec0f377a88" class="dark:text-slate-100"></div>
+    </div>
     <article class="prose prose-neutral max-w-none content md:mt-5 mt-8 font-inter font-light text-slate-600 dark:text-slate-300 tracking-tight" ref="contentRef" v-html="article.content">
     </article>
   </div>
@@ -83,6 +86,12 @@ const enhanceCodeBlocks = () => {
 onMounted(async () => {
   await nextTick();
   enhanceCodeBlocks();
+  const adsScript = document.createElement('script');
+  adsScript.async = true;
+  adsScript.setAttribute('data-cfasync', 'false');
+  adsScript.src = '//pl27812043.effectivegatecpm.com/ba4c9702eedff5457aabebec0f377a88/invoke.js';
+  
+  document.head.appendChild(adsScript);
 });
 </script>
 <style>

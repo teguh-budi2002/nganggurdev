@@ -83,6 +83,20 @@ const enhanceCodeBlocks = () => {
   });
 };
 
+const loadPopunderAd = () => {
+  if (document.getElementById('popunder-ad-script')) {
+    return;
+  }
+
+  const popunderScript = document.createElement('script');
+  popunderScript.id = 'popunder-ad-script';
+  popunderScript.type = 'text/javascript';
+  popunderScript.src = '//pl27886763.effectivegatecpm.com/05/46/72/0546720081e458a1377350fda1d41291.js';
+  popunderScript.async = true;
+
+  document.head.appendChild(popunderScript);
+};
+
 onMounted(async () => {
   await nextTick();
   enhanceCodeBlocks();
@@ -92,6 +106,7 @@ onMounted(async () => {
   adsScript.src = '//pl27812043.effectivegatecpm.com/ba4c9702eedff5457aabebec0f377a88/invoke.js';
   
   document.head.appendChild(adsScript);
+  loadPopunderAd();
 });
 </script>
 <style>

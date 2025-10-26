@@ -83,8 +83,6 @@ const enhanceCodeBlocks = () => {
 onMounted(async () => {
   await nextTick();
   enhanceCodeBlocks();
-  
-  document.head.appendChild(adsScript);
 });
 </script>
 <style>

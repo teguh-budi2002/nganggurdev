@@ -12,9 +12,6 @@
     <meta property="og:site_name" :content="$t('seo.og_site_name')" />
   </Head>
   <div class="lg:mt-20 mt-16 h-full min-h-screen w-full bg-white dark:bg-slate-900">
-    <div class="flex justify-center mt-8">
-     <div ref="bannerAdContainer" class="block"></div>
-    </div>
     <div class="flex flex-col items-center justify-center">
       <div class="md:w-10/12 w-11/12 grid lg:grid-cols-5 grid-cols-1 gap-8 lg:mt-10 mt-8">
         <Suspense :key="props.article.id">
@@ -75,7 +72,7 @@
 </template>
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue';
-import { defineProps, defineAsyncComponent, ref, onMounted, onBeforeUnmount, watch } from 'vue';
+import { defineProps, defineAsyncComponent, ref, watch } from 'vue';
 import { Link, Head, usePage } from '@inertiajs/vue3';
 import BodyArticleSkeleton from '@/components/Article/SekeletonLoading/Body.vue';
 import TableOfContentSekeleton from '@/components/Article/SekeletonLoading/TableOfContent.vue';
@@ -113,44 +110,4 @@ watch(bodyRef, (newVal) => {
 
   bodyContentRef.value = newVal.contentRef;
 })
-
-const loadBannerAd = () => {
-    if (document.getElementById('banner-ad-script')) {
-      return;
-    }
-
-    window.atOptions = {
-      'key': 'c2ab64db88edfff4c427303909826d93',
-      'format': 'iframe',
-      'height': 90,
-      'width': 728,
-      'params': {}
-    };
-
-    const bannerScript = document.createElement('script');
-    bannerScript.id = 'banner-ad-script';
-    bannerScript.type = 'text/javascript';
-    bannerScript.src = '//www.highperformanceformat.com/c2ab64db88edfff4c427303909826d93/invoke.js';
-    bannerScript.async = true;
-
-    bannerAdContainer.value.appendChild(bannerScript);
-};
-
-const cleanupAdScripts = () => {
-  if (bannerAdContainer.value) {
-    bannerAdContainer.value.innerHTML = '';
-  }
-
-  if (window.atOptions) {
-    delete window.atOptions;
-  }
-};
-
-onMounted(() => {
- loadBannerAd()
-})
-
-onBeforeUnmount(() => {
-  cleanupAdScripts();
-});
 </script>
